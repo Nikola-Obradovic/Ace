@@ -1,0 +1,38 @@
+/* ---------------- */
+/* BELOW 1200px (Landscape Tablets) */
+/* ---------------- */
+@media (max-width: 75em) {
+	html {
+		font-size: 56.25%;
+	}
+}
+
+
+/* ---------------- */
+/* BELOW 944px (Tablets) */
+/* ---------------- */
+@media (max-width: 59em) {
+	html {
+		font-size: 50%;
+	}
+	.black-box{
+		border: 0 !important;
+	}
+
+	#ace-logo{
+		display: block;
+margin: 0 auto;
+		width: auto;
+	}
+
+}
+
+/* ---------------- */
+/* BELOW 704px  (Smaller Tablets) */
+/* ---------------- */
+@media (max-width: 44em) {
+	form {
+		padding: 0 3.6rem;
+	}
+
+}
