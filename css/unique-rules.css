@@ -1,0 +1,48 @@
+/*
+--- 01 TYPOGRAPHY SYSTEM
+
+- Font sizes (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+- Font weights
+Default: 400
+Medium: 500
+Semi-bold: 600
+Bold: 700
+
+- Line heights
+Default:
+Small:
+Medium:
+Paragraph default:
+
+- Letter spacing
+-0.5px
+
+--- 02 COLORS
+
+- Buttons: #8b2e39
+- Text-primary: #040404
+- Background: #f7f4f4
+
+- Text-tertiary: #d0cdce
+- Other components: #fae3b9
+- Shades:
+
+- Accents:
+- Greys:
+#333
+#555
+
+- Font-family: Lato
+
+
+--- 05 SHADOWS
+box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.06);
+
+--- 06 BORDER RADIUS
+5px
+
+--- 07 WHITESPACE
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+*/

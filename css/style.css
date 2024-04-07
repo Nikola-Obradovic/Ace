@@ -1,0 +1,21 @@
+
+.black-box{
+margin-top: 20vh;
+max-width: 80rem;
+border: 2px solid #040404;
+padding: 3.2rem 6.4rem;
+border-radius: 5px;
+
+}
+
+.general-text--input{
+width: 100%;
+border: 1px solid #d0cdce;
+height:	3.2rem;
+	border-radius: 5px;
+	font-family: "Lato", sans-serif;
+	line-height: 1.6;
+	color: #040404;
+	padding-left: 0.8rem;
+
+}
