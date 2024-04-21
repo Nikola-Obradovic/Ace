@@ -14,7 +14,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
-
+    <script
+            type="module"
+            src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+            nomodule=""
+            src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"
+    ></script>
 </head>
 <body>
 <header class="header">
@@ -46,6 +53,6 @@
 </header>
 
 
-<script src="./js/main.js"></script>
+<script src="main.js"></script>
 </body>
 </html>

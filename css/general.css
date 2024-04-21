@@ -19,6 +19,12 @@ body {
     background-color: #F7F4F4;
 }
 
+a:link,
+a:visited {
+    color: #040404;
+    text-decoration: none;
+}
+
 /* ---------------- */
 /* TEXT */
 /* ---------------- */
@@ -125,7 +131,7 @@ body {
 
 }
 .link-button {
-    display: inline-block;
+    display: block;
     background-color: #8b2e39;
     color: #fff;
     outline: none;
@@ -149,6 +155,21 @@ body {
 .link-button:hover, .form-button:hover {
     background-color: #a2333f;
 }
+
+.main-nav-link {
+    display: inline-block;
+    transition: all 300ms;
+    font-weight: 500;
+    font-size: 1.8rem;
+}
+
+.main-nav-link:hover {
+    color: #8B2E39;
+}
+.main-nav-link:current{
+    color: #8B2E39;
+}
+
 
 /* ---------------- */
 /* MARGINS */
