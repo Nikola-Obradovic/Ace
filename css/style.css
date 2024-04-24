@@ -77,3 +77,10 @@ height:	3.2rem;
 .icon-mobile-nav[name="close-outline"] {
 	display: none;
 }
+
+.current-link{
+
+	color: #8B2E39 !important;
+	text-decoration: underline !important;
+
+}
