@@ -17,6 +17,7 @@ body {
     color: #040404;
     font-size: 1.6rem;
     background-color: #F7F4F4;
+
 }
 
 a:link,
@@ -104,12 +105,25 @@ a:visited {
     justify-content: center;
     align-items: center;
 }
+
+.flex-gap-tiny{
+    gap: 1.6rem;
+}
+
 .flex-gap-sm{
     gap: 3.2rem;
 }
 
 
-
+.flex-gap-lg{
+    gap: 9.6rem;
+}
+.wrapped{
+    flex-wrap: wrap;
+}
+.flex-column{
+    flex-direction: column;
+}
 /* ---------------- */
 /* BUTTONS */
 /* ---------------- */
@@ -202,8 +216,8 @@ a:visited {
 .margin-top-md {
     margin-top: 4.2rem;
 }
-.margin-top-md {
-    margin-top: 8rem;
+.margin-top-lg {
+    margin-top: 16rem;
 }
 
 /* ---------------- */
