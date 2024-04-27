@@ -53,7 +53,7 @@
 </header>
 
 <main class="margin-top-lg">
-<section class="red-circles container flex flex-gap-lg wrapped">
+<section class="red-circles container flex flex-gap-lg wrapped margin-bottom-lg">
     <div class="flex flex-column flex-gap-tiny"><button class="red-circle-button"><i class="fa-solid fa-car"></i></button><p>Cars</p>
     </div>
     <div class="flex flex-column flex-gap-tiny"><button class="red-circle-button"><i class="fa-solid fa-house"></i></button><p>Housings</p></div>
@@ -62,6 +62,242 @@
     <div class="flex flex-column flex-gap-tiny"><button class="red-circle-button"><i class="fa-solid fa-laptop"></i></button><p>Laptops</p></div>
 
 </section>
+
+    <section class="filter-section">
+        <div class="container">
+        <form action="">
+
+            <div class="flex flex-gap-tiny margin-bottom-md">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 search-icon">
+                    <path fill-rule="evenodd" d="M10.5 3.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5ZM2.25 10.5a8.25 8.25 0 1 1 14.59 5.28l4.69 4.69a.75.75 0 1 1-1.06 1.06l-4.69-4.69A8.25 8.25 0 0 1 2.25 10.5Z" clip-rule="evenodd" />
+                </svg>
+
+                <input type="text" class="general-text--input" placeholder="Search">
+            </div>
+            <div class="grid grid--2-cols filter-mobile">
+                <div class="margin-bottom-md">
+                    <p class="margin-bottom-sm">Manufacturer:</p>
+                    <input type="text" class="general-text--input">
+                </div>
+                <div class="margin-bottom-md">
+                    <p class="margin-bottom-sm">Model:</p>
+                    <input type="text" class="general-text--input">
+                </div>
+                <div class="margin-bottom-md">
+                    <p class="margin-bottom-sm">Mileage:</p>
+                    <div class="flex flex-gap-sm">
+                        <input type="text" class="general-text--input" placeholder="from">
+                        <input type="text" class="general-text--input" placeholder="to">
+                    </div>
+                </div>
+                <div class="margin-bottom-md">
+                    <p class="margin-bottom-sm">Transmission:</p>
+                    <input type="text" class="general-text--input">
+                </div>
+                <div class="margin-bottom-md">
+                    <p class="margin-bottom-sm">Price range:</p>
+                    <div class="flex flex-gap-sm">
+                        <input type="text" class="general-text--input" placeholder="from">
+                        <input type="text" class="general-text--input" placeholder="to">
+                    </div>
+                </div>
+                <div class="margin-bottom-lg">
+                    <p class="margin-bottom-sm">Gas:</p>
+                    <input type="text" class="general-text--input">
+                </div>
+            </div>
+
+            <button class="form-button div-center">Apply</button>
+        </form>
+        </div>
+    </section>
+
+    <section class="filter-section">
+        <div class="container">
+            <form action="">
+                <div class="flex flex-gap-tiny margin-bottom-md">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 search-icon">
+                        <path fill-rule="evenodd" d="M10.5 3.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5ZM2.25 10.5a8.25 8.25 0 1 1 14.59 5.28l4.69 4.69a.75.75 0 1 1-1.06 1.06l-4.69-4.69A8.25 8.25 0 0 1 2.25 10.5Z" clip-rule="evenodd" />
+                    </svg>
+
+                    <input type="text" class="general-text--input" placeholder="Search">
+                </div>
+                <div class="grid grid--2-cols filter-mobile">
+                    <div class="margin-bottom-md">
+                        <p class="margin-bottom-sm">Type:</p>
+                        <input type="text" class="general-text--input">
+                    </div>
+                    <div class="margin-bottom-md">
+                        <p class="margin-bottom-sm">Location:</p>
+                        <input type="text" class="general-text--input">
+                    </div>
+                    <div class="margin-bottom-md">
+                        <p class="margin-bottom-sm">Square footage:</p>
+                        <div class="flex flex-gap-sm">
+                            <input type="text" class="general-text--input" placeholder="from">
+                            <input type="text" class="general-text--input" placeholder="to">
+                        </div>
+                    </div>
+                    <div class="margin-bottom-md">
+                        <p class="margin-bottom-sm">Bedrooms:</p>
+                        <input type="text" class="general-text--input">
+                    </div>
+                </div>
+
+                <div class="div-center margin-bottom-lg one-row--filter">
+                    <p class="margin-bottom-sm">Price range:</p>
+                    <div class="flex flex-gap-sm">
+                        <input type="text" class="general-text--input" placeholder="from">
+                        <input type="text" class="general-text--input" placeholder="to">
+                    </div>
+                </div>
+                <button class="form-button div-center">Apply</button>
+
+            </form>
+        </div>
+    </section>
+
+    <section class="filter-section">
+        <div class="container">
+            <form action="">
+                <div class="flex flex-gap-tiny margin-bottom-md">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 search-icon">
+                        <path fill-rule="evenodd" d="M10.5 3.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5ZM2.25 10.5a8.25 8.25 0 1 1 14.59 5.28l4.69 4.69a.75.75 0 1 1-1.06 1.06l-4.69-4.69A8.25 8.25 0 0 1 2.25 10.5Z" clip-rule="evenodd" />
+                    </svg>
+
+                    <input type="text" class="general-text--input" placeholder="Search">
+                </div>
+                <div class="grid grid--2-cols filter-mobile">
+                    <div class="margin-bottom-md">
+                        <p class="margin-bottom-sm">Brand:</p>
+                        <input type="text" class="general-text--input">
+                    </div>
+                    <div class="margin-bottom-md">
+                        <p class="margin-bottom-sm">Series:</p>
+                        <input type="text" class="general-text--input">
+                    </div>
+                    <div class="margin-bottom-md">
+                        <p class="margin-bottom-sm">Color:</p>
+                        <input type="text" class="general-text--input">
+                    </div>
+                    <div class="margin-bottom-md">
+                        <p class="margin-bottom-sm">Storeage:</p>
+                        <input type="text" class="general-text--input">
+                    </div>
+                    <div class="margin-bottom-md">
+                        <p class="margin-bottom-sm">RAM:</p>
+                        <input type="text" class="general-text--input">
+                    </div>
+                    <div class="margin-bottom-lg">
+                        <p class="margin-bottom-sm">Price range:</p>
+                        <div class="flex flex-gap-sm">
+                            <input type="text" class="general-text--input" placeholder="from">
+                            <input type="text" class="general-text--input" placeholder="to">
+                        </div>
+                    </div>
+                </div>
+
+                <button class="form-button div-center">Apply</button>
+
+            </form>
+        </div>
+    </section>
+
+    <section class="filter-section">
+
+        <div class="container">
+            <form action="">
+                <div class="flex flex-gap-tiny margin-bottom-md">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 search-icon">
+                        <path fill-rule="evenodd" d="M10.5 3.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5ZM2.25 10.5a8.25 8.25 0 1 1 14.59 5.28l4.69 4.69a.75.75 0 1 1-1.06 1.06l-4.69-4.69A8.25 8.25 0 0 1 2.25 10.5Z" clip-rule="evenodd" />
+                    </svg>
+
+                    <input type="text" class="general-text--input" placeholder="Search">
+                </div>
+                <div class="grid grid--2-cols filter-mobile">
+                    <div class="margin-bottom-md">
+                        <p class="margin-bottom-sm">Brand:</p>
+                        <input type="text" class="general-text--input">
+                    </div>
+                    <div class="margin-bottom-md">
+                        <p class="margin-bottom-sm">Model:</p>
+                        <input type="text" class="general-text--input">
+                    </div>
+                    <div class="margin-bottom-md">
+                        <p class="margin-bottom-sm">Gender:</p>
+                        <input type="text" class="general-text--input">
+                    </div>
+                    <div class="margin-bottom-md">
+                        <p class="margin-bottom-sm">Shoe size:</p>
+                        <input type="text" class="general-text--input">
+                    </div>
+
+                </div>
+                <div class="div-center margin-bottom-lg one-row--filter">
+                    <p class="margin-bottom-sm">Price range:</p>
+                    <div class="flex flex-gap-sm">
+                        <input type="text" class="general-text--input" placeholder="from">
+                        <input type="text" class="general-text--input" placeholder="to">
+                    </div>
+                </div>
+
+                <button class="form-button div-center">Apply</button>
+
+            </form>
+        </div>
+    </section>
+
+    <section class="filter-section">
+        <div class="container">
+            <form action="">
+                <div class="flex flex-gap-tiny margin-bottom-md">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 search-icon">
+                        <path fill-rule="evenodd" d="M10.5 3.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5ZM2.25 10.5a8.25 8.25 0 1 1 14.59 5.28l4.69 4.69a.75.75 0 1 1-1.06 1.06l-4.69-4.69A8.25 8.25 0 0 1 2.25 10.5Z" clip-rule="evenodd" />
+                    </svg>
+
+                    <input type="text" class="general-text--input" placeholder="Search">
+                </div>
+                <div class="grid grid--2-cols filter-mobile">
+                    <div class="margin-bottom-md">
+                        <p class="margin-bottom-sm">Brand:</p>
+                        <input type="text" class="general-text--input">
+                    </div>
+                    <div class="margin-bottom-md">
+                        <p class="margin-bottom-sm">Model:</p>
+                        <input type="text" class="general-text--input">
+                    </div>
+                    <div class="margin-bottom-md">
+                        <p class="margin-bottom-sm">Display:</p>
+                        <input type="text" class="general-text--input">
+                    </div>
+                    <div class="margin-bottom-md">
+                        <p class="margin-bottom-sm">Processor:</p>
+                        <input type="text" class="general-text--input">
+                    </div>
+                    <div class="margin-bottom-md">
+                        <p class="margin-bottom-sm">Storage:</p>
+                        <input type="text" class="general-text--input">
+                    </div>
+                    <div class="margin-bottom-md">
+                        <p class="margin-bottom-sm">RAM:</p>
+                        <input type="text" class="general-text--input">
+                    </div>
+
+                </div>
+
+                <div class="div-center margin-bottom-lg one-row--filter">
+                    <p class="margin-bottom-sm">Price range:</p>
+                    <div class="flex flex-gap-sm">
+                        <input type="text" class="general-text--input" placeholder="from">
+                        <input type="text" class="general-text--input" placeholder="to">
+                    </div>
+                </div>
+
+                <button class="form-button div-center">Apply</button>
+
+            </form>
+        </div>
+    </section>
 
 
 

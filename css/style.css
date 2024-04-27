@@ -100,3 +100,24 @@ i{
 	font-size: 2rem;
 
 }
+
+/* ------- */
+/* FILTERS */
+/* ------- */
+
+.filter-section {
+	background-color: #FAE3B9;
+}
+
+.search-icon {
+	height: 18px;
+	width: 18px;
+}
+
+.grid-row-gap-md {
+	row-gap: 4.8rem;
+}
+
+.one-row--filter {
+	width: 50%;
+}
