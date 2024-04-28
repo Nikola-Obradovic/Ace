@@ -54,16 +54,16 @@
 
 <main class="margin-top-lg">
 <section class="red-circles container flex flex-gap-lg wrapped margin-bottom-lg">
-    <div class="flex flex-column flex-gap-tiny"><button class="red-circle-button"><i class="fa-solid fa-car"></i></button><p>Cars</p>
-    </div>
-    <div class="flex flex-column flex-gap-tiny"><button class="red-circle-button"><i class="fa-solid fa-house"></i></button><p>Housings</p></div>
-    <div class="flex flex-column flex-gap-tiny"><button class="red-circle-button"><i class="fa-solid fa-mobile-screen-button"></i></button><p>Smartphones</p></div>
-    <div class="flex flex-column flex-gap-tiny"><button class="red-circle-button"><i class="fa-solid fa-shoe-prints"></i></button><p>Shoes</p></div>
-    <div class="flex flex-column flex-gap-tiny"><button class="red-circle-button"><i class="fa-solid fa-laptop"></i></button><p>Laptops</p></div>
+    <div class="flex flex-column flex-gap-tiny"><label class="red-label"><button class="red-circle-button"><i class="fa-solid fa-car"></i></button><p>Cars</p>
+        </label></div>
+    <div class="flex flex-column flex-gap-tiny"><label class="red-label"><button class="red-circle-button"><i class="fa-solid fa-house"></i></button><p>Housings</p></label></div>
+    <div class="flex flex-column flex-gap-tiny"><label class="red-label"><button class="red-circle-button"><i class="fa-solid fa-mobile-screen-button"></i></button><p>Smartphones</p></label></div>
+    <div class="flex flex-column flex-gap-tiny"><label class="red-label"><button class="red-circle-button"><i class="fa-solid fa-shoe-prints"></i></button><p>Shoes</p></label></div>
+    <div class="flex flex-column flex-gap-tiny"><label class="red-label"><button class="red-circle-button"><i class="fa-solid fa-laptop"></i></button><p>Laptops</p></label></div>
 
 </section>
 
-    <section class="filter-section">
+    <section class="filter-section hidden">
         <div class="container">
         <form action="">
 
@@ -77,7 +77,10 @@
             <div class="grid grid--2-cols filter-mobile">
                 <div class="margin-bottom-md">
                     <p class="margin-bottom-sm">Manufacturer:</p>
-                    <input type="text" class="general-text--input">
+                    <select class="select-input">  <!-- !promijeni na svim mjestima, pogledaj dizajn -->
+                        <option></option>
+                    </select>
+                    <!--<input type="text" class="general-text--input">-->
                 </div>
                 <div class="margin-bottom-md">
                     <p class="margin-bottom-sm">Model:</p>
@@ -112,7 +115,7 @@
         </div>
     </section>
 
-    <section class="filter-section">
+    <section class="filter-section hidden">
         <div class="container">
             <form action="">
                 <div class="flex flex-gap-tiny margin-bottom-md">
@@ -157,7 +160,7 @@
         </div>
     </section>
 
-    <section class="filter-section">
+    <section class="filter-section hidden">
         <div class="container">
             <form action="">
                 <div class="flex flex-gap-tiny margin-bottom-md">
@@ -203,7 +206,7 @@
         </div>
     </section>
 
-    <section class="filter-section">
+    <section class="filter-section hidden">
 
         <div class="container">
             <form action="">
@@ -247,7 +250,7 @@
         </div>
     </section>
 
-    <section class="filter-section">
+    <section class="filter-section hidden">
         <div class="container">
             <form action="">
                 <div class="flex flex-gap-tiny margin-bottom-md">
@@ -296,6 +299,11 @@
                 <button class="form-button div-center">Apply</button>
 
             </form>
+        </div>
+    </section>
+    <section class="main-section">
+        <div class="container">
+        <p>MAINNNNNNNNNNN</p>
         </div>
     </section>
 

@@ -25,5 +25,34 @@ for (const link of navLinks) {
         link.classList.remove('current-link')
     }
 
-
 }
+
+
+const filterButtons = document.querySelectorAll('.red-circle-button');
+const filterSections = document.querySelectorAll('.filter-section');
+const mainSection = document.querySelector('.main-section');
+filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        mainSection.classList.add('hidden')
+        let currentSection;
+        for (let i=0; i<filterButtons.length; i++) {
+            if(filterButtons[i]!==button){
+                filterButtons[i].classList.remove('active');
+                filterSections[i].classList.add('hidden');
+            }else{
+                currentSection = filterSections[i];
+            }
+        }
+
+        if (!button.classList.contains('active')){
+        button.classList.add('active');
+        currentSection.classList.remove('hidden');
+
+        }
+        else{
+            button.classList.remove('active');
+            currentSection.classList.add('hidden');
+            mainSection.classList.remove('hidden');
+        }
+    });
+});

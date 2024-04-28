@@ -9,7 +9,7 @@ border-radius: 5px;
 
 }
 
-.general-text--input{
+.general-text--input, .select-input{
 width: 100%;
 border: 1px solid #d0cdce;
 height:	3.2rem;
@@ -79,10 +79,10 @@ height:	3.2rem;
 	display: none;
 }
 
-.current-link{
+a.current-link{
 
-	color: #8B2E39 !important;
-	text-decoration: underline !important;
+	color: #8B2E39;
+	text-decoration: underline;
 
 }
 .red-circle-button{
@@ -93,7 +93,7 @@ height:	3.2rem;
 	border: 2px solid #8B2E39;
 	color: white;
 	cursor: pointer;
-
+	transition: all 500ms;
 }
 
 i{
@@ -120,4 +120,14 @@ i{
 
 .one-row--filter {
 	width: 50%;
+}
+.active{
+	color: #8B2E39;
+	background-color: white;
+
+
+}
+
+.hidden{
+	display: none;
 }
