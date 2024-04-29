@@ -54,6 +54,25 @@
 </header>
 
 
+<!-- IMPROVE -->
+
+<section class="main-section">
+    <div class="container">
+        <h2>Post New Listing</h2>
+        <form action="add_listing.php" method="post">
+            <label for="title">Title:</label><br>
+            <input type="text" id="title" name="title"><br>
+            <label for="description">Description:</label><br>
+            <textarea id="description" name="description"></textarea><br>
+            <label for="price">Price:</label><br>
+            <input type="text" id="price" name="price"><br><br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</section>
+
+
+
 <script src="main.js"></script>
 </body>
 </html>

@@ -307,7 +307,43 @@
     </section>
     <section class="main-section">
         <div class="container">
-        <p>MAINNNNNNNNNNN</p>
+
+            <!-- IMPROVE -->
+
+            <h2>Listings</h2>
+            <?php
+
+
+            $conn = new mysqli('localhost', 'root', 'Oracle2003.', 'temp');
+
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
+
+            $sql = "SELECT * FROM listings";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo "<div>";
+                    echo "<h3>" . $row["title"] . "</h3>";
+                    echo "<p>" . $row["description"] . "</p>";
+                    echo "<p>Price: $" . $row["price"] . "</p>";
+                    echo "<form action='delete_listing.php' method='post'>";
+                    echo "<input type='hidden' name='listing_id' value='" . $row["id"] . "'>";
+                    echo "<button type='submit'>Delete</button>";
+                    echo "</form>";
+                    echo "</div>";
+                }
+            } else {
+                echo "0 results";
+            }
+            $conn->close();
+            ?>
+
+
+
+
         </div>
     </section>
 
