@@ -77,6 +77,7 @@
                 </svg>
 
                 <input type="text" class="general-text--input" placeholder="Search">
+
             </div>
             <div class="grid grid--2-cols filter-mobile">
                 <div class="margin-bottom-md">
@@ -88,7 +89,9 @@
                 </div>
                 <div class="margin-bottom-md">
                     <p class="margin-bottom-sm">Model:</p>
-                    <input type="text" class="general-text--input">
+                    <select class="general-text--input">
+                        <option></option>
+                    </select>
                 </div>
                 <div class="margin-bottom-md">
                     <p class="margin-bottom-sm">Mileage:</p>
@@ -99,7 +102,9 @@
                 </div>
                 <div class="margin-bottom-md">
                     <p class="margin-bottom-sm">Transmission:</p>
-                    <input type="text" class="general-text--input">
+                    <select class="general-text--input">
+                        <option></option>
+                    </select>
                 </div>
                 <div class="margin-bottom-md">
                     <p class="margin-bottom-sm">Price range:</p>
@@ -110,7 +115,9 @@
                 </div>
                 <div class="margin-bottom-lg">
                     <p class="margin-bottom-sm">Gas:</p>
-                    <input type="text" class="general-text--input">
+                    <select class="general-text--input">
+                        <option></option>
+                    </select>
                 </div>
             </div>
 
@@ -132,11 +139,15 @@
                 <div class="grid grid--2-cols filter-mobile">
                     <div class="margin-bottom-md">
                         <p class="margin-bottom-sm">Type:</p>
-                        <input type="text" class="general-text--input">
+                        <select class="select-input">  <!-- !promijeni na svim mjestima, pogledaj dizajn -->
+                            <option></option>
+                        </select>
                     </div>
                     <div class="margin-bottom-md">
                         <p class="margin-bottom-sm">Location:</p>
-                        <input type="text" class="general-text--input">
+                        <select class="select-input">  <!-- !promijeni na svim mjestima, pogledaj dizajn -->
+                            <option></option>
+                        </select>
                     </div>
                     <div class="margin-bottom-md">
                         <p class="margin-bottom-sm">Square footage:</p>
@@ -147,7 +158,9 @@
                     </div>
                     <div class="margin-bottom-md">
                         <p class="margin-bottom-sm">Bedrooms:</p>
-                        <input type="text" class="general-text--input">
+                        <select class="select-input">  <!-- !promijeni na svim mjestima, pogledaj dizajn -->
+                            <option></option>
+                        </select>
                     </div>
                 </div>
 
@@ -177,23 +190,33 @@
                 <div class="grid grid--2-cols filter-mobile">
                     <div class="margin-bottom-md">
                         <p class="margin-bottom-sm">Brand:</p>
-                        <input type="text" class="general-text--input">
+                        <select class="general-text--input">
+                            <option></option>
+                        </select>
                     </div>
                     <div class="margin-bottom-md">
                         <p class="margin-bottom-sm">Series:</p>
-                        <input type="text" class="general-text--input">
+                        <select class="general-text--input">
+                            <option></option>
+                        </select>
                     </div>
                     <div class="margin-bottom-md">
                         <p class="margin-bottom-sm">Color:</p>
-                        <input type="text" class="general-text--input">
+                        <select class="general-text--input">
+                            <option></option>
+                        </select>
                     </div>
                     <div class="margin-bottom-md">
                         <p class="margin-bottom-sm">Storage:</p>
-                        <input type="text" class="general-text--input">
+                        <select class="general-text--input">
+                            <option></option>
+                        </select>
                     </div>
                     <div class="margin-bottom-md">
                         <p class="margin-bottom-sm">RAM:</p>
-                        <input type="text" class="general-text--input">
+                        <select class="general-text--input">
+                            <option></option>
+                        </select>
                     </div>
                     <div class="margin-bottom-lg">
                         <p class="margin-bottom-sm">Price range:</p>
@@ -224,19 +247,27 @@
                 <div class="grid grid--2-cols filter-mobile">
                     <div class="margin-bottom-md">
                         <p class="margin-bottom-sm">Brand:</p>
-                        <input type="text" class="general-text--input">
+                        <select class="general-text--input">
+                            <option></option>
+                        </select>
                     </div>
                     <div class="margin-bottom-md">
                         <p class="margin-bottom-sm">Model:</p>
-                        <input type="text" class="general-text--input">
+                        <select class="general-text--input">
+                            <option></option>
+                        </select>
                     </div>
                     <div class="margin-bottom-md">
                         <p class="margin-bottom-sm">Gender:</p>
-                        <input type="text" class="general-text--input">
+                        <select class="general-text--input">
+                            <option></option>
+                        </select>
                     </div>
                     <div class="margin-bottom-md">
                         <p class="margin-bottom-sm">Shoe size:</p>
-                        <input type="text" class="general-text--input">
+                        <select class="general-text--input">
+                            <option></option>
+                        </select>
                     </div>
 
                 </div>
@@ -267,27 +298,39 @@
                 <div class="grid grid--2-cols filter-mobile">
                     <div class="margin-bottom-md">
                         <p class="margin-bottom-sm">Brand:</p>
-                        <input type="text" class="general-text--input">
+                        <select class="general-text--input">
+                            <option></option>
+                        </select>
                     </div>
                     <div class="margin-bottom-md">
                         <p class="margin-bottom-sm">Model:</p>
-                        <input type="text" class="general-text--input">
+                        <select class="general-text--input">
+                            <option></option>
+                        </select>
                     </div>
                     <div class="margin-bottom-md">
                         <p class="margin-bottom-sm">Display:</p>
-                        <input type="text" class="general-text--input">
+                        <select class="general-text--input">
+                            <option></option>
+                        </select>
                     </div>
                     <div class="margin-bottom-md">
                         <p class="margin-bottom-sm">Processor:</p>
-                        <input type="text" class="general-text--input">
+                        <select class="general-text--input">
+                            <option></option>
+                        </select>
                     </div>
                     <div class="margin-bottom-md">
                         <p class="margin-bottom-sm">Storage:</p>
-                        <input type="text" class="general-text--input">
+                        <select class="general-text--input">
+                            <option></option>
+                        </select>
                     </div>
                     <div class="margin-bottom-md">
                         <p class="margin-bottom-sm">RAM:</p>
-                        <input type="text" class="general-text--input">
+                        <select class="general-text--input">
+                            <option></option>
+                        </select>
                     </div>
 
                 </div>
