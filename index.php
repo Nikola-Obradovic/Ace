@@ -89,7 +89,7 @@
                 </div>
                 <div class="margin-bottom-md">
                     <p class="margin-bottom-sm">Model:</p>
-                    <select class="general-text--input">
+                    <select class="select-input">
                         <option></option>
                     </select>
                 </div>
@@ -102,7 +102,7 @@
                 </div>
                 <div class="margin-bottom-md">
                     <p class="margin-bottom-sm">Transmission:</p>
-                    <select class="general-text--input">
+                    <select class="select-input">
                         <option></option>
                     </select>
                 </div>
@@ -115,7 +115,7 @@
                 </div>
                 <div class="margin-bottom-lg">
                     <p class="margin-bottom-sm">Gas:</p>
-                    <select class="general-text--input">
+                    <select class="select-input">
                         <option></option>
                     </select>
                 </div>
@@ -139,13 +139,13 @@
                 <div class="grid grid--2-cols filter-mobile">
                     <div class="margin-bottom-md">
                         <p class="margin-bottom-sm">Type:</p>
-                        <select class="select-input">  <!-- !promijeni na svim mjestima, pogledaj dizajn -->
+                        <select class="select-input">
                             <option></option>
                         </select>
                     </div>
                     <div class="margin-bottom-md">
                         <p class="margin-bottom-sm">Location:</p>
-                        <select class="select-input">  <!-- !promijeni na svim mjestima, pogledaj dizajn -->
+                        <select class="select-input">
                             <option></option>
                         </select>
                     </div>
@@ -158,7 +158,7 @@
                     </div>
                     <div class="margin-bottom-md">
                         <p class="margin-bottom-sm">Bedrooms:</p>
-                        <select class="select-input">  <!-- !promijeni na svim mjestima, pogledaj dizajn -->
+                        <select class="select-input">
                             <option></option>
                         </select>
                     </div>
@@ -190,31 +190,31 @@
                 <div class="grid grid--2-cols filter-mobile">
                     <div class="margin-bottom-md">
                         <p class="margin-bottom-sm">Brand:</p>
-                        <select class="general-text--input">
+                        <select class="select-input">
                             <option></option>
                         </select>
                     </div>
                     <div class="margin-bottom-md">
                         <p class="margin-bottom-sm">Series:</p>
-                        <select class="general-text--input">
+                        <select class="select-input">
                             <option></option>
                         </select>
                     </div>
                     <div class="margin-bottom-md">
                         <p class="margin-bottom-sm">Color:</p>
-                        <select class="general-text--input">
+                        <select class="select-input">
                             <option></option>
                         </select>
                     </div>
                     <div class="margin-bottom-md">
                         <p class="margin-bottom-sm">Storage:</p>
-                        <select class="general-text--input">
+                        <select class="select-input">
                             <option></option>
                         </select>
                     </div>
                     <div class="margin-bottom-md">
                         <p class="margin-bottom-sm">RAM:</p>
-                        <select class="general-text--input">
+                        <select class="select-input">
                             <option></option>
                         </select>
                     </div>
@@ -247,25 +247,25 @@
                 <div class="grid grid--2-cols filter-mobile">
                     <div class="margin-bottom-md">
                         <p class="margin-bottom-sm">Brand:</p>
-                        <select class="general-text--input">
+                        <select class="select-input">
                             <option></option>
                         </select>
                     </div>
                     <div class="margin-bottom-md">
                         <p class="margin-bottom-sm">Model:</p>
-                        <select class="general-text--input">
+                        <select class="select-input">
                             <option></option>
                         </select>
                     </div>
                     <div class="margin-bottom-md">
                         <p class="margin-bottom-sm">Gender:</p>
-                        <select class="general-text--input">
+                        <select class="select-input">
                             <option></option>
                         </select>
                     </div>
                     <div class="margin-bottom-md">
                         <p class="margin-bottom-sm">Shoe size:</p>
-                        <select class="general-text--input">
+                        <select class="select-input">
                             <option></option>
                         </select>
                     </div>
@@ -298,37 +298,37 @@
                 <div class="grid grid--2-cols filter-mobile">
                     <div class="margin-bottom-md">
                         <p class="margin-bottom-sm">Brand:</p>
-                        <select class="general-text--input">
+                        <select class="select-input">
                             <option></option>
                         </select>
                     </div>
                     <div class="margin-bottom-md">
                         <p class="margin-bottom-sm">Model:</p>
-                        <select class="general-text--input">
+                        <select class="select-input">
                             <option></option>
                         </select>
                     </div>
                     <div class="margin-bottom-md">
                         <p class="margin-bottom-sm">Display:</p>
-                        <select class="general-text--input">
+                        <select class="select-input">
                             <option></option>
                         </select>
                     </div>
                     <div class="margin-bottom-md">
                         <p class="margin-bottom-sm">Processor:</p>
-                        <select class="general-text--input">
+                        <select class="select-input">
                             <option></option>
                         </select>
                     </div>
                     <div class="margin-bottom-md">
                         <p class="margin-bottom-sm">Storage:</p>
-                        <select class="general-text--input">
+                        <select class="select-input">
                             <option></option>
                         </select>
                     </div>
                     <div class="margin-bottom-md">
                         <p class="margin-bottom-sm">RAM:</p>
-                        <select class="general-text--input">
+                        <select class="select-input">
                             <option></option>
                         </select>
                     </div>
@@ -354,9 +354,10 @@
             <!-- IMPROVE -->
 
             <h2>Listings</h2>
+
             <?php
 
-
+            /*
             $conn = new mysqli('localhost', 'root', 'Oracle2003.', 'temp');
 
             if ($conn->connect_error) {
@@ -382,7 +383,10 @@
                 echo "0 results";
             }
             $conn->close();
+
+            */
             ?>
+
 
 
 
