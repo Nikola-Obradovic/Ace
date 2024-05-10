@@ -367,6 +367,33 @@
     <section class="main-section">
         <div class="container">
 
+
+
+            <div class="filters-pop-up">
+                <p class="margin-bottom-sm">Sort by:</p>
+                <div class="grid grid--2-cols" id="sort-filters">
+                    <button class="form-button margin-bottom-sm">Price highest</button>
+                    <button class="form-button margin-bottom-sm">Newest</button>
+                    <button class="form-button margin-bottom-sm">Price lowest</button>
+                    <button class="form-button margin-bottom-sm">Oldest</button>
+                </div>
+                <p class="margin-bottom-sm margin-top-md">Price range filters:</p>
+                <div class="flex flex-gap-sm range-filters">
+                    <div class="flex flex-gap-tiny">
+                        <p>from:</p>
+                        <input type="text" class="general-text--input">
+                    </div>
+                    <div class="flex flex-gap-tiny">
+                        <p>to:</p>
+                        <input type="text" class="general-text--input">
+                    </div>
+                </div>
+                <div class="container-button-left">
+                    <button class="form-button">Apply</button>
+                </div>
+
+            </div>
+
             <!-- IMPROVE -->
 
             <h2>Listings</h2>
@@ -403,10 +430,6 @@
             */
             ?>
 
-
-
-
-
         </div>
     </section>
 
@@ -414,6 +437,29 @@
 
 
 </main>
+
+<footer class="footer">
+    <div class="grid grid--3-cols">
+    <div>
+        <p class="margin-bottom-sm footer-headings">ACE</p>
+        <p><a href="./index.php">Discover</a></p>
+        <p>About us</p>
+        <p><a href="./add_listing.php">Post new listing</a></p>
+    </div>
+    <div>
+        <p class="margin-bottom-sm footer-headings">CONTACT US</p>
+        <p>tarik.basic@stu.ssst.edu.ba</p>
+        <p>hana.catic@stu.ssst.edu.ba</p>
+        <p>nikola.obradovic@stu.ssst.edu.ba</p>
+    </div>
+    <div>
+        <p class="margin-bottom-sm footer-headings">WHERE TO FIND US?</p>
+        <p>Hrasnička cesta 3a, Ilidža 71210</p>
+        <p>Sarajevo, Bosnia and Herzegovina</p>
+    </div>
+    </div>
+    <p id="copyright">Copyright &copy; 2024 Inwolve</p>
+</footer>
 
 <script src="main.js"></script>
 </body>

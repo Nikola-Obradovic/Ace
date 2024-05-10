@@ -98,4 +98,23 @@ margin: 0 auto;
 		padding: 0 3.6rem;
 	}
 
+	#search-and-filters-button {
+		column-gap: 3.2rem;
+	}
+
+	/*
+
+	#sort-filters {
+		display: flex;
+		flex-direction: column;
+	}
+
+
+
+	.range-filters {
+		flex-direction: column;
+		align-content: flex-end;
+	}
+
+	*/
 }
