@@ -203,6 +203,13 @@ i{
 	margin-top: 6.4rem;
 }
 
+.exit-button-left {
+	width: 95%;
+	display: flex;
+	justify-content: flex-end;
+	cursor: pointer;
+}
+
 /* ------ */
 /* FOOTER */
 /* ------ */

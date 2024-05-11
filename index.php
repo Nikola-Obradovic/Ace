@@ -369,7 +369,10 @@
 
 
 
-            <div class="filters-pop-up">
+            <div class="filters-pop-up hidden">
+                <div class="exit-button-left margin-bottom-sm">
+                    <i class="fa-solid fa-x" style="color: #040404;"></i>
+                </div>
                 <p class="margin-bottom-sm">Sort by:</p>
                 <div class="grid grid--2-cols" id="sort-filters">
                     <button class="form-button margin-bottom-sm">Price highest</button>

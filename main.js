@@ -56,3 +56,14 @@ filterButtons.forEach(button => {
         }
     });
 });
+
+//filters button main
+const openFilters = document.querySelector('.filters-button');
+const exitFilters = document.querySelector('.exit-button-left');
+openFilters.addEventListener('click', () => {
+    document.querySelector('.filters-pop-up').classList.remove('hidden');
+});
+
+exitFilters.addEventListener('click', () => {
+   document.querySelector('.filters-pop-up').classList.add('hidden');
+});
