@@ -41,7 +41,7 @@
         <ul class="main-nav-list">
             <li><a href="./index.php" class="main-nav-link">Discover</a></li>
             <li>
-                <a href="./about-us.html" class="main-nav-link">About us</a>
+                <a href="your_profile.php" class="main-nav-link">Your Profile</a>
             </li>
             <li>
                 <a href="./post-new-listing.php" class="main-nav-link">Post New Listing</a>
@@ -446,7 +446,7 @@
     <div>
         <p class="margin-bottom-sm footer-headings">ACE</p>
         <p><a href="./index.php">Discover</a></p>
-        <p>About us</p>
+        <p><a href="./your_profile.php">Your Profile</a></p>
         <p><a href="./add_listing.php">Post new listing</a></p>
     </div>
     <div>

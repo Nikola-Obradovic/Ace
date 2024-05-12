@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>About Us</title>
+    <title>Your Profile</title>
     <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/media.css">
@@ -38,7 +38,7 @@
         <ul class="main-nav-list">
             <li><a href="./index.php" class="main-nav-link">Discover</a></li>
             <li>
-                <a href="./about-us.html" class="main-nav-link">About us</a>
+                <a href="your_profile.php" class="main-nav-link">Your Profile</a>
             </li>
             <li>
                 <a href="./post-new-listing.php" class="main-nav-link">Post New Listing</a>

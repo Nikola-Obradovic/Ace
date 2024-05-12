@@ -38,7 +38,7 @@
         <ul class="main-nav-list">
             <li><a href="./index.php" class="main-nav-link">Discover</a></li>
             <li>
-                <a href="./about-us.html" class="main-nav-link">About us</a>
+                <a href="your_profile.php" class="main-nav-link">Your Profile</a>
             </li>
             <li>
                 <a href="./post-new-listing.php" class="main-nav-link">Post New Listing</a>
