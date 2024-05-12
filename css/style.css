@@ -253,5 +253,67 @@ i{
 	padding-top: 3.2rem;
 }
 
+/* ------------------- */
+/* LISTING AND PAYMENT */
+/* ------------------- */
 
+.listing-section {
+	background-color: #D9D9D9;
+	position: relative;
+	width: 100%;
+}
+
+.exit-button-payment {
+	width: 95%;
+	display: flex;
+	justify-content: flex-end;
+	cursor: pointer;
+}
+
+.payment-section {
+	border-bottom: 1px solid #040404;
+	margin-bottom: 3.2rem;
+}
+
+.credit-card-icons {
+	position: absolute;
+	right: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.credit-card-input {
+	position: relative;
+	display: flex;
+	gap: 1.2rem;
+}
+
+.heading-tertiary--black {
+	font-size: 2rem;
+	font-weight: 500;
+	line-height: 1.4;
+}
+
+.smaller-input {
+	width: 50%;
+}
+
+#paypal {
+	width: 100%;
+	color: #ffffff;
+	background-color: #0079C1;
+	border: none;
+	border-radius: 5px;
+	height: 4.8rem;
+	font-family: "Lato", sans-serif;
+	cursor: pointer;
+}
+
+#paypal:hover {
+	background-color: #0c8ee2;
+}
+
+.transaction-pop-up {
+	position: absolute;
+}
 
