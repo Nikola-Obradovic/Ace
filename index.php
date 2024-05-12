@@ -365,11 +365,11 @@
     </div>
 
     <section class="main-section">
-        <div class="container">
+        <div class="container discover-container">
 
 
 
-            <div class="filters-pop-up hidden">
+            <div class="pop-up hidden">
                 <div class="exit-button-left margin-bottom-sm">
                     <i class="fa-solid fa-x" style="color: #040404;"></i>
                 </div>
@@ -391,11 +391,11 @@
                         <input type="text" class="general-text--input">
                     </div>
                 </div>
-                <div class="container-button-left">
+                <div class="container-button-left margin-top-md">
                     <button class="form-button">Apply</button>
                 </div>
-
             </div>
+
 
             <!-- IMPROVE -->
 
@@ -442,7 +442,7 @@
 </main>
 
 <footer class="footer">
-    <div class="grid grid--3-cols">
+    <div class="grid grid--3-cols footer-grid">
     <div>
         <p class="margin-bottom-sm footer-headings">ACE</p>
         <p><a href="./index.php">Discover</a></p>
@@ -463,6 +463,8 @@
     </div>
     <p id="copyright">Copyright &copy; 2024 Inwolve</p>
 </footer>
+
+<div class="dimmed-background hidden"></div>
 
 <script src="main.js"></script>
 </body>

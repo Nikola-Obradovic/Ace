@@ -88,6 +88,9 @@ margin: 0 auto;
 		display: block;
 	}
 
+	.pop-up {
+		width: 90%;
+	}
 }
 
 /* ---------------- */
@@ -101,6 +104,19 @@ margin: 0 auto;
 	#search-and-filters-button {
 		column-gap: 3.2rem;
 	}
+
+	.footer-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.footer-headings {
+		margin-top: 3.2rem;
+	}
+
+	.footer {
+		padding-top: 1.2rem;
+	}
+
 
 	/*
 
