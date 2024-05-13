@@ -61,7 +61,7 @@
 <section class="listing-section">
     <div class="container flex flex-gap-lg">
         <a>Comments</a>
-        <button class="form-button">Purchase</button>
+        <button class="form-button purchase-button">Purchase</button>
     </div>
 
 
@@ -148,6 +148,7 @@
     <p id="copyright">Copyright &copy; 2024 Inwolve</p>
 </footer>
 
+<div class="dimmed-background hidden"></div>
 
 </body>
 </html>
