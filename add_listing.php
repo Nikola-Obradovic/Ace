@@ -95,7 +95,8 @@ $conn->close();
         <p class="heading-secondary">Username</p>
     </div>
     <div class="container">
-        <p class="margin-bottom-sm">Type:</p>
+        <form action="">
+            <p class="margin-bottom-sm">Type:</p>
         <select class="select-input smaller-input margin-bottom-xsm">
             <option>Car</option>
             <option>Housings</option>
@@ -114,8 +115,10 @@ $conn->close();
                 <input type="text" class="general-text--input margin-bottom-xsm">
             </div>
         </div>
+        </form>
 
         <div>
+            <form action="">
             <div class="grid grid--2-cols">
                 <div>
                     <p class="margin-bottom-sm">Manufacturer:</p>
@@ -146,9 +149,11 @@ $conn->close();
                     <option></option>
                 </select>
             </div>
+            </form>
         </div>
 
         <div>
+            <form action="">
             <div class="grid grid--2-cols">
                 <div>
                     <p class="margin-bottom-sm">Type:</p>
@@ -169,9 +174,11 @@ $conn->close();
                     <input type="text" class="general-text--input margin-bottom-xsm">
                 </div>
             </div>
+            </form>
         </div>
 
         <div>
+            <form action="">
             <div class="grid grid--2-cols">
                 <div>
                     <p class="margin-bottom-sm">Brand:</p>
@@ -198,9 +205,11 @@ $conn->close();
                     </select>
                 </div>
             </div>
+            </form>
         </div>
 
         <div>
+            <form action="">
             <div class="grid grid--2-cols">
                 <div>
                     <p class="margin-bottom-sm">Brand:</p>
@@ -233,9 +242,11 @@ $conn->close();
                     <option></option>
                 </select>
             </div>
+            </form>
         </div>
 
         <div>
+            <form action="">
             <div class="grid grid--2-cols">
                 <div>
                     <p class="margin-bottom-sm">Brand:</p>
@@ -274,11 +285,14 @@ $conn->close();
                     </select>
                 </div>
             </div>
+            </form>
         </div>
 
         <div class="margin-bottom-lg">
+            <form action="">
             <p class="margin-bottom-sm">Description:</p>
             <textarea class="textarea" rows="8"></textarea>
+            </form>
         </div>
 
         <button class="wide-button div-center">Post</button>
