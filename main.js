@@ -63,12 +63,12 @@ const exitFilters = document.querySelector('.exit-button-left');
 const main = document.querySelector("main");
 openFilters.addEventListener('click', () => {
     document.querySelector('.pop-up').classList.remove('hidden');
-    //document.querySelector('.dimmed-background').classList.remove('hidden');
+    document.querySelector('.dimmed-background').classList.remove('hidden');
 });
 
 exitFilters.addEventListener('click', () => {
    document.querySelector('.pop-up').classList.add('hidden');
-    //document.querySelector('.dimmed-background').classList.add('hidden');
+   document.querySelector('.dimmed-background').classList.add('hidden');
 });
 
 /*
