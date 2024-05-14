@@ -5,11 +5,11 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ace Register</title>
-
+    <title>Ace Login</title>
     <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/media.css">
+
 
     <!-- LATO -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,25 +21,19 @@
 
 <main class="container black-box">
 
-    <img src="img/AceLogo.png" alt="Ace Logo" class="margin-bottom-lg" id="ace-logo">
-
-    <form action="">
+<img src='img/AceLogo.png' alt='Ace Logo' class="margin-bottom-lg" id="ace-logo"/>
+    <form action="login_process.php" method="post">
         <p class="heading-tertiary margin-bottom-sm">Username</p>
-        <input type="text" class="general-text--input margin-bottom-xsm">
-        <p class="heading-tertiary margin-bottom-sm">Email</p>
-        <input type="text" class="general-text--input margin-bottom-xsm">
+        <input  type="text" class="margin-bottom-xsm general-text--input"  name="username">
         <p class="heading-tertiary margin-bottom-sm">Password</p>
-        <input type="text" class="general-text--input margin-bottom-xsm">
-        <p class="heading-tertiary margin-bottom-sm">Confirm Password</p>
-        <input type="text" class="general-text--input margin-bottom-xsm">
-
-        <button class="form-button margin-bottom-lg div-center">Register</button>
+        <input  type="text" class="margin-bottom-xsm general-text--input" name="password">
+        <button class="form-button div-center margin-bottom-lg">Log in</button>
     </form>
-
     <div class="flex flex-gap-sm">
-        <p>Already have an account?</p>
-        <a href="Login.html" class="link-button">Log in</a>
+        <p>Don't have an account?</p>
+        <a class="link-button" href="Register.php">Register</a>
     </div>
+
 
 </main>
 

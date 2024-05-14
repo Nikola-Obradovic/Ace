@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -42,14 +45,27 @@
     <nav class="main-nav">
         <ul class="main-nav-list">
             <li><a href="./index.php" class="main-nav-link">Discover</a></li>
-            <li>
-                <a href="your_profile.php" class="main-nav-link">Your Profile</a>
-            </li>
-            <li>
-                <a href="./post-new-listing.php" class="main-nav-link">Post New Listing</a>
-            </li>
+            <?php if(isset($_SESSION['U_ID'])) { ?>
+                <li>
+                    <a href="./your_profile.php" class="main-nav-link">Your Profile</a>
+                </li>
+                <li>
+                    <a href="./post-new-listing.php" class="main-nav-link">Post New Listing</a>
+                </li>
+            <?php } else { ?>
+                <li>
+                    <a href="./Login.php" class="main-nav-link">Your Profile</a>
+                </li>
+                <li>
+                    <a href="./Login.php" class="main-nav-link">Post New Listing</a>
+                </li>
+            <?php } ?>
         </ul>
-        <a href="./Login.html" class="link-button" id="login-button">Log in</a>
+        <?php if(!isset($_SESSION['U_ID'])) { ?>
+            <a href="Login.php" class="link-button" id="login-button">Log in</a>
+        <?php } else { ?>
+            <a href="Logout.php" class="link-button" id="login-button">Log out</a>
+        <?php } ?>
     </nav>
     <button class="btn-mobile-nav">
         <ion-icon class="icon-mobile-nav" name="menu-outline"></ion-icon>
@@ -130,8 +146,13 @@
         <div>
             <p class="margin-bottom-sm footer-headings">ACE</p>
             <p><a href="./index.php">Discover</a></p>
-            <p><a href="./your_profile.php">Your Profile</a></p>
-            <p><a href="./add_listing.php">Post new listing</a></p>
+            <?php if(isset($_SESSION['U_ID'])) { ?>
+                <p><a href="./your_profile.php">Your Profile</a></p>
+                <p><a href="./post-new-listing.php">Post new listing</a></p>
+            <?php } else { ?>
+                <p><a href="./Login.php">Your Profile</a></p>
+                <p><a href="./Login.php">Post new listing</a></p>
+            <?php } ?>
         </div>
         <div>
             <p class="margin-bottom-sm footer-headings">CONTACT US</p>

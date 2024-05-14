@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -37,14 +40,27 @@
     <nav class="main-nav">
         <ul class="main-nav-list">
             <li><a href="./index.php" class="main-nav-link">Discover</a></li>
-            <li>
-                <a href="your_profile.php" class="main-nav-link">Your Profile</a>
-            </li>
-            <li>
-                <a href="./post-new-listing.php" class="main-nav-link">Post New Listing</a>
-            </li>
+            <?php if(isset($_SESSION['U_ID'])) { ?>
+                <li>
+                    <a href="./your_profile.php" class="main-nav-link">Your Profile</a>
+                </li>
+                <li>
+                    <a href="./post-new-listing.php" class="main-nav-link">Post New Listing</a>
+                </li>
+            <?php } else { ?>
+                <li>
+                    <a href="./Login.php" class="main-nav-link">Your Profile</a>
+                </li>
+                <li>
+                    <a href="./Login.php" class="main-nav-link">Post New Listing</a>
+                </li>
+            <?php } ?>
         </ul>
-        <a href="./Login.html" class="link-button" id="login-button">Log in</a>
+        <?php if(!isset($_SESSION['U_ID'])) { ?>
+            <a href="Login.php" class="link-button" id="login-button">Log in</a>
+        <?php } else { ?>
+            <a href="Logout.php" class="link-button" id="login-button">Log out</a>
+        <?php } ?>
     </nav>
     <button class="btn-mobile-nav">
         <ion-icon class="icon-mobile-nav" name="menu-outline"></ion-icon>
