@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -23,10 +27,15 @@
 
 <img src='img/AceLogo.png' alt='Ace Logo' class="margin-bottom-lg" id="ace-logo"/>
     <form action="login_process.php" method="post">
+        <?php
+        if(isset($_SESSION['wrong_input']) && $_SESSION['wrong_input'] === true) {
+            echo '<h4 class="red-alert">'."Your username or password is invalid".'</h4>';
+            unset($_SESSION['wrong_input']); // Unset the session variable
+        }?>
         <p class="heading-tertiary margin-bottom-sm">Username</p>
-        <input  type="text" class="margin-bottom-xsm general-text--input"  name="username">
+        <input  type="text" class="margin-bottom-xsm general-text--input"  name="username" required>
         <p class="heading-tertiary margin-bottom-sm">Password</p>
-        <input  type="text" class="margin-bottom-xsm general-text--input" name="password">
+        <input  type="text" class="margin-bottom-xsm general-text--input" name="password" required>
         <button class="form-button div-center margin-bottom-lg">Log in</button>
     </form>
     <div class="flex flex-gap-sm">

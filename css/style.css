@@ -223,10 +223,14 @@ i{
 	/* margin-top: 6.4rem; */
 }
 
-.exit-button-left {
+.exit-button-div {
 	width: 95%;
 	display: flex;
 	justify-content: flex-end;
+
+}
+
+.exit-button-right{
 	cursor: pointer;
 }
 
@@ -366,3 +370,11 @@ i{
 	cursor: pointer;
 }
 
+.red-alert{
+	background-color: #A12A3E;
+	border: 1px solid darkred;
+	color: white;
+	text-align: center;
+	margin-bottom: 1rem;
+	border-radius: 8px;
+}

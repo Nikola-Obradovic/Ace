@@ -15,6 +15,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Check if passwords match
     if ($password == $confirm_password) {
         // Insert user data into database
+        $sql_check_email = "SELECT * FROM users WHERE Email='$email'"; //email check
+        $result_check_email = mysqli_query($conn, $sql_check_email);
+
+        if(mysqli_num_rows($result_check_email) > 0) {
+            // Email already exists
+            $_SESSION['unique_check'] = true;
+            header("location: Register.php");
+            exit;
+        }
+
+        // Check if username is already registered
+        $sql_check_username = "SELECT * FROM users WHERE Username='$username'"; //username check
+        $result_check_username = mysqli_query($conn, $sql_check_username);
+
+        if(mysqli_num_rows($result_check_username) > 0) {
+            // Username already exists
+            $_SESSION['unique_check'] = true;
+            header("location: Register.php");
+            exit;
+        }
+
         $sql = "INSERT INTO users (Username, Email, Password) VALUES ('$username', '$email', '$hashed_password')";
         mysqli_query($conn, $sql);
 

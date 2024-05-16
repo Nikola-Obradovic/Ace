@@ -60,7 +60,11 @@ session_start();
                 </li>
             <?php } ?>
         </ul>
-        <a href="Login.php" class="link-button" id="login-button">Log in</a>
+        <?php if(!isset($_SESSION['U_ID'])) { ?>
+            <a href="Login.php" class="link-button" id="login-button">Log in</a>
+        <?php } else { ?>
+            <a href="Logout.php" class="link-button" id="login-button">Log out</a>
+        <?php } ?>
     </nav>
     <button class="btn-mobile-nav">
         <ion-icon class="icon-mobile-nav" name="menu-outline"></ion-icon>
@@ -72,13 +76,14 @@ session_start();
 <main class="margin-top-lg add-listing">
     <div class="flex flex-gap-sm your-profile-header margin-bottom-md">
         <img src="./img/default-avatar-icon.jpg" class="profile-picture">
-        <p class="heading-secondary">Username</p>
+        <p class="heading-secondary"><?php echo $_SESSION["Username"] ?></p>
     </div>
     <div class="container">
         <form action="">
             <p class="margin-bottom-sm">Type:</p>
-            <select class="select-input smaller-input margin-bottom-xsm">
-                <option>Car</option>
+            <select class="select-input smaller-input margin-bottom-xsm" required id="type-input-select">
+                <option disabled selected>Select Option</option>
+                <option>Cars</option>
                 <option>Housings</option>
                 <option>Smartphones</option>
                 <option>Shoes</option>
@@ -95,10 +100,26 @@ session_start();
                     <input type="text" class="general-text--input margin-bottom-xsm">
                 </div>
             </div>
-        </form>
+            <div class="grid grid--3-cols">
+                <div>
+                    <p class="margin-bottom-sm">Location:</p>
+                    <input type="text" class="general-text--input margin-bottom-xsm">
+                </div>
+                <div>
+                    <p class="margin-bottom-sm">Condition:</p>
+                    <select class="select-input margin-bottom-xsm">
+                        <option disabled selected>Select Option</option>
+                        <option>New</option>
+                        <option>Used</option>
+                    </select>
+                </div>
+                <div>
+                    <p class="margin-bottom-sm">Quantity:</p>
+                    <input type="text" class="general-text--input margin-bottom-xsm">
+                </div>
+            </div>
 
-        <div>
-            <form action="">
+                <div class="item-inputs hidden">
                 <div class="grid grid--2-cols">
                     <div>
                         <p class="margin-bottom-sm">Manufacturer:</p>
@@ -122,18 +143,19 @@ session_start();
                             <option></option>
                         </select>
                     </div>
-                </div>
-                <div class="div-center one-row--filter">
-                    <p class="margin-bottom-sm">Gas:</p>
-                    <select class="select-input margin-bottom-xsm">
-                        <option></option>
-                    </select>
-                </div>
-            </form>
-        </div>
 
-        <div>
-            <form action="">
+                </div>
+                    <div class="div-center one-row--filter">
+                        <p class="margin-bottom-sm">Gas:</p>
+                        <select class="select-input margin-bottom-xsm">
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+
+
+
+                <div class="item-inputs hidden">
                 <div class="grid grid--2-cols">
                     <div>
                         <p class="margin-bottom-sm">Type:</p>
@@ -154,11 +176,11 @@ session_start();
                         <input type="text" class="general-text--input margin-bottom-xsm">
                     </div>
                 </div>
-            </form>
-        </div>
+                </div>
 
-        <div>
-            <form action="">
+
+
+                <div class="item-inputs hidden">
                 <div class="grid grid--2-cols">
                     <div>
                         <p class="margin-bottom-sm">Brand:</p>
@@ -185,11 +207,11 @@ session_start();
                         </select>
                     </div>
                 </div>
-            </form>
-        </div>
+                </div>
 
-        <div>
-            <form action="">
+
+
+                <div class="item-inputs hidden">
                 <div class="grid grid--2-cols">
                     <div>
                         <p class="margin-bottom-sm">Brand:</p>
@@ -215,18 +237,19 @@ session_start();
                             <option></option>
                         </select>
                     </div>
-                </div>
-                <div class="div-center one-row--filter">
-                    <p class="margin-bottom-sm">RAM:</p>
-                    <select class="select-input margin-bottom-xsm">
-                        <option></option>
-                    </select>
-                </div>
-            </form>
-        </div>
 
-        <div>
-            <form action="">
+
+                </div>
+                    <div class="div-center one-row--filter">
+                        <p class="margin-bottom-sm">RAM:</p>
+                        <select class="select-input margin-bottom-xsm">
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="item-inputs hidden">
                 <div class="grid grid--2-cols">
                     <div>
                         <p class="margin-bottom-sm">Brand:</p>
@@ -265,18 +288,18 @@ session_start();
                         </select>
                     </div>
                 </div>
-            </form>
-        </div>
+                </div>
+
 
         <div class="margin-bottom-lg">
-            <form action="">
+
                 <p class="margin-bottom-sm">Description:</p>
                 <textarea class="textarea" rows="8"></textarea>
-            </form>
+
         </div>
 
         <button class="wide-button div-center">Post</button>
-
+        </form>
     </div>
 
 </main>
@@ -287,7 +310,7 @@ session_start();
             <p class="margin-bottom-sm footer-headings">ACE</p>
             <p><a href="./index.php">Discover</a></p>
             <p><a href="./your_profile.php">Your Profile</a></p>
-            <p><a href="./add_listing.php">Post new listing</a></p>
+            <p><a href="./post-new-listing.php">Post new listing</a></p>
         </div>
         <div>
             <p class="margin-bottom-sm footer-headings">CONTACT US</p>

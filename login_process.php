@@ -21,7 +21,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         sleep(1);
         header("location: index.php"); // Redirect to welcome page
     } else {
-        $error = "Your Login Name or Password is invalid";
+        $_SESSION['wrong_input'] = true;
+        header('location: Login.php');
+        exit;
     }
 }
 ?>

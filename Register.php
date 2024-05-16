@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -24,14 +27,19 @@
     <img src="img/AceLogo.png" alt="Ace Logo" class="margin-bottom-lg" id="ace-logo">
 
     <form action="register_process.php" method="post">
+        <?php
+        if(isset($_SESSION['unique_check'])) {
+            echo '<h4 class="red-alert">'."Username or email already exists".'</h4>';
+            unset($_SESSION['unique_check']); // Unset the session variable
+        }?>
         <p class="heading-tertiary margin-bottom-sm">Username</p>
-        <input type="text" class="general-text--input margin-bottom-xsm" name="username">
+        <input type="text" class="general-text--input margin-bottom-xsm" name="username" required>
         <p class="heading-tertiary margin-bottom-sm">Email</p>
-        <input type="text" class="general-text--input margin-bottom-xsm" name="email">
+        <input type="text" class="general-text--input margin-bottom-xsm" name="email" required>
         <p class="heading-tertiary margin-bottom-sm">Password</p>
-        <input type="text" class="general-text--input margin-bottom-xsm" name="password">
+        <input type="text" class="general-text--input margin-bottom-xsm" name="password" required>
         <p class="heading-tertiary margin-bottom-sm">Confirm Password</p>
-        <input type="text" class="general-text--input margin-bottom-xsm" name="confirm_password">
+        <input type="text" class="general-text--input margin-bottom-xsm" name="confirm_password" required>
 
         <button class="form-button margin-bottom-lg div-center">Register</button>
     </form>

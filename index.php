@@ -386,8 +386,9 @@ session_start();
 
 
             <div class="pop-up hidden">
-                <div class="exit-button-left margin-bottom-sm">
-                    <i class="fa-solid fa-x" style="color: #040404;"></i>
+                <form>
+                <div class="exit-button-div margin-bottom-sm">
+                    <i class="fa-solid fa-x exit-button-right" style="color: #040404;"></i>
                 </div>
                 <p class="margin-bottom-sm">Sort by:</p>
                 <div class="grid grid--2-cols" id="sort-filters">
@@ -410,6 +411,7 @@ session_start();
                 <div class="container-button-left margin-top-md">
                     <button class="form-button">Apply</button>
                 </div>
+                </form>
             </div>
 
 

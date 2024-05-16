@@ -59,29 +59,84 @@ filterButtons.forEach(button => {
 
 //filters button main
 const openFilters = document.querySelector('.filters-button');
-const exitFilters = document.querySelector('.exit-button-left');
-const main = document.querySelector("main");
+const exitFilters = document.querySelector('.exit-button-right');
 
 
-openFilters.addEventListener('click', () => {
-    document.querySelector('.pop-up').classList.remove('hidden');
-    document.querySelector('.dimmed-background').classList.remove('hidden');
-});
+if (openFilters && exitFilters) { //error prevention on pages where openFilters/exitFilters is undefined
+    openFilters.addEventListener('click', () => {
+        document.querySelector('.pop-up').classList.remove('hidden');
+        document.querySelector('.dimmed-background').classList.remove('hidden');
+    });
 
-exitFilters.addEventListener('click', () => {
-   document.querySelector('.pop-up').classList.add('hidden');
-   document.querySelector('.dimmed-background').classList.add('hidden');
-});
-
-
-
-/*
-
-main.addEventListener('click', () => {
-    if( !document.querySelector('.pop-up').classList.contains("hidden") ){
+    exitFilters.addEventListener('click', () => {
         document.querySelector('.pop-up').classList.add('hidden');
+        document.querySelector('.dimmed-background').classList.add('hidden');
+    });
+
+}
+
+
+
+const itemInputsArr = document.querySelectorAll('.item-inputs');
+const typeInputSelect = document.querySelector('#type-input-select');
+
+
+typeInputSelect.addEventListener('change', function(){
+
+    let selectedOption = this.value;
+    switch(selectedOption) {
+        case "Cars":
+            itemInputsArr.forEach(input =>{
+                input.classList.add('hidden');
+
+            });
+            itemInputsArr[0].classList.remove('hidden');
+
+
+            break;
+        case "Housings":
+            itemInputsArr.forEach(input =>{
+                input.classList.add('hidden');
+
+            });
+            itemInputsArr[1].classList.remove('hidden');
+            break;
+        case "Smartphones":
+            itemInputsArr.forEach(input =>{
+                input.classList.add('hidden');
+
+            });
+            itemInputsArr[2].classList.remove('hidden');
+            break;
+        case "Shoes":
+            itemInputsArr.forEach(input =>{
+                input.classList.add('hidden');
+
+            });
+            itemInputsArr[3].classList.remove('hidden');
+            break;
+        case "Laptops":
+            itemInputsArr.forEach(input =>{
+                input.classList.add('hidden');
+
+            });
+            itemInputsArr[4].classList.remove('hidden');
+            break;
+
+        default:
+            itemInputsArr.forEach(input =>{
+                input.classList.add('hidden');
+
+            });
+            break;
+
     }
+
+
+
 });
 
 
- */
+
+
+
