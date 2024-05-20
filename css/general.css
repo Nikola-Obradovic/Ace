@@ -77,6 +77,12 @@ a:visited {
     margin: 0 auto;
     padding: 0 3.2rem;
 }
+
+.container-listings {
+    max-width: 180rem;
+    margin: 0 auto;
+   padding: 0 3.2rem;
+}
 /* ---------------- */
 /* GRIDS */
 /* ---------------- */
@@ -127,6 +133,12 @@ a:visited {
     align-items: center;
     text-align: center;
 }
+.flex-start{
+
+    justify-content: flex-start;
+    align-content: flex-start;
+}
+
 /* ---------------- */
 /* BUTTONS */
 /* ---------------- */
