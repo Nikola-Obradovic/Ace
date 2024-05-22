@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../includes/db_connection.php';
+require '../includes/db_connection.php';
 
 ?>
 <!doctype html>
@@ -76,8 +76,7 @@ include '../includes/db_connection.php';
 
 <main class="margin-top-lg">
 <section class="red-circles container flex flex-gap-lg wrapped margin-bottom-lg">
-    <div class="flex flex-column flex-gap-tiny"><label class="red-label"><button class="red-circle-button"><i class="fa-solid fa-car"></i></button><p>Cars</p>
-        </label></div>
+    <div class="flex flex-column flex-gap-tiny"><label class="red-label"><button class="red-circle-button"><i class="fa-solid fa-car"></i></button><p>Cars</p></label></div>
     <div class="flex flex-column flex-gap-tiny"><label class="red-label"><button class="red-circle-button"><i class="fa-solid fa-house"></i></button><p>Housings</p></label></div>
     <div class="flex flex-column flex-gap-tiny"><label class="red-label"><button class="red-circle-button"><i class="fa-solid fa-mobile-screen-button"></i></button><p>Smartphones</p></label></div>
     <div class="flex flex-column flex-gap-tiny"><label class="red-label"><button class="red-circle-button"><i class="fa-solid fa-shoe-prints"></i></button><p>Shoes</p></label></div>
@@ -166,6 +165,7 @@ include '../includes/db_connection.php';
                 </svg>
                 <input type="text" name="housings_search" class="general-text--input searchInput" placeholder="Search" style="width: 96%; margin-left: 1.6rem; margin-bottom: 4.8rem">
             </form>
+            <form method="post" style="padding: 0">
             <div class="grid grid--2-cols filter-mobile">
                 <div class="margin-bottom-md">
                     <p class="margin-bottom-sm">Type:</p>
@@ -178,23 +178,36 @@ include '../includes/db_connection.php';
                 <div class="margin-bottom-md">
                     <p class="margin-bottom-sm">Location:</p>
                     <select class="select-input" name="location">
-                        <option></option>
-                        <!--treba iz baze-->
+                        <option value="">Any</option>
+                        <?php
+                        $query = "SELECT DISTINCT Location FROM listings ORDER BY Location ASC";
+                        /** @noinspection PhpUndefinedVariableInspection */
+                        $result = mysqli_query($conn, $query);
+
+                        if (mysqli_num_rows($result) > 0) {
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                echo "<option value='" . htmlspecialchars($row['Location']) . "'>" . htmlspecialchars($row['Location']) . "</option>";
+                            }
+                        }
+                        ?>
                     </select>
                 </div>
                 <div class="margin-bottom-md">
                     <p class="margin-bottom-sm">Square meters:</p>
                     <div class="flex flex-gap-sm">
-                        <input type="text" class="general-text--input" name="square_footage" placeholder="from">
-                        <input type="text" class="general-text--input" placeholder="to">
+                        <input type="text" class="general-text--input" name="square_meters_from" placeholder="from">
+                        <input type="text" class="general-text--input" name="square_meters_to" placeholder="to">
                     </div>
                 </div>
                 <div class="margin-bottom-md">
                     <p class="margin-bottom-sm">Bedrooms:</p>
-                    <select class="select-input">
+                    <select class="select-input" name="bedrooms">
+                        <option value="">Any</option>
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
+                        <option>4</option>
+                        <option value="5+">5+</option>
                     </select>
                 </div>
             </div>
@@ -202,11 +215,12 @@ include '../includes/db_connection.php';
             <div class="div-center margin-bottom-lg one-row--filter">
                 <p class="margin-bottom-sm">Price range:</p>
                 <div class="flex flex-gap-sm">
-                    <input type="text" class="general-text--input" placeholder="from">
-                    <input type="text" class="general-text--input" placeholder="to">
+                    <input type="text" class="general-text--input" name="housings_price_min" placeholder="from">
+                    <input type="text" class="general-text--input" name="housings_price_max" placeholder="to">
                 </div>
             </div>
-            <button class="form-button div-center">Apply</button>
+            <button class="form-button div-center" type="submit">Apply</button>
+            </form>
         </div>
     </section>
 
@@ -219,10 +233,12 @@ include '../includes/db_connection.php';
 
                 <input type="text" name="phones_search" class="general-text--input searchInput" placeholder="Search" style="width: 96%; margin-left: 1.6rem; margin-bottom: 4.8rem">
             </form>
+            <form method="post" style="padding: 0">
             <div class="grid grid--2-cols filter-mobile">
                 <div class="margin-bottom-md">
                     <p class="margin-bottom-sm">Brand:</p>
-                    <select class="select-input">
+                    <select class="select-input" name="phone_brand">
+                        <option value="">Any</option>
                         <option>Apple</option>
                         <option>Xiaomi</option>
                         <option>Samsung</option>
@@ -230,14 +246,17 @@ include '../includes/db_connection.php';
                 </div>
                 <div class="margin-bottom-md">
                     <p class="margin-bottom-sm">Series:</p>
-                    <select class="select-input">
+                    <select class="select-input" name="phone_series">
+                        <option value="">Any</option>
                         <option>S24</option>
                         <option>iPhone 15</option>
                     </select>
                 </div>
                 <div class="margin-bottom-md">
                     <p class="margin-bottom-sm">Color:</p>
-                    <select class="select-input">
+                    <select class="select-input" name="phone_color">
+                        <option value="">Any</option>
+                        <option>Black</option>
                         <option>Red</option>
                         <option>Green</option>
                         <option>Blue</option>
@@ -245,7 +264,8 @@ include '../includes/db_connection.php';
                 </div>
                 <div class="margin-bottom-md">
                     <p class="margin-bottom-sm">Storage:</p>
-                    <select class="select-input">
+                    <select class="select-input" name="phone_storage">
+                        <option value="">Any</option>
                         <option>64</option>
                         <option>128</option>
                         <option>256</option>
@@ -253,7 +273,8 @@ include '../includes/db_connection.php';
                 </div>
                 <div class="margin-bottom-md">
                     <p class="margin-bottom-sm">RAM:</p>
-                    <select class="select-input">
+                    <select class="select-input" name="phone_RAM">
+                        <option value="">Any</option>
                         <option>16</option>
                         <option>32</option>
                         <option>64</option>
@@ -262,13 +283,14 @@ include '../includes/db_connection.php';
                 <div class="margin-bottom-lg">
                     <p class="margin-bottom-sm">Price range:</p>
                     <div class="flex flex-gap-sm">
-                        <input type="text" class="general-text--input" placeholder="from">
-                        <input type="text" class="general-text--input" placeholder="to">
+                        <input type="text" class="general-text--input" name="phone_price_min" placeholder="from">
+                        <input type="text" class="general-text--input" name="phone_price_max" placeholder="to">
                     </div>
                 </div>
             </div>
 
-            <button class="form-button div-center">Apply</button>
+            <button class="form-button div-center" type="submit">Apply</button>
+            </form>
         </div>
     </section>
 
@@ -282,10 +304,12 @@ include '../includes/db_connection.php';
 
                 <input type="text" name="shoes_search" class="general-text--input searchInput" placeholder="Search" style="width: 96%; margin-left: 1.6rem; margin-bottom: 4.8rem">
             </form>
+            <form method="post" style="padding: 0">
             <div class="grid grid--2-cols filter-mobile">
                 <div class="margin-bottom-md">
                     <p class="margin-bottom-sm">Brand:</p>
-                    <select class="select-input">
+                    <select class="select-input" name="shoe_brand">
+                        <option value="">Any</option>
                         <option>Nike</option>
                         <option>Adidas</option>
                         <option>Puma</option>
@@ -293,7 +317,8 @@ include '../includes/db_connection.php';
                 </div>
                 <div class="margin-bottom-md">
                     <p class="margin-bottom-sm">Model:</p>
-                    <select class="select-input">
+                    <select class="select-input" name="shoe_model">
+                        <option value="">Any</option>
                         <option>Jordan 1</option>
                         <option>Yeezy</option>
                         <option>Air Force 1</option>
@@ -301,7 +326,8 @@ include '../includes/db_connection.php';
                 </div>
                 <div class="margin-bottom-md">
                     <p class="margin-bottom-sm">Gender:</p>
-                    <select class="select-input">
+                    <select class="select-input" name="gender">
+                        <option value="">Any</option>
                         <option>Male</option>
                         <option>Female</option>
                         <option>Unisex</option>
@@ -309,23 +335,32 @@ include '../includes/db_connection.php';
                 </div>
                 <div class="margin-bottom-md">
                     <p class="margin-bottom-sm">Shoe size:</p>
-                    <select class="select-input">
-                        <option>42</option>
-                        <option>43</option>
-                        <option>44</option>
-                        <!--treba ovo iz baze-->
+                    <select class="select-input" name="shoe_size">
+                        <option value="">Any</option>
+                        <?php
+                        $shoe_query = "SELECT DISTINCT Size FROM shoes ORDER BY Size ASC";
+                        /** @noinspection PhpUndefinedVariableInspection */
+                        $shoe_size = mysqli_query($conn, $shoe_query);
+
+                        if (mysqli_num_rows($shoe_size) > 0) {
+                            while ($row = mysqli_fetch_assoc($shoe_size)) {
+                                echo "<option value='" . intval($row['Size']) . "'>" . intval($row['Size']) . "</option>";
+                            }
+                        }
+                        ?>
                     </select>
                 </div>
             </div>
                 <div class="div-center margin-bottom-lg one-row--filter">
                     <p class="margin-bottom-sm">Price range:</p>
                     <div class="flex flex-gap-sm">
-                        <input type="text" class="general-text--input" placeholder="from">
-                        <input type="text" class="general-text--input" placeholder="to">
+                        <input type="text" class="general-text--input" name="shoes_price_min" placeholder="from">
+                        <input type="text" class="general-text--input" name="shoes_price_max" placeholder="to">
                     </div>
                 </div>
 
-            <button class="form-button div-center">Apply</button>
+            <button class="form-button div-center" type="submit">Apply</button>
+            </form>
         </div>
     </section>
 
@@ -338,10 +373,12 @@ include '../includes/db_connection.php';
 
                 <input type="text" name="laptops_search" class="general-text--input searchInput" placeholder="Search" style="width: 96%; margin-left: 1.6rem; margin-bottom: 4.8rem">
             </form>
+            <form method="post" style="padding: 0">
             <div class="grid grid--2-cols filter-mobile">
                 <div class="margin-bottom-md">
                     <p class="margin-bottom-sm">Brand:</p>
-                    <select class="select-input">
+                    <select class="select-input" name="laptop_brand">
+                        <option value="">Any</option>
                         <option>MSI</option>
                         <option>Asus</option>
                         <option>Acer</option>
@@ -349,7 +386,8 @@ include '../includes/db_connection.php';
                 </div>
                 <div class="margin-bottom-md">
                     <p class="margin-bottom-sm">Model:</p>
-                    <select class="select-input">
+                    <select class="select-input" name="laptop_model">
+                        <option value="">Any</option>
                         <option>Katana</option>
                         <option>Dobrila</option>
                         <option>xyz</option>
@@ -357,7 +395,8 @@ include '../includes/db_connection.php';
                 </div>
                 <div class="margin-bottom-md">
                     <p class="margin-bottom-sm">Display:</p>
-                    <select class="select-input">
+                    <select class="select-input" name="display_size">
+                        <option value="">Any</option>
                         <option>18</option>
                         <option>24</option>
                         <option>28</option>
@@ -365,7 +404,8 @@ include '../includes/db_connection.php';
                 </div>
                 <div class="margin-bottom-md">
                     <p class="margin-bottom-sm">Processor:</p>
-                    <select class="select-input">
+                    <select class="select-input" name="processor">
+                        <option value="">Any</option>
                         <option>Intel i7</option>
                         <option>Intel i9</option>
                         <option>Ryzen 5000</option>
@@ -373,7 +413,8 @@ include '../includes/db_connection.php';
                 </div>
                 <div class="margin-bottom-md">
                     <p class="margin-bottom-sm">Storage:</p>
-                    <select class="select-input">
+                    <select class="select-input" name="laptop_storage">
+                        <option value="">Any</option>
                         <option>256</option>
                         <option>512</option>
                         <option>1024</option>
@@ -382,7 +423,8 @@ include '../includes/db_connection.php';
                 </div>
                 <div class="margin-bottom-md">
                     <p class="margin-bottom-sm">RAM:</p>
-                    <select class="select-input">
+                    <select class="select-input" name="laptop_RAM">
+                        <option value="">Any</option>
                         <option>16</option>
                         <option>32</option>
                         <option>64</option>
@@ -393,12 +435,13 @@ include '../includes/db_connection.php';
                 <div class="div-center margin-bottom-lg one-row--filter">
                     <p class="margin-bottom-sm">Price range:</p>
                     <div class="flex flex-gap-sm">
-                        <input type="text" class="general-text--input" placeholder="from">
-                        <input type="text" class="general-text--input" placeholder="to">
+                        <input type="text" class="general-text--input" name="laptop_price_min" placeholder="from">
+                        <input type="text" class="general-text--input" name="laptop_price_max" placeholder="to">
                     </div>
                 </div>
 
-                <button class="form-button div-center">Apply</button>
+                <button class="form-button div-center" type="submit">Apply</button>
+            </form>
         </div>
     </section>
 
@@ -409,7 +452,6 @@ include '../includes/db_connection.php';
             </svg>
             <input type="text" name="q" class="search-bar-main searchInput" placeholder="Find something new">
         </form>
-
         <button class="filters-button">
             <div class="flex flex-gap-tiny">
                 <i class="fa-solid fa-filter" style="color: #d0cdce;"></i>
@@ -423,6 +465,15 @@ include '../includes/db_connection.php';
             <div class="exit-button-div margin-bottom-sm">
                 <i class="fa-solid fa-x exit-button-right" style="color: #040404;"></i>
             </div>
+            <form action="" method="post" style="padding: 0;">
+                <section class="red-circles container flex flex-gap-tiny wrapped" style="margin-bottom: 20px">
+                    <div class="flex flex-column flex-gap-tiny"><label class="red-label"><button class="red-circle-button1" name="subcategory" value="car" type="submit"><i class="fa-solid fa-car"></i></button></label></div>
+                    <div class="flex flex-column flex-gap-tiny"><label class="red-label"><button class="red-circle-button1" name="subcategory" value="house" type="submit"><i class="fa-solid fa-house"></i></button></label></div>
+                    <div class="flex flex-column flex-gap-tiny"><label class="red-label"><button class="red-circle-button1" name="subcategory" value="mobile" type="submit"><i class="fa-solid fa-mobile-screen-button"></i></button></label></div>
+                    <div class="flex flex-column flex-gap-tiny"><label class="red-label"><button class="red-circle-button1" name="subcategory" value="shoe" type="submit"><i class="fa-solid fa-shoe-prints"></i></button></label></div>
+                    <div class="flex flex-column flex-gap-tiny"><label class="red-label"><button class="red-circle-button1" name="subcategory" value="laptop" type="submit"><i class="fa-solid fa-laptop"></i></button></label></div>
+                </section>
+            </form>
             <p class="margin-bottom-sm">Sort by:</p>
             <form action="" method="post">
                 <div class="grid grid--2-cols" id="sort-filters">
@@ -453,17 +504,17 @@ include '../includes/db_connection.php';
     <section class="main-section">
         <div class="container-listings discover-container">
             <!-- IMPROVE -->
-            <div class="flex flex-gap-lg wrapped flex-start">
+            <div class="flex flex-gap-lg wrapped flex-start" >
             <?php
             $sql = "SELECT * FROM listings WHERE 1=1";
 
-            // Exclude listings from the logged-in user if session is active
+            // 🔴🔴 Exclude listings from the logged-in user if session is active 🔴🔴
             if (isset($_SESSION['U_ID'])) {
                 $user_id = intval($_SESSION['U_ID']);
                 $sql .= " AND Seller != $user_id";
             }
 
-            // Price range filter
+            // 🔴🔴 General price range filter 🔴🔴
             if(isset($_POST['price_max'])) {
                 $price_max = floatval($_POST['price_max']);
                 // In case the minimal price is not set, set it to 0
@@ -478,7 +529,7 @@ include '../includes/db_connection.php';
                 $sql .= " AND Price BETWEEN $price_min AND $price_max";
             }
 
-            // Basic sorting
+            // 🔴🔴 Basic sorting 🔴🔴
             if(isset($_POST['sort'])) {
                 $sort = $_POST['sort'];
                 switch($sort) {
@@ -496,10 +547,35 @@ include '../includes/db_connection.php';
                         break;
                 }
             }
+            // 🔴🔴 General search filter 🔴🔴
             if(isset($_POST['q'])) {
                 $search_query = $_POST['q'];
                 $sql .= " AND Title LIKE '%$search_query%'";
             }
+
+            // 🔴🔴 Subcategory filter 🔴🔴
+            if(isset($_POST['subcategory'])) {
+                $subcategory = $_POST['subcategory'];
+                switch($subcategory) {
+                    case 'car':
+                        $sql .= " AND L_ID IN (SELECT L_ID FROM cars)";
+                        break;
+                    case 'house':
+                        $sql .= " AND L_ID IN (SELECT L_ID FROM housings)";
+                        break;
+                    case 'mobile':
+                        $sql .= " AND L_ID IN (SELECT L_ID FROM phones)";
+                        break;
+                    case 'shoe':
+                        $sql .= " AND L_ID IN (SELECT L_ID FROM shoes)";
+                        break;
+                    case 'laptop':
+                        $sql .= " AND L_ID IN (SELECT L_ID FROM laptops)";
+                        break;
+                }
+            }
+
+            // 🔴🔴 CARS PART 🔴🔴
 
             // Cars search filter
             if (isset($_POST['cars_search'])) {
@@ -507,54 +583,10 @@ include '../includes/db_connection.php';
                 $sql .= " AND Title LIKE '%$search_query%' AND listings.L_ID IN (SELECT L_ID FROM cars)";
             }
 
-            // Manufacturer filter
-            if (!empty($_POST['manufacturer'])) {
-                /** @noinspection PhpUndefinedVariableInspection */
-                $manufacturer = mysqli_real_escape_string($conn, $_POST['manufacturer']);
-                $sql .= " AND L_ID IN (SELECT L_ID FROM cars WHERE Manufacturer = '$manufacturer')";
-            }
+            include '../filters/cars_filters.php';
+            applyCarFilters($conn, $sql);
 
-            // Model filter
-            if (!empty($_POST['model'])) {
-                /** @noinspection PhpUndefinedVariableInspection */
-                $model = mysqli_real_escape_string($conn, $_POST['model']);
-                $sql .= " AND L_ID IN (SELECT L_ID FROM cars WHERE Model = '$model')";
-            }
-
-            // Mileage range filter
-            if (!empty($_POST['mileage_from']) || !empty($_POST['mileage_to'])) {
-                $mileage_from = !empty($_POST['mileage_from']) ? intval($_POST['mileage_from']) : 0;
-                $mileage_to = !empty($_POST['mileage_to']) ? intval($_POST['mileage_to']) : PHP_INT_MAX;
-                $sql .= " AND L_ID IN (SELECT L_ID FROM cars WHERE Mileage BETWEEN $mileage_from AND $mileage_to)";
-            }
-
-            // Transmission filter
-            if (!empty($_POST['transmission'])) {
-                /** @noinspection PhpUndefinedVariableInspection */
-                $transmission = mysqli_real_escape_string($conn, $_POST['transmission']);
-                $sql .= " AND L_ID IN (SELECT L_ID FROM cars WHERE Transmission = '$transmission')";
-            }
-
-            // Price range filter
-            if (!empty($_POST['cars_price_max'])) {
-                $cars_price_max = floatval($_POST['cars_price_max']);
-                $cars_price_min = !empty($_POST['cars_price_min']) ? floatval($_POST['cars_price_min']) : 0;
-
-                if ($cars_price_min > $cars_price_max) {
-                    $temp = $cars_price_min;
-                    $cars_price_min = $cars_price_max;
-                    $cars_price_max = $temp;
-                }
-
-                $sql .= " AND L_ID IN (SELECT L_ID FROM cars WHERE Price BETWEEN $cars_price_min AND $cars_price_max)";
-            }
-
-            // Fuel type filter
-            if (!empty($_POST['fuel_type'])) {
-                /** @noinspection PhpUndefinedVariableInspection */
-                $fuel_type = mysqli_real_escape_string($conn, $_POST['fuel_type']);
-                $sql .= " AND L_ID IN (SELECT L_ID FROM cars WHERE Fuel_Type = '$fuel_type')";
-            }
+            // 🔴🔴 HOUSINGS PART 🔴🔴
 
             // Housings search filter
             if (isset($_POST['housings_search'])) {
@@ -562,11 +594,21 @@ include '../includes/db_connection.php';
                 $sql .= " AND Title LIKE '%$search_query%' AND listings.L_ID IN (SELECT L_ID FROM housings)";
             }
 
+            include '../filters/housings_filters.php';
+            applyHousingsFilters($conn, $sql);
+
+            // 🔴🔴 PHONES PART 🔴🔴
+
             // Phones search filter
             if (isset($_POST['phones_search'])) {
                 $search_query = $_POST['phones_search'];
                 $sql .= " AND Title LIKE '%$search_query%' AND listings.L_ID IN (SELECT L_ID FROM phones)";
             }
+
+            include '../filters/phone_filters.php';
+            applyPhoneFilters($conn, $sql);
+
+            // 🔴🔴 SHOES PART 🔴🔴
 
             // Shoes search filter
             if (isset($_POST['shoes_search'])) {
@@ -574,13 +616,20 @@ include '../includes/db_connection.php';
                 $sql .= " AND Title LIKE '%$search_query%' AND listings.L_ID IN (SELECT L_ID FROM shoes)";
             }
 
+            include '../filters/shoes_filters.php';
+            applyShoesFilters($conn, $sql);
+
+            // 🔴🔴 LAPTOPS PART 🔴🔴
+
             // Laptops search filter
             if (isset($_POST['laptops_search'])) {
                 $search_query = $_POST['laptops_search'];
                 $sql .= " AND Title LIKE '%$search_query%' AND listings.L_ID IN (SELECT L_ID FROM laptops)";
             }
 
-            /** @noinspection PhpUndefinedVariableInspection */
+            include '../filters/laptops_filters.php';
+            applyLaptopsFilters($conn, $sql);
+
             $result = mysqli_query($conn, $sql);
 
             //
@@ -590,6 +639,7 @@ include '../includes/db_connection.php';
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo "<div class='listing'>";
+                    //echo "<img src='../img/" . $row["First_Picture_Path"] . "' alt='' width=50% height=50%>";
                     echo "<h3>" . $row["Title"] . "</h3>";
                     echo "<p>Location: " . $row["Location"] . "</p>";
                     echo "<p>Price: €" . $row["Price"] . "</p>";

@@ -222,6 +222,7 @@ session_start();
                         <p class="margin-bottom-sm">Color:</p>
                         <select class="select-input margin-bottom-xsm" name="color">
                             <option value=""  selected>Select Option</option>
+                            <option>Black</option>
                             <option>Red</option>
                             <option>Green</option>
                             <option>Blue</option>
