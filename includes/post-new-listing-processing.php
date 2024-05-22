@@ -4,7 +4,7 @@ $i=0;
 //echo $_SESSION["img$i"];
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-   if (empty($_SESSION["img$i"])) { //MORAS UNSETAT SVE SESSION[i]
+   if (empty($_SESSION["img$i"])) {
         $_SESSION["no_img"] = true;
 
         header("location: ../public/post-new-listing.php");
@@ -13,6 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     // Escape user inputs for security
+    /** @noinspection PhpUndefinedVariableInspection */
     $title = mysqli_real_escape_string($conn, $_POST['item_name']);
     $description = mysqli_real_escape_string($conn, $_POST['description']);
     $price = mysqli_real_escape_string($conn, $_POST['price']);
@@ -22,8 +23,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $listing_type = mysqli_real_escape_string($conn, $_POST['listing_type']);
     $seller_id = $_SESSION['U_ID']; // Assuming user ID is stored in session
 
+    $nameFirst = $_SESSION["img0"];
     // Insert into listings table
-    $sql = "INSERT INTO listings (Title, Description, Price, Location, Condition_Of_Listing, Date_Posted, Quantity, Seller, Listing_Type) VALUES ('$title', '$description', '$price', '$location', '$condition', NOW(), '$quantity', '$seller_id', '$listing_type')";
+    $sql = "INSERT INTO listings (Title, Description, Price, Location, Condition_Of_Listing, Date_Posted, Quantity, Seller, First_Picture_Path, Listing_Type) VALUES ('$title', '$description', '$price', '$location', '$condition', NOW(), '$quantity', '$seller_id', '$nameFirst', '$listing_type')";
 
     mysqli_query($conn, $sql);
     $listing_id = mysqli_insert_id($conn);
@@ -120,5 +122,4 @@ while (isset($_SESSION["img$i"])){
 
 mysqli_close($conn);
 sleep(1);
-header('location: ../public/index.php')
-    ?>
+header('location: ../public/index.php');

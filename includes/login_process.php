@@ -6,6 +6,7 @@ require 'db_connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Escape user inputs for security
+    /** @noinspection PhpUndefinedVariableInspection */
     $username = mysqli_real_escape_string($conn, $_POST['username']);
     $password = mysqli_real_escape_string($conn, $_POST['password']);
     $hashed_password = hash('sha256', $password);
@@ -29,4 +30,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
 }
-?>

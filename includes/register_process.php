@@ -7,6 +7,7 @@ require 'db_connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Escape user inputs for security
+    /** @noinspection PhpUndefinedVariableInspection */
     $username = mysqli_real_escape_string($conn, $_POST['username']);
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $password = mysqli_real_escape_string($conn, $_POST['password']);
@@ -51,4 +52,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $error = "Passwords do not match";
     }
 }
-?>

@@ -137,15 +137,15 @@ if (typeInputSelect) {
 }
 
 
-const searchInput = document.getElementById('searchInput');
-if (searchInput) {
+const searchInputs = document.querySelectorAll('.searchInput');
+searchInputs.forEach(searchInput => {
     searchInput.addEventListener('keydown', function (event) {
         if (event.key === "Enter") { // Check if the pressed key is Enter
             event.preventDefault(); // Prevent default form submission
             this.form.submit();
         }
     });
-}
+});
 
 
 

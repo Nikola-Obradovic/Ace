@@ -23,4 +23,3 @@ if (!empty($_FILES['file']['name'][0])) {
 } else {
     echo "No files uploaded.\n";
 }
-?>
