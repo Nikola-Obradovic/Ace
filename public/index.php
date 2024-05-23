@@ -1,9 +1,9 @@
 <?php
 session_start();
 require '../includes/db_connection.php';
-include '../includes/fetch_listings.php';
-include '../includes/location_fetch.php';
-include '../includes/shoe_size_fetch.php';
+//include '../includes/fetch_listings.php';
+//include '../includes/location_fetch.php';
+//include '../includes/shoe_size_fetch.php';
 
 ?>
 <!doctype html>
@@ -90,13 +90,13 @@ include '../includes/shoe_size_fetch.php';
     <section class="filter-section hidden">
         <div class="container">
 
-            <form method="post" class="flex flex-gap-tiny margin-bottom-md" style="display: contents">
+            <form method="post" class="flex flex-gap-tiny margin-bottom-md" style="display: contents" action="../includes/fetch_listings.php" id="car-search">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 search-icon">
                     <path fill-rule="evenodd" d="M10.5 3.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5ZM2.25 10.5a8.25 8.25 0 1 1 14.59 5.28l4.69 4.69a.75.75 0 1 1-1.06 1.06l-4.69-4.69A8.25 8.25 0 0 1 2.25 10.5Z" clip-rule="evenodd" />
                 </svg>
                 <input type="text" name="cars_search" class="general-text--input searchInput" placeholder="Search" style="width: 96%; margin-left: 1.6rem; margin-bottom: 4.8rem">
             </form>
-            <form method="post" style="padding: 0">
+            <form method="post" style="padding: 0" action="../includes/fetch_listings.php" id="car-filter">
             <div class="grid grid--2-cols filter-mobile">
                 <div class="margin-bottom-md">
                     <p class="margin-bottom-sm">Manufacturer:</p>
@@ -162,13 +162,13 @@ include '../includes/shoe_size_fetch.php';
 
     <section class="filter-section hidden">
         <div class="container">
-            <form method="post" class="flex flex-gap-tiny margin-bottom-md" style="display: contents">
+            <form method="post" class="flex flex-gap-tiny margin-bottom-md" style="display: contents" action="../includes/fetch_listings.php" id="house-search">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 search-icon">
                     <path fill-rule="evenodd" d="M10.5 3.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5ZM2.25 10.5a8.25 8.25 0 1 1 14.59 5.28l4.69 4.69a.75.75 0 1 1-1.06 1.06l-4.69-4.69A8.25 8.25 0 0 1 2.25 10.5Z" clip-rule="evenodd" />
                 </svg>
                 <input type="text" name="housings_search" class="general-text--input searchInput" placeholder="Search" style="width: 96%; margin-left: 1.6rem; margin-bottom: 4.8rem">
             </form>
-            <form method="post" style="padding: 0">
+            <form method="post" style="padding: 0" action="../includes/fetch_listings.php" id="house-filter">
             <div class="grid grid--2-cols filter-mobile">
                 <div class="margin-bottom-md">
                     <p class="margin-bottom-sm">Type:</p>
@@ -184,7 +184,7 @@ include '../includes/shoe_size_fetch.php';
                         <option value="">Any</option>
                         <?php
                         /** @noinspection PhpUndefinedVariableInspection */
-                            fetchlocation($conn);
+                        //    fetchlocation($conn);
                         ?>
                     </select>
                 </div>
@@ -222,14 +222,14 @@ include '../includes/shoe_size_fetch.php';
 
     <section class="filter-section hidden">
         <div class="container">
-            <form method="post" class="flex flex-gap-tiny margin-bottom-md" style="display: contents">
+            <form method="post" class="flex flex-gap-tiny margin-bottom-md" style="display: contents" action="../includes/fetch_listings.php" id="phone-search">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 search-icon">
                     <path fill-rule="evenodd" d="M10.5 3.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5ZM2.25 10.5a8.25 8.25 0 1 1 14.59 5.28l4.69 4.69a.75.75 0 1 1-1.06 1.06l-4.69-4.69A8.25 8.25 0 0 1 2.25 10.5Z" clip-rule="evenodd" />
                 </svg>
 
                 <input type="text" name="phones_search" class="general-text--input searchInput" placeholder="Search" style="width: 96%; margin-left: 1.6rem; margin-bottom: 4.8rem">
             </form>
-            <form method="post" style="padding: 0">
+            <form method="post" style="padding: 0" action="../includes/fetch_listings.php" id="phone-filter">
             <div class="grid grid--2-cols filter-mobile">
                 <div class="margin-bottom-md">
                     <p class="margin-bottom-sm">Brand:</p>
@@ -293,14 +293,14 @@ include '../includes/shoe_size_fetch.php';
     <section class="filter-section hidden">
 
         <div class="container">
-            <form class="flex flex-gap-tiny margin-bottom-md" style="display: contents">
+            <form class="flex flex-gap-tiny margin-bottom-md" style="display: contents" action="../includes/fetch_listings.php" id="shoe-search">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 search-icon">
                     <path fill-rule="evenodd" d="M10.5 3.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5ZM2.25 10.5a8.25 8.25 0 1 1 14.59 5.28l4.69 4.69a.75.75 0 1 1-1.06 1.06l-4.69-4.69A8.25 8.25 0 0 1 2.25 10.5Z" clip-rule="evenodd" />
                 </svg>
 
                 <input type="text" name="shoes_search" class="general-text--input searchInput" placeholder="Search" style="width: 96%; margin-left: 1.6rem; margin-bottom: 4.8rem">
             </form>
-            <form method="post" style="padding: 0">
+            <form method="post" style="padding: 0" action="../includes/fetch_listings.php" id="shoe-filter">
             <div class="grid grid--2-cols filter-mobile">
                 <div class="margin-bottom-md">
                     <p class="margin-bottom-sm">Brand:</p>
@@ -335,7 +335,7 @@ include '../includes/shoe_size_fetch.php';
                         <option value="">Any</option>
                         <?php
                         /** @noinspection PhpUndefinedVariableInspection */
-                            fetchShoeSize($conn);
+                           // fetchShoeSize($conn);
                         ?>
                     </select>
                 </div>
@@ -355,14 +355,14 @@ include '../includes/shoe_size_fetch.php';
 
     <section class="filter-section hidden">
         <div class="container">
-            <form class="flex flex-gap-tiny margin-bottom-md" style="display: contents">
+            <form class="flex flex-gap-tiny margin-bottom-md" style="display: contents" action="../includes/fetch_listings.php" id="laptop-search">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 search-icon">
                     <path fill-rule="evenodd" d="M10.5 3.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5ZM2.25 10.5a8.25 8.25 0 1 1 14.59 5.28l4.69 4.69a.75.75 0 1 1-1.06 1.06l-4.69-4.69A8.25 8.25 0 0 1 2.25 10.5Z" clip-rule="evenodd" />
                 </svg>
 
                 <input type="text" name="laptops_search" class="general-text--input searchInput" placeholder="Search" style="width: 96%; margin-left: 1.6rem; margin-bottom: 4.8rem">
             </form>
-            <form method="post" style="padding: 0">
+            <form method="post" style="padding: 0" action="../includes/fetch_listings.php" id="laptop-filter">
             <div class="grid grid--2-cols filter-mobile">
                 <div class="margin-bottom-md">
                     <p class="margin-bottom-sm">Brand:</p>
@@ -435,7 +435,7 @@ include '../includes/shoe_size_fetch.php';
     </section>
 
     <div class="container-main grid grid--2-cols" id="search-and-filters-button">
-        <form method="post" class="flex flex-gap-tiny" style="padding: 0">
+        <form method="post" class="flex flex-gap-tiny" style="padding: 0" action="../includes/fetch_listings.php" id="search">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 search-icon">
                 <path fill-rule="evenodd" d="M10.5 3.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5ZM2.25 10.5a8.25 8.25 0 1 1 14.59 5.28l4.69 4.69a.75.75 0 1 1-1.06 1.06l-4.69-4.69A8.25 8.25 0 0 1 2.25 10.5Z" clip-rule="evenodd" />
             </svg>
@@ -454,7 +454,7 @@ include '../includes/shoe_size_fetch.php';
             <div class="exit-button-div margin-bottom-sm">
                 <i class="fa-solid fa-x exit-button-right" style="color: #040404;"></i>
             </div>
-            <form action="" method="post" style="padding: 0;">
+            <form action="../includes/fetch_listings.php" method="post" style="padding: 0;" id="small-filter">
                 <section class="red-circles container flex flex-gap-tiny wrapped" style="margin-bottom: 20px">
                     <div class="flex flex-column flex-gap-tiny"><label class="red-label"><button class="red-circle-button1" name="subcategory" value="car" type="submit"><i class="fa-solid fa-car"></i></button></label></div>
                     <div class="flex flex-column flex-gap-tiny"><label class="red-label"><button class="red-circle-button1" name="subcategory" value="house" type="submit"><i class="fa-solid fa-house"></i></button></label></div>
@@ -464,7 +464,7 @@ include '../includes/shoe_size_fetch.php';
                 </section>
             </form>
             <p class="margin-bottom-sm">Sort by:</p>
-            <form action="" method="post">
+            <form action="../includes/fetch_listings.php" method="post" id="sort">
                 <div class="grid grid--2-cols" id="sort-filters">
                     <button class="form-button margin-bottom-sm" name="sort" value="price_desc">Price highest</button>
                     <button class="form-button margin-bottom-sm" name="sort" value="newest">Newest</button>
@@ -473,7 +473,7 @@ include '../includes/shoe_size_fetch.php';
                 </div>
             </form>
             <p class="margin-bottom-sm margin-top-md">Price range filters:</p>
-            <form action="" method="post">
+            <form action="../includes/fetch_listings.php" method="post" id="range-filter">
                 <div class="flex flex-gap-sm range-filters">
                     <div class="flex flex-gap-tiny">
                         <p>from:</p>
@@ -495,7 +495,42 @@ include '../includes/shoe_size_fetch.php';
             <!-- IMPROVE -->
             <div class="flex flex-gap-lg wrapped flex-start" >
             <?php
-                fetchListings($conn);
+            if (!isset($_SESSION['result'])) {
+                $sql = "SELECT * FROM listings WHERE 1=1";
+
+                // 🔴🔴 Exclude listings from the logged-in user if session is active 🔴🔴
+                if (isset($_SESSION['U_ID'])) {
+                    $user_id = intval($_SESSION['U_ID']);
+                    $sql .= " AND Seller != $user_id";
+                }
+                /** @noinspection PhpUndefinedVariableInspection */
+                $result = mysqli_query($conn, $sql);
+
+                $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
+                mysqli_free_result($result);
+            }
+            else{
+                $rows = $_SESSION['result'];
+                unset($_SESSION['result']);
+
+
+            }
+
+            if (!empty($rows)) {
+                foreach ($rows as $row) {
+                    echo "<div class='listing'>";
+                    //echo "<img src='../img/" . $row["First_Picture_Path"] . "' alt='' width=50% height=50%>";
+                    echo "<h3>" . $row["Title"] . "</h3>";
+                    echo "<p>Location: " . $row["Location"] . "</p>";
+                    echo "<p>Price: €" . $row["Price"] . "</p>";
+                    echo "<p>Posted on: " . $row["Date_Posted"] . "</p>";
+                    echo "<p>Description: " . $row["Description"] . "</p>";
+                    echo "</div>";
+                }
+            } else {
+                echo "No listings found";
+            }
+
             ?>
             </div>
         </div>

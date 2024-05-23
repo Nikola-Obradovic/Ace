@@ -1,7 +1,7 @@
 <?php
+session_start();
+require 'db_connection.php';
 
-function fetchListings($conn): void
-{
     $sql = "SELECT * FROM listings WHERE 1=1";
 
     // 🔴🔴 Exclude listings from the logged-in user if session is active 🔴🔴
@@ -80,6 +80,7 @@ function fetchListings($conn): void
     }
 
     include '../filters/cars_filters.php';
+/** @noinspection PhpUndefinedVariableInspection */
     applyCarFilters($conn, $sql);
 
     // 🔴🔴 HOUSINGS PART 🔴🔴
@@ -128,22 +129,12 @@ function fetchListings($conn): void
 
     $result = mysqli_query($conn, $sql);
 
+$_SESSION['result'] = mysqli_fetch_all($result, MYSQLI_ASSOC);  // Fetch all rows as an associative array
+mysqli_free_result($result);
+
     //
     // Trebaju promjene da izgleda ljepse
     //
 
-    if (mysqli_num_rows($result) > 0) {
-        while ($row = mysqli_fetch_assoc($result)) {
-            echo "<div class='listing'>";
-            //echo "<img src='../img/" . $row["First_Picture_Path"] . "' alt='' width=50% height=50%>";
-            echo "<h3>" . $row["Title"] . "</h3>";
-            echo "<p>Location: " . $row["Location"] . "</p>";
-            echo "<p>Price: €" . $row["Price"] . "</p>";
-            echo "<p>Posted on: " . $row["Date_Posted"] . "</p>";
-            echo "<p>Description: " . $row["Description"] . "</p>";
-            echo "</div>";
-        }
-    } else {
-        echo "No listings found";
-    }
-}
+    header('location: ../public/index.php');
+    exit;
