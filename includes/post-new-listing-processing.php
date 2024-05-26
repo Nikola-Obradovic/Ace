@@ -1,5 +1,16 @@
 <?php session_start();
 require 'db_connection.php';
+
+function checkInput($input){
+
+    if (empty($input)){
+        return 'null';
+    }
+
+    return "'{$input}'";
+}
+
+
 $i=0;
 //echo $_SESSION["img$i"];
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -32,72 +43,72 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     switch ($listing_type) {
         case 'Cars':
-            $manufacturer = mysqli_real_escape_string($conn, $_POST['manufacturer']);
-            $model = mysqli_real_escape_string($conn, $_POST['model']);
-            $mileage = mysqli_real_escape_string($conn, $_POST['mileage']);
-            $mileage = !empty($mileage) ? "'{$mileage}'" : 'null';
-            $transmission = mysqli_real_escape_string($conn, $_POST['transmission']);
-            $fuel_type = mysqli_real_escape_string($conn, $_POST['fuel_type']);
+            $manufacturer = checkInput(mysqli_real_escape_string($conn, $_POST['manufacturer']));
+            $model = checkInput(mysqli_real_escape_string($conn, $_POST['model']));
+            $mileage = checkInput(mysqli_real_escape_string($conn, $_POST['mileage']));
+           // $mileage = !empty($mileage) ? "'{$mileage}'" : 'null';
+            $transmission = checkInput(mysqli_real_escape_string($conn, $_POST['transmission']));
+            $fuel_type = checkInput(mysqli_real_escape_string($conn, $_POST['fuel_type']));
 
             $sql_car = "INSERT INTO cars (L_ID, Manufacturer, Model, Mileage, Transmission, Fuel_Type) 
-                            VALUES ('$listing_id', '$manufacturer', '$model', $mileage, '$transmission', '$fuel_type')";
+                            VALUES ($listing_id, $manufacturer, $model, $mileage, $transmission, $fuel_type)";
             mysqli_query($conn, $sql_car);
             break;
 
         case 'Housings':
-            $type = mysqli_real_escape_string($conn, $_POST['type']);
-            $square_meters = mysqli_real_escape_string($conn, $_POST['square_meters']);
-            $square_meters = !empty($square_meters) ? "'{$square_meters}'" : 'null';
-            $num_of_bedrooms = mysqli_real_escape_string($conn, $_POST['num_of_bedrooms']);
-            $num_of_bedrooms = !empty($num_of_bedrooms) ? "'{$num_of_bedrooms}'" : 'null';
-            $floor = mysqli_real_escape_string($conn, $_POST['floor']);
-            $floor = !empty($floor) ? "'{$floor}'" : 'null';
+            $type = checkInput(mysqli_real_escape_string($conn, $_POST['type']));
+            $square_meters = checkInput(mysqli_real_escape_string($conn, $_POST['square_meters']));
+           // $square_meters = !empty($square_meters) ? "'{$square_meters}'" : 'null';
+            $num_of_bedrooms = checkInput(mysqli_real_escape_string($conn, $_POST['num_of_bedrooms']));
+           // $num_of_bedrooms = !empty($num_of_bedrooms) ? "'{$num_of_bedrooms}'" : 'null';
+            $floor = checkInput(mysqli_real_escape_string($conn, $_POST['floor']));
+            //$floor = !empty($floor) ? "'{$floor}'" : 'null';
 
             $sql_housing = "INSERT INTO housings (L_ID, Type, Square_Meters, Num_of_Bedrooms, Floor) 
-                                VALUES ('$listing_id', '$type', $square_meters, $num_of_bedrooms, $floor)";
+                                VALUES ($listing_id, $type, $square_meters, $num_of_bedrooms, $floor)";
             mysqli_query($conn, $sql_housing);
             break;
 
         case 'Smartphones':
-            $brand = mysqli_real_escape_string($conn, $_POST['brand_phone']);
-            $series = mysqli_real_escape_string($conn, $_POST['series']);
-            $color = mysqli_real_escape_string($conn, $_POST['color']);
-            $storage = mysqli_real_escape_string($conn,  $_POST['storage_phone']);
-            $storage = !empty($storage) ? "'{$storage}'" : 'null';
-            $ram = mysqli_real_escape_string($conn, $_POST['ram_phone']);
-            $ram = !empty($ram) ? "'{$ram}'" : 'null';
+            $brand = checkInput(mysqli_real_escape_string($conn, $_POST['brand_phone']));
+            $series = checkInput(mysqli_real_escape_string($conn, $_POST['series']));
+            $color = checkInput(mysqli_real_escape_string($conn, $_POST['color']));
+            $storage = checkInput(mysqli_real_escape_string($conn,  $_POST['storage_phone']));
+            //$storage = !empty($storage) ? "'{$storage}'" : 'null';
+            $ram = checkInput(mysqli_real_escape_string($conn, $_POST['ram_phone']));
+            //$ram = !empty($ram) ? "'{$ram}'" : 'null';
 
             $sql_phone = "INSERT INTO phones (L_ID, Brand, Series, Color, Storage, RAM) 
-                              VALUES ('$listing_id', '$brand', '$series', '$color', $storage, $ram)";
+                              VALUES ($listing_id, $brand, $series, $color, $storage, $ram)";
             mysqli_query($conn, $sql_phone);
             break;
 
         case 'Shoes':
-            $brand = mysqli_real_escape_string($conn, $_POST['brand_shoe']);
-            $model = mysqli_real_escape_string($conn, $_POST['model_shoe']);
-            $gender = mysqli_real_escape_string($conn, $_POST['gender']);
-            $size = mysqli_real_escape_string($conn, $_POST['size']);
-            $size = !empty($size) ? "'{$size}'" : 'null';
+            $brand = checkInput(mysqli_real_escape_string($conn, $_POST['brand_shoe']));
+            $model = checkInput(mysqli_real_escape_string($conn, $_POST['model_shoe']));
+            $gender = checkInput(mysqli_real_escape_string($conn, $_POST['gender']));
+            $size = checkInput(mysqli_real_escape_string($conn, $_POST['size']));
+           // $size = !empty($size) ? "'{$size}'" : 'null';
 
             $sql_shoe = "INSERT INTO shoes (L_ID, Brand, Model, Gender, Size) 
-                             VALUES ('$listing_id', '$brand', '$model', '$gender', $size)";
+                             VALUES ($listing_id, $brand, $model, $gender, $size)";
             mysqli_query($conn, $sql_shoe);
             break;
 
         case 'Laptops':
-            $brand = mysqli_real_escape_string($conn, $_POST['brand_laptop']);
-            $model = mysqli_real_escape_string($conn, $_POST['model_laptop']);
-            $display_size = mysqli_real_escape_string($conn, $_POST['display_size']);
-            $display_size = !empty($display_size) ? "'{$display_size}'" : 'null';
-            $processor = mysqli_real_escape_string($conn, $_POST['processor']);
-            $ram = mysqli_real_escape_string($conn, $_POST['ram_laptop']);
-            $ram = !empty($ram) ? "'{$ram}'" : 'null';
-            $storage = mysqli_real_escape_string($conn, $_POST['storage']);
-            $storage = !empty($storage) ? "'{$storage}'" : 'null';
+            $brand = checkInput(mysqli_real_escape_string($conn, $_POST['brand_laptop']));
+            $model = checkInput(mysqli_real_escape_string($conn, $_POST['model_laptop']));
+            $display_size = checkInput(mysqli_real_escape_string($conn, $_POST['display_size']));
+            //$display_size = !empty($display_size) ? "'{$display_size}'" : 'null';
+            $processor = checkInput(mysqli_real_escape_string($conn, $_POST['processor']));
+            $ram = checkInput(mysqli_real_escape_string($conn, $_POST['ram_laptop']));
+           // $ram = !empty($ram) ? "'{$ram}'" : 'null';
+            $storage = checkInput(mysqli_real_escape_string($conn, $_POST['storage']));
+           // $storage = !empty($storage) ? "'{$storage}'" : 'null';
 
 
             $sql_laptop = "INSERT INTO laptops (L_ID, Brand, Model, Display_Size, Processor, RAM, Storage) 
-                               VALUES ('$listing_id', '$brand', '$model', $display_size, '$processor', $ram, $storage)";
+                               VALUES ($listing_id, $brand, $model, $display_size, $processor, $ram, $storage)";
             mysqli_query($conn, $sql_laptop);
             break;
 

@@ -127,21 +127,15 @@ session_start();
                 <div class="grid grid--2-cols">
                     <div>
                         <p class="margin-bottom-sm">Manufacturer:</p>
-                        <select class="select-input margin-bottom-xsm" name="manufacturer">
+                        <select class="select-input margin-bottom-xsm car-select-manufacturer" name="manufacturer">
                             <option value="" selected>Select Option</option>
-                            <option>Audi</option>
-                            <option>Porsche</option>
-                            <option>BMW</option>
-                            <option>Lada</option>
+
                         </select>
                     </div>
                     <div>
                         <p class="margin-bottom-sm">Model:</p>
-                        <select class="select-input margin-bottom-xsm" name="model">
-                            <option value=""  selected>Select Option</option>
-                            <option>A6</option>
-                            <option>Panamera</option>
-                            <option>iX</option>
+                        <select class="select-input margin-bottom-xsm car-select-model" name="model">
+                            <option value=""  selected>Choose Manufacturer first</option>
                         </select>
                     </div>
                     <div>
@@ -203,17 +197,14 @@ session_start();
                 <div class="grid grid--2-cols">
                     <div>
                         <p class="margin-bottom-sm">Brand:</p>
-                        <select class="select-input margin-bottom-xsm" name="brand_phone">
+                        <select class="select-input margin-bottom-xsm phone-select-brand" name="brand_phone">
                             <option value=""  selected>Select Option</option>
-                            <option>Apple</option>
-                            <option>Xiaomi</option>
-                            <option>Samsung</option>
                         </select>
                     </div>
                     <div>
                         <p class="margin-bottom-sm">Series:</p>
-                        <select class="select-input margin-bottom-xsm" name="series">
-                            <option value=""  selected>Select Option</option>
+                        <select class="select-input margin-bottom-xsm phone-select-series" name="series">
+                            <option value=""  selected>Choose Brand First</option>
                             <option>S24</option>
                             <option>iPhone 15</option>
                         </select>
@@ -222,10 +213,16 @@ session_start();
                         <p class="margin-bottom-sm">Color:</p>
                         <select class="select-input margin-bottom-xsm" name="color">
                             <option value=""  selected>Select Option</option>
-                            <option>Black</option>
-                            <option>Red</option>
-                            <option>Green</option>
-                            <option>Blue</option>
+                            <option value="Red">Red</option>
+                            <option value="Green">Green</option>
+                            <option value="Blue">Blue</option>
+                            <option value="Yellow">Yellow</option>
+                            <option value="Orange">Orange</option>
+                            <option value="Purple">Purple</option>
+                            <option value="Pink">Pink</option>
+                            <option value="Black">Black</option>
+                            <option value="White">White</option>
+                            <option value="Gray">Gray</option>
                         </select>
                     </div>
                     <div>
@@ -244,6 +241,8 @@ session_start();
                         <p class="margin-bottom-sm">RAM:</p>
                         <select class="select-input margin-bottom-xsm" name="ram_phone">
                             <option value=""  selected>Select Option</option>
+                            <option>4</option>
+                            <option>8</option>
                             <option>16</option>
                             <option>32</option>
                             <option>64</option>
@@ -258,20 +257,16 @@ session_start();
                 <div class="grid grid--2-cols">
                     <div>
                         <p class="margin-bottom-sm">Brand:</p>
-                        <select class="select-input margin-bottom-xsm" name="brand_shoe">
+                        <select class="select-input margin-bottom-xsm shoe-select-brand" name="brand_shoe">
                             <option value=""  selected>Select Option</option>
-                            <option>Nike</option>
-                            <option>Adidas</option>
-                            <option>Puma</option>
+
                         </select>
                     </div>
                     <div>
                         <p class="margin-bottom-sm">Model:</p>
-                        <select class="select-input margin-bottom-xsm" name="model_shoe">
-                            <option value=""  selected>Select Option</option>
-                            <option>Jordan 1</option>
-                            <option>Yeezy</option>
-                            <option>Air Force 1</option>
+                        <select class="select-input margin-bottom-xsm shoe-select-model" name="model_shoe">
+                            <option value=""  selected>Choose Brand First</option>
+
                         </select>
                     </div>
                     <div>
@@ -287,9 +282,22 @@ session_start();
                         <p class="margin-bottom-sm">Shoe Size:</p>
                         <select class="select-input margin-bottom-xsm" name="size">
                             <option value="" selected>Select Option</option>
-                            <option>42</option>
-                            <option>43</option>
-                            <option>44</option>
+                            <option value="35">EU 35</option>
+                            <option value="36">EU 36</option>
+                            <option value="37">EU 37</option>
+                            <option value="38">EU 38</option>
+                            <option value="39">EU 39</option>
+                            <option value="40">EU 40</option>
+                            <option value="41">EU 41</option>
+                            <option value="42">EU 42</option>
+                            <option value="43">EU 43</option>
+                            <option value="44">EU 44</option>
+                            <option value="45">EU 45</option>
+                            <option value="46">EU 46</option>
+                            <option value="47">EU 47</option>
+                            <option value="48">EU 48</option>
+                            <option value="49">EU 49</option>
+                            <option value="50">EU 50</option>
                         </select>
                     </div>
                 </div>
@@ -303,20 +311,15 @@ session_start();
                 <div class="grid grid--2-cols">
                     <div>
                         <p class="margin-bottom-sm">Brand:</p>
-                        <select class="select-input margin-bottom-xsm" name="brand_laptop">
+                        <select class="select-input margin-bottom-xsm laptop-select-brand" name="brand_laptop">
                             <option value=""  selected>Select Option</option>
-                            <option>MSI</option>
-                            <option>Asus</option>
-                            <option>Acer</option>
                         </select>
                     </div>
                     <div>
                         <p class="margin-bottom-sm">Model:</p>
-                        <select class="select-input margin-bottom-xsm" name="model_laptop">
+                        <select class="select-input margin-bottom-xsm laptop-select-model" name="model_laptop">
                             <option value=""  selected>Select Option</option>
-                            <option>Katana</option>
-                            <option>Dobrila</option>
-                            <option>xyz</option>
+
                         </select>
                     </div>
                     <div>
@@ -332,9 +335,16 @@ session_start();
                         <p class="margin-bottom-sm">Processor:</p>
                         <select class="select-input margin-bottom-xsm" name="processor">
                             <option value=""  selected>Select Option</option>
-                            <option>Intel i7</option>
-                            <option>Intel i9</option>
-                            <option>Ryzen 5000</option>
+                            <option value="Intel Core i9">Intel Core i9</option>
+                            <option value="Intel Core i7">Intel Core i7</option>
+                            <option value="Intel Core i5">Intel Core i5</option>
+                            <option value="Intel Core i3">Intel Core i3</option>
+                            <option value="AMD Ryzen 9">AMD Ryzen 9</option>
+                            <option value="AMD Ryzen 7">AMD Ryzen 7</option>
+                            <option value="AMD Ryzen 5">AMD Ryzen 5</option>
+                            <option value="AMD Ryzen 3">AMD Ryzen 3</option>
+                            <option value="Apple M1">Apple M1</option>
+                            <option value="Qualcomm Snapdragon">Qualcomm Snapdragon</option>
                         </select>
                     </div>
                     <div>
@@ -351,6 +361,8 @@ session_start();
                         <p class="margin-bottom-sm">RAM:</p>
                         <select class="select-input margin-bottom-xsm" name="ram_laptop">
                             <option value=""  selected>Select Option</option>
+                            <option>4</option>
+                            <option>8</option>
                             <option>16</option>
                             <option>32</option>
                             <option>64</option>
@@ -407,6 +419,7 @@ session_start();
 
 <script src="../js/main.js"></script>
 <script src="../js/drop_zone.js"></script>
+<script src="../js/select-objects.js"></script>
 </body>
 </html>
 

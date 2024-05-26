@@ -390,3 +390,26 @@ i{
 	border-radius: 8px;
 }
 
+.listing_img {
+	max-width: 350px; /* Set the desired width */
+	height: 300px; /* Set the desired height */
+	object-fit: cover; /* Ensures the image covers the given dimensions without distortion */
+	border-radius: 9px 9px 0 0;
+}
+
+.listing_div{
+	border-radius: 9px;
+	box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.06);
+	background-color: white;
+
+}
+
+.listing_div-text{
+
+	padding: 1.6rem 3.2rem;
+
+}
+.listing-header{
+
+	font-size: 2.4rem;
+}

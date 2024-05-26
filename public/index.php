@@ -1,9 +1,7 @@
 <?php
 session_start();
 require '../includes/db_connection.php';
-//include '../includes/fetch_listings.php';
-//include '../includes/location_fetch.php';
-//include '../includes/shoe_size_fetch.php';
+
 
 ?>
 <!doctype html>
@@ -87,7 +85,7 @@ require '../includes/db_connection.php';
 
 </section>
 
-    <section class="filter-section hidden">
+    <section class="filter-section hidden margin-bottom-md">
         <div class="container">
 
             <form method="post" class="flex flex-gap-tiny margin-bottom-md" style="display: contents" action="../includes/fetch_listings.php" id="car-search">
@@ -100,26 +98,15 @@ require '../includes/db_connection.php';
             <div class="grid grid--2-cols filter-mobile">
                 <div class="margin-bottom-md">
                     <p class="margin-bottom-sm">Manufacturer:</p>
-                    <select class="select-input" name="manufacturer">
-                        <option value="">Any</option>
-                        <option>Audi</option>
-                        <option>Porsche</option>
-                        <option>BMW</option>
-                        <option>Mazda</option>
-                        <option>Lada</option>
-                        <option>Citroen</option>
+                    <select class="select-input car-select-manufacturer" name="manufacturer">
+                        <option value="" selected disabled>Select Option</option>
                     </select>
                     <!--<input type="text" class="general-text--input">-->
                 </div>
                 <div class="margin-bottom-md">
                     <p class="margin-bottom-sm">Model:</p>
-                    <select class="select-input" name="model">
-                        <option value="">Any</option>
-                        <option>A6</option>
-                        <option>Panamera</option>
-                        <option>CX 3</option>
-                        <option>iX</option>
-                        <option>C3</option>
+                    <select class="select-input car-select-model" name="model">
+                        <option value="" selected disabled>Choose Manufacturer First</option>
                     </select>
                 </div>
                 <div class="margin-bottom-md">
@@ -132,7 +119,7 @@ require '../includes/db_connection.php';
                 <div class="margin-bottom-md">
                     <p class="margin-bottom-sm">Transmission:</p>
                     <select class="select-input" name="transmission">
-                        <option value="">Any</option>
+                        <option value="" selected disabled>Select Option</option>
                         <option>Manual</option>
                         <option>Automatic</option>
                     </select>
@@ -147,7 +134,7 @@ require '../includes/db_connection.php';
                 <div class="margin-bottom-lg">
                     <p class="margin-bottom-sm">Fuel type:</p>
                     <select class="select-input" name="fuel_type">
-                        <option value="">Any</option>
+                        <option value="" selected disabled>Select Option</option>
                         <option>Petrol</option>
                         <option>Diesel</option>
                         <option>Hybrid</option>
@@ -160,7 +147,7 @@ require '../includes/db_connection.php';
         </div>
     </section>
 
-    <section class="filter-section hidden">
+    <section class="filter-section hidden margin-bottom-md">
         <div class="container">
             <form method="post" class="flex flex-gap-tiny margin-bottom-md" style="display: contents" action="../includes/fetch_listings.php" id="house-search">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 search-icon">
@@ -173,7 +160,7 @@ require '../includes/db_connection.php';
                 <div class="margin-bottom-md">
                     <p class="margin-bottom-sm">Type:</p>
                     <select class="select-input" name="housings_type">
-                        <option value="">Any</option>
+                        <option value="" selected disabled>Select Option</option>
                         <option>House</option>
                         <option>Apartment</option>
                     </select>
@@ -181,11 +168,27 @@ require '../includes/db_connection.php';
                 <div class="margin-bottom-md">
                     <p class="margin-bottom-sm">Location:</p>
                     <select class="select-input" name="location">
-                        <option value="">Any</option>
-                        <?php
-                        /** @noinspection PhpUndefinedVariableInspection */
-                        //    fetchlocation($conn);
-                        ?>
+                        <option value="" selected disabled>Select Option</option>
+                        <option value="Sarajevo">Sarajevo</option>
+                        <option value="Banja Luka">Banja Luka</option>
+                        <option value="Tuzla">Tuzla</option>
+                        <option value="Zenica">Zenica</option>
+                        <option value="Mostar">Mostar</option>
+                        <option value="Bihać">Bihać</option>
+                        <option value="Brčko">Brčko</option>
+                        <option value="Prijedor">Prijedor</option>
+                        <option value="Doboj">Doboj</option>
+                        <option value="Cazin">Cazin</option>
+                        <option value="Trebinje">Trebinje</option>
+                        <option value="Bijeljina">Bijeljina</option>
+                        <option value="Široki Brijeg">Široki Brijeg</option>
+                        <option value="Livno">Livno</option>
+                        <option value="Gradačac">Gradačac</option>
+                        <option value="Goražde">Goražde</option>
+                        <option value="Konjic">Konjic</option>
+                        <option value="Srebrenik">Srebrenik</option>
+                        <option value="Travnik">Travnik</option>
+                        <option value="Velika Kladuša">Velika Kladuša</option>
                     </select>
                 </div>
                 <div class="margin-bottom-md">
@@ -198,7 +201,7 @@ require '../includes/db_connection.php';
                 <div class="margin-bottom-md">
                     <p class="margin-bottom-sm">Bedrooms:</p>
                     <select class="select-input" name="bedrooms">
-                        <option value="">Any</option>
+                        <option value="" selected disabled>Select Option</option>
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -220,7 +223,7 @@ require '../includes/db_connection.php';
         </div>
     </section>
 
-    <section class="filter-section hidden">
+    <section class="filter-section hidden margin-bottom-md">
         <div class="container">
             <form method="post" class="flex flex-gap-tiny margin-bottom-md" style="display: contents" action="../includes/fetch_listings.php" id="phone-search">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 search-icon">
@@ -233,35 +236,38 @@ require '../includes/db_connection.php';
             <div class="grid grid--2-cols filter-mobile">
                 <div class="margin-bottom-md">
                     <p class="margin-bottom-sm">Brand:</p>
-                    <select class="select-input" name="phone_brand">
-                        <option value="">Any</option>
-                        <option>Apple</option>
-                        <option>Xiaomi</option>
-                        <option>Samsung</option>
+                    <select class="select-input phone-select-brand" name="phone_brand">
+                        <option value="" selected disabled>Select Option</option>
+
                     </select>
                 </div>
                 <div class="margin-bottom-md">
                     <p class="margin-bottom-sm">Series:</p>
-                    <select class="select-input" name="phone_series">
-                        <option value="">Any</option>
-                        <option>S24</option>
-                        <option>iPhone 15</option>
+                    <select class="select-input phone-select-series" name="phone_series">
+                        <option value="" selected disabled>Choose Brand First</option>
+
                     </select>
                 </div>
                 <div class="margin-bottom-md">
                     <p class="margin-bottom-sm">Color:</p>
                     <select class="select-input" name="phone_color">
-                        <option value="">Any</option>
-                        <option>Black</option>
-                        <option>Red</option>
-                        <option>Green</option>
-                        <option>Blue</option>
+                        <option value="" selected disabled>Select Option</option>
+                        <option value="Red">Red</option>
+                        <option value="Green">Green</option>
+                        <option value="Blue">Blue</option>
+                        <option value="Yellow">Yellow</option>
+                        <option value="Orange">Orange</option>
+                        <option value="Purple">Purple</option>
+                        <option value="Pink">Pink</option>
+                        <option value="Black">Black</option>
+                        <option value="White">White</option>
+                        <option value="Gray">Gray</option>
                     </select>
                 </div>
                 <div class="margin-bottom-md">
                     <p class="margin-bottom-sm">Storage:</p>
                     <select class="select-input" name="phone_storage">
-                        <option value="">Any</option>
+                        <option value="" selected disabled>Select Option</option>
                         <option>64</option>
                         <option>128</option>
                         <option>256</option>
@@ -270,7 +276,9 @@ require '../includes/db_connection.php';
                 <div class="margin-bottom-md">
                     <p class="margin-bottom-sm">RAM:</p>
                     <select class="select-input" name="phone_RAM">
-                        <option value="">Any</option>
+                        <option value="" selected disabled>Select Option</option>
+                        <option>4</option>
+                        <option>8</option>
                         <option>16</option>
                         <option>32</option>
                         <option>64</option>
@@ -290,7 +298,7 @@ require '../includes/db_connection.php';
         </div>
     </section>
 
-    <section class="filter-section hidden">
+    <section class="filter-section hidden margin-bottom-md">
 
         <div class="container">
             <form class="flex flex-gap-tiny margin-bottom-md" style="display: contents" action="../includes/fetch_listings.php" id="shoe-search">
@@ -304,26 +312,21 @@ require '../includes/db_connection.php';
             <div class="grid grid--2-cols filter-mobile">
                 <div class="margin-bottom-md">
                     <p class="margin-bottom-sm">Brand:</p>
-                    <select class="select-input" name="shoe_brand">
-                        <option value="">Any</option>
-                        <option>Nike</option>
-                        <option>Adidas</option>
-                        <option>Puma</option>
+                    <select class="select-input shoe-select-brand" name="shoe_brand">
+                        <option value="" selected disabled>Select Option</option>
                     </select>
                 </div>
                 <div class="margin-bottom-md">
                     <p class="margin-bottom-sm">Model:</p>
-                    <select class="select-input" name="shoe_model">
-                        <option value="">Any</option>
-                        <option>Jordan 1</option>
-                        <option>Yeezy</option>
-                        <option>Air Force 1</option>
+                    <select class="select-input shoe-select-model" name="shoe_model">
+                        <option value="" selected disabled>Choose Brand First</option>
+
                     </select>
                 </div>
                 <div class="margin-bottom-md">
                     <p class="margin-bottom-sm">Gender:</p>
                     <select class="select-input" name="gender">
-                        <option value="">Any</option>
+                        <option value="" selected disabled>Select Option</option>
                         <option>Male</option>
                         <option>Female</option>
                         <option>Unisex</option>
@@ -332,11 +335,23 @@ require '../includes/db_connection.php';
                 <div class="margin-bottom-md">
                     <p class="margin-bottom-sm">Shoe size:</p>
                     <select class="select-input" name="shoe_size">
-                        <option value="">Any</option>
-                        <?php
-                        /** @noinspection PhpUndefinedVariableInspection */
-                           // fetchShoeSize($conn);
-                        ?>
+                        <option value="" selected disabled>Select Option</option>
+                        <option value="35">EU 35</option>
+                        <option value="36">EU 36</option>
+                        <option value="37">EU 37</option>
+                        <option value="38">EU 38</option>
+                        <option value="39">EU 39</option>
+                        <option value="40">EU 40</option>
+                        <option value="41">EU 41</option>
+                        <option value="42">EU 42</option>
+                        <option value="43">EU 43</option>
+                        <option value="44">EU 44</option>
+                        <option value="45">EU 45</option>
+                        <option value="46">EU 46</option>
+                        <option value="47">EU 47</option>
+                        <option value="48">EU 48</option>
+                        <option value="49">EU 49</option>
+                        <option value="50">EU 50</option>
                     </select>
                 </div>
             </div>
@@ -353,7 +368,7 @@ require '../includes/db_connection.php';
         </div>
     </section>
 
-    <section class="filter-section hidden">
+    <section class="filter-section hidden margin-bottom-md">
         <div class="container">
             <form class="flex flex-gap-tiny margin-bottom-md" style="display: contents" action="../includes/fetch_listings.php" id="laptop-search">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 search-icon">
@@ -366,26 +381,22 @@ require '../includes/db_connection.php';
             <div class="grid grid--2-cols filter-mobile">
                 <div class="margin-bottom-md">
                     <p class="margin-bottom-sm">Brand:</p>
-                    <select class="select-input" name="laptop_brand">
-                        <option value="">Any</option>
-                        <option>MSI</option>
-                        <option>Asus</option>
-                        <option>Acer</option>
+                    <select class="select-input laptop-select-brand" name="laptop_brand">
+                        <option value="" selected disabled>Select Option</option>
+
                     </select>
                 </div>
                 <div class="margin-bottom-md">
                     <p class="margin-bottom-sm">Model:</p>
-                    <select class="select-input" name="laptop_model">
-                        <option value="">Any</option>
-                        <option>Katana</option>
-                        <option>Dobrila</option>
-                        <option>xyz</option>
+                    <select class="select-input laptop-select-model" name="laptop_model">
+                        <option value="" selected disabled>Choose Brand First</option>
+
                     </select>
                 </div>
                 <div class="margin-bottom-md">
                     <p class="margin-bottom-sm">Display:</p>
                     <select class="select-input" name="display_size">
-                        <option value="">Any</option>
+                        <option value="" selected disabled>Select Option</option>
                         <option>18</option>
                         <option>24</option>
                         <option>28</option>
@@ -394,16 +405,23 @@ require '../includes/db_connection.php';
                 <div class="margin-bottom-md">
                     <p class="margin-bottom-sm">Processor:</p>
                     <select class="select-input" name="processor">
-                        <option value="">Any</option>
-                        <option>Intel i7</option>
-                        <option>Intel i9</option>
-                        <option>Ryzen 5000</option>
+                        <option value="" selected disabled>Select Option</option>
+                        <option value="Intel Core i9">Intel Core i9</option>
+                        <option value="Intel Core i7">Intel Core i7</option>
+                        <option value="Intel Core i5">Intel Core i5</option>
+                        <option value="Intel Core i3">Intel Core i3</option>
+                        <option value="AMD Ryzen 9">AMD Ryzen 9</option>
+                        <option value="AMD Ryzen 7">AMD Ryzen 7</option>
+                        <option value="AMD Ryzen 5">AMD Ryzen 5</option>
+                        <option value="AMD Ryzen 3">AMD Ryzen 3</option>
+                        <option value="Apple M1">Apple M1</option>
+                        <option value="Qualcomm Snapdragon">Qualcomm Snapdragon</option>
                     </select>
                 </div>
                 <div class="margin-bottom-md">
                     <p class="margin-bottom-sm">Storage:</p>
                     <select class="select-input" name="laptop_storage">
-                        <option value="">Any</option>
+                        <option value="" selected disabled>Select Option</option>
                         <option>256</option>
                         <option>512</option>
                         <option>1024</option>
@@ -413,7 +431,9 @@ require '../includes/db_connection.php';
                 <div class="margin-bottom-md">
                     <p class="margin-bottom-sm">RAM:</p>
                     <select class="select-input" name="laptop_RAM">
-                        <option value="">Any</option>
+                        <option value="" selected disabled>Select Option</option>
+                        <option>4</option>
+                        <option>8</option>
                         <option>16</option>
                         <option>32</option>
                         <option>64</option>
@@ -493,7 +513,7 @@ require '../includes/db_connection.php';
     <section class="main-section">
         <div class="container-listings discover-container">
             <!-- IMPROVE -->
-            <div class="flex flex-gap-lg wrapped flex-start" >
+            <div class="flex flex-gap-lg wrapped" >
             <?php
             if (!isset($_SESSION['result'])) {
                 $sql = "SELECT * FROM listings WHERE 1=1";
@@ -518,14 +538,17 @@ require '../includes/db_connection.php';
 
             if (!empty($rows)) {
                 foreach ($rows as $row) {
-                    echo "<div class='listing'>";
-                    //echo "<img src='../img/" . $row["First_Picture_Path"] . "' alt='' width=50% height=50%>";
-                    echo "<h3>" . $row["Title"] . "</h3>";
+                    $id=$row["L_ID"];
+                    echo '<a href="listing.php?id=' . htmlspecialchars($id) . '">';
+                    echo "<div class='listing_div'>";
+                    echo "<img class='listing_img' src='../img/" . htmlspecialchars($row["First_Picture_Path"]) . "' alt='" . htmlspecialchars($row["First_Picture_Path"]) . "'>";
+                    echo "<div class='listing_div-text'>";
+                    echo "<h3 class='listing-header'>" . $row["Title"] . "</h3>";
+                    echo "<p>Price: " . $row["Price"] . "KM" . "</p>";
                     echo "<p>Location: " . $row["Location"] . "</p>";
-                    echo "<p>Price: €" . $row["Price"] . "</p>";
-                    echo "<p>Posted on: " . $row["Date_Posted"] . "</p>";
-                    echo "<p>Description: " . $row["Description"] . "</p>";
                     echo "</div>";
+                    echo "</div>";
+                    echo "</a>";
                 }
             } else {
                 echo "No listings found";
@@ -541,7 +564,7 @@ require '../includes/db_connection.php';
 
 </main>
 
-<footer class="footer">
+<footer class="footer margin-top-md">
     <div class="grid grid--3-cols footer-grid">
     <div>
         <p class="margin-bottom-sm footer-headings">ACE</p>
@@ -572,5 +595,6 @@ require '../includes/db_connection.php';
 <div class="dimmed-background hidden"></div>
 
 <script src="../js/main.js"></script>
+<script src="../js/select-objects.js"></script>
 </body>
 </html>

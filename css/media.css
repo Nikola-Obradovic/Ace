@@ -9,6 +9,7 @@
 	html {
 		font-size: 56.25%;
 	}
+
 }
 
 
@@ -120,7 +121,11 @@ margin: 0 auto;
 	.listing{
 		margin: 0 auto;
 	}
+	.listing_img {
+		width: 300px; /* Set the desired width */
+		height: 250px; /* Set the desired height */
 
+	}
 
 	/*
 
