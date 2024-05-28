@@ -6,6 +6,10 @@ $uploadDirectory = '../img/';
 if (!empty($_FILES['file']['name'][0])) {
     // Loop through each file in the request
     $i=0;
+
+    while (isset($_SESSION["img$i"])){
+        $i++;
+    }
     foreach ($_FILES['file']['name'] as $key => $fileName) {
         // Construct the target path for the file
         $targetPath = $uploadDirectory . basename($fileName);
@@ -16,8 +20,8 @@ if (!empty($_FILES['file']['name'][0])) {
         } else {
             echo "Error uploading file $fileName.\n";
         }
-       $_SESSION['imgName']=$_FILES['file']['name'][0];
-        $_SESSION["img$i"]=$_FILES['file']['name'][0];
+       //$_SESSION['imgName']=$_FILES['file']['name'][0];
+        $_SESSION["img$i"]= $fileName;
         $i++;
     }
 } else {

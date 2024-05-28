@@ -10,6 +10,10 @@
 		font-size: 56.25%;
 	}
 
+	.listing-details-table{
+
+		margin: 0 auto;
+	}
 }
 
 
@@ -126,6 +130,7 @@ margin: 0 auto;
 		height: 250px; /* Set the desired height */
 
 	}
+
 
 	/*
 

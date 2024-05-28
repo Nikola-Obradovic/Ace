@@ -229,6 +229,9 @@ a:visited {
 .margin-top-md {
     margin-top: 2.5rem;
 }
+.margin-top-slg {
+    margin-top: 8rem;
+}
 .margin-top-lg {
     margin-top: 16rem;
 }
@@ -245,6 +248,10 @@ section {
 /* ---------------- */
 form {
     padding: 0rem 8.0rem;
+}
+.form-payment{
+
+    padding: 0;
 }
 
 /* ---------------- */

@@ -148,7 +148,27 @@ searchInputs.forEach(searchInput => {
 });
 
 
+const paymentForm = document.querySelectorAll('.form-payment');
+const paymentOptions = document.querySelector('.payment-options');
 
 
 
+if (paymentOptions) {
+    paymentOptions.addEventListener('change', function () {
+        let selectedOption = this.value;
 
+        switch (selectedOption) {
+            case "Credit Card":
+                paymentForm[0].classList.remove('hidden');
+                paymentForm[1].classList.add('hidden');
+                break;
+
+            case "Paypal":
+                paymentForm[1].classList.remove('hidden');
+                paymentForm[0].classList.add('hidden');
+                break;
+        }
+    });
+
+
+}

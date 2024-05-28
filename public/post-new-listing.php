@@ -229,9 +229,14 @@ session_start();
                         <p class="margin-bottom-sm">Storage:</p>
                         <select class="select-input margin-bottom-xsm" name="storage_phone">
                             <option value=""  selected>Select Option</option>
+                            <option>16</option>
+                            <option>32</option>
                             <option>64</option>
                             <option>128</option>
                             <option>256</option>
+                            <option>512</option>
+                            <option>1024</option>
+                            <option>2058</option>
                         </select>
                     </div>
 
@@ -318,7 +323,7 @@ session_start();
                     <div>
                         <p class="margin-bottom-sm">Model:</p>
                         <select class="select-input margin-bottom-xsm laptop-select-model" name="model_laptop">
-                            <option value=""  selected>Select Option</option>
+                            <option value=""  selected>Choose Brand First</option>
 
                         </select>
                     </div>
@@ -326,9 +331,16 @@ session_start();
                         <p class="margin-bottom-sm">Display (inches):</p>
                         <select class="select-input margin-bottom-xsm" name="display_size">
                             <option value=""  selected>Select Option</option>
-                            <option>18</option>
-                            <option>24</option>
-                            <option>28</option>
+                            <option value="11">11 inches</option>
+                            <option value="12">12 inches</option>
+                            <option value="13">13 inches</option>
+                            <option value="14">14 inches</option>
+                            <option value="15">15 inches</option>
+                            <option value="16">16 inches</option>
+                            <option value="17">17 inches</option>
+                            <option value="18">18 inches</option>
+                            <option value="19">19 inches</option>
+                            <option value="20">20 inches</option>
                         </select>
                     </div>
                     <div>
@@ -351,6 +363,10 @@ session_start();
                         <p class="margin-bottom-sm">Storage:</p>
                         <select class="select-input margin-bottom-xsm" name="storage">
                             <option value=""  selected>Select Option</option>
+                            <option>16</option>
+                            <option>32</option>
+                            <option>64</option>
+                            <option>128</option>
                             <option>256</option>
                             <option>512</option>
                             <option>1024</option>

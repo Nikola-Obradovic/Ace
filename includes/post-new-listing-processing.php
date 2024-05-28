@@ -123,6 +123,7 @@ while (isset($_SESSION["img$i"])){
     $sql_img = "INSERT INTO pictures (Listing, Picture_Name)
                 VALUES ('$listing_id', '$name')";
     mysqli_query($conn, $sql_img);
+    echo $_SESSION["img$i"];
     unset($_SESSION["img$i"]);
     $i++;
 
