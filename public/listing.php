@@ -223,7 +223,7 @@ if ($listing_type != "Other") {
 
 
 
-    <!-- PAYPAL
+
 
    <div class="pop-up transaction-pop-up">
        <div class="exit-button-payment margin-bottom-sm">
@@ -259,10 +259,26 @@ if ($listing_type != "Other") {
                <div class="flex flex-gap-sm margin-bottom-xsm">
                    <input type="text" class="general-text--input" placeholder="MM/YY">
                    <input type="text" class="general-text--input" placeholder="CVC">
+
                </div>
 
 
+
+
            </div>
+
+               <p class="margin-bottom-sm">Billing Address</p>
+               <input type="text" class="general-text--input margin-bottom-xsm" placeholder="Street Name">
+               <div class="flex flex-gap-sm">
+                   <input type="text" class="general-text--input margin-bottom-xsm" placeholder="City">
+                   <input type="text" class="general-text--input margin-bottom-xsm" placeholder="Postal/Zip Code">
+               </div>
+               <div class="margin-bottom-xsm">
+                   <input type="checkbox" name="save-info" id="save-info">
+                   <label for="save-info">Save payment information for later</label>
+               </div>
+
+
                <div class="flex flex-column">
                    <p class="heading-tertiary--black container-button-left margin-bottom-sm">Price</p>
                    <div class="container-button-left margin-bottom-md">
@@ -304,7 +320,7 @@ if ($listing_type != "Other") {
 
 
     </div>
-    -->
+
 </section>
 
 <footer class="footer">
