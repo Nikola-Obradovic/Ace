@@ -331,6 +331,33 @@ i{
 
 .transaction-pop-up {
 	position: absolute;
+	margin-top: 50rem;
+}
+
+.comment-section {
+	padding: 0 6.4rem;
+}
+
+.comments-btn {
+	cursor: pointer;
+}
+
+.comment-box {
+	width: 100%;
+	border: 1px solid #d0cdce;
+	border-radius: 5px;
+	font-family: "Lato", sans-serif;
+	line-height: 1.6;
+	color: #040404;
+	/* padding-left: 0.8rem; */
+	background-color: #ffffff;
+	margin-top: 0.8rem;
+	padding: 10px;
+}
+
+.child-comment {
+	margin-left: 6.4rem;
+	font-size: 1.4rem;
 }
 
 /* ------- */

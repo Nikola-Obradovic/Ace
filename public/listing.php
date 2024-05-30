@@ -2,6 +2,21 @@
 session_start();
 require '../includes/db_connection.php';
 
+/*
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (isset($_POST['quantity'])) {
+
+        $quantity = $_POST['quantity'];
+
+        $_SESSION['purchased_quantity'] = $quantity;
+
+
+    } else {
+        echo 'problem';
+    }
+}
+*/
+
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
     /** @noinspection PhpUndefinedVariableInspection */
     $item_id = mysqli_real_escape_string($conn, $_GET['id']);
@@ -50,6 +65,14 @@ if ($listing_type != "Other") {
     $subtype_details = [];
 }
 
+$comments_sql = "SELECT * FROM comments WHERE Listing = '$item_id'";
+$result_comments = mysqli_query($conn, $comments_sql);
+$comments = array();
+
+while($row = mysqli_fetch_assoc($result_comments)) {
+    $comments[] = $row;
+}
+
 
 
 
@@ -86,6 +109,8 @@ if ($listing_type != "Other") {
 </head>
 
 <body>
+
+
 
 <header class="header">
 
@@ -213,10 +238,64 @@ if ($listing_type != "Other") {
     <?php endif; ?>
 
 
-    <div class="container flex flex-gap-lg margin-top-slg">
-        <a href="">Comments</a>
-        <button class="form-button purchase-button">Purchase</button>
+    <div class="container flex flex-gap-lg margin-top-slg margin-bottom-lg">
+        <p class="comments-btn">Comments</p>
+        <?php if($row_listing["isHidden"] == null || $row_listing["isHidden"] == 0)
+            echo "<button class='form-button purchase-button'>Purchase</button>";
+        ?>
     </div>
+
+    <section class="comment-section margin-top-md">
+
+
+        <form action="" method="POST">
+            <div class="margin-top-md margin-bottom-lg">
+                <div class="flex flex-gap-sm">
+                    <textarea class="textarea" name="post-comment" rows="7"></textarea>
+                    <button class="form-button">Post</button>
+                </div>
+            </div>
+        </form>
+
+
+        <?php foreach ($comments as $comment): ?>
+                <?php if($comment['Parent_Comment'] === null): ?>
+
+                    <?php
+                        $user_id = $comment['Potential_Buyer'];
+                        $username_sql = "SELECT Username FROM users WHERE U_ID = '$user_id'";
+                        $result_username = mysqli_query($conn, $username_sql);
+                        $username = mysqli_fetch_assoc($result_username);
+                    ?>
+
+                    <div class="margin-bottom-xsm">
+                        <p><?php echo $username['Username']; ?></p>
+                        <div class="comment-box"><?php echo $comment['Content']; ?></div>
+                        <p>Reply</p>
+                    </div>
+
+                    <?php foreach($comments as $child_comment): ?>
+                        <?php if($child_comment['Parent_Comment'] === $comment['C_ID']): ?>
+
+                            <?php
+                            $user_id = $child_comment['Potential_Buyer'];
+                            $username_sql = "SELECT Username FROM users WHERE U_ID = '$user_id'";
+                            $result_username = mysqli_query($conn, $username_sql);
+                            $child_username = mysqli_fetch_assoc($result_username);
+                            ?>
+
+                            <div class="margin-bottom-xsm child-comment">
+                                <p><?php echo $child_username['Username']; ?></p>
+                                <div class="comment-box"><?php echo $child_comment['Content']; ?></div>
+                            </div>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+        <?php endforeach; ?>
+
+
+
+    </section>
 
 
 </div>
@@ -225,7 +304,7 @@ if ($listing_type != "Other") {
 
 
 
-   <div class="pop-up transaction-pop-up">
+   <div class="pop-up transaction-pop-up hidden">
        <div class="exit-button-payment margin-bottom-sm">
            <i class="fa-solid fa-x" style="color: #040404;"></i>
        </div>
@@ -278,9 +357,24 @@ if ($listing_type != "Other") {
                    <label for="save-info">Save payment information for later</label>
                </div>
 
+               <div>
+                   <p>Quantity</p>
+                   <div class="quantity-container">
+                       <button type="button" class="quantity-btn decrement" data-action="minus">-</button>
+                       <input type="number" class="quantity-input" name="quantity" value="1" min="1" max="<?php echo $row_listing["Quantity"];?>">
+                       <button type="button" class="quantity-btn increment" data-action="add">+</button>
+                   </div>
+               </div>
+
 
                <div class="flex flex-column">
-                   <p class="heading-tertiary--black container-button-left margin-bottom-sm">Price</p>
+                   <?php
+                   $purchased_quantity = isset($_SESSION['purchased_quantity']) ? $_SESSION['purchased_quantity'] : 1;
+                   echo $purchased_quantity?>
+
+                   <p class="heading-tertiary--black container-button-left margin-bottom-sm total-price"><?php echo $purchased_quantity * $row_listing['Price'] . "KM"; ?></p>
+
+
                    <div class="container-button-left margin-bottom-md">
                        <button class="form-button">Purchase</button>
                    </div>
@@ -330,7 +424,7 @@ if ($listing_type != "Other") {
             <p><a href="./index.php">Discover</a></p>
             <?php if(isset($_SESSION['U_ID'])) { ?>
                 <p><a href="your_profile.php">Your Profile</a></p>
-                <p><a href="../post-new-listing.php">Post new listing</a></p>
+                <p><a href="post-new-listing.php">Post new listing</a></p>
             <?php } else { ?>
                 <p><a href="Login.php">Your Profile</a></p>
                 <p><a href="Login.php">Post new listing</a></p>
@@ -351,9 +445,12 @@ if ($listing_type != "Other") {
     <p id="copyright">Copyright &copy; 2024 Inwolve</p>
 </footer>
 
+<div class="dimmed-background hidden"></div>
+
 
 <script src="../js/main.js"></script>
-<div class="dimmed-background hidden"></div>
+<script src="../js/quantity.js"></script>
+
 
 </body>
 </html>

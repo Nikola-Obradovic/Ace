@@ -75,6 +75,21 @@ if (openFilters && exitFilters) { //error prevention on pages where openFilters/
 
 }
 
+const purchaseListing = document.querySelector('.purchase-button');
+const exitPayment = document.querySelector('.exit-button-payment');
+
+if (purchaseListing && exitPayment) {
+    purchaseListing.addEventListener('click', () => {
+        document.querySelector('.transaction-pop-up').classList.remove('hidden');
+        document.querySelector('.dimmed-background').classList.remove('hidden');
+    });
+
+    exitPayment.addEventListener('click', () => {
+        document.querySelector('.transaction-pop-up').classList.add('hidden');
+        document.querySelector('.dimmed-background').classList.add('hidden');
+    });
+}
+
 
 
 const itemInputsArr = document.querySelectorAll('.item-inputs');
@@ -171,4 +186,12 @@ if (paymentOptions) {
     });
 
 
+}
+
+const commentsBtn = document.querySelector('.comments-btn');
+
+if(commentsBtn) {
+    commentsBtn.addEventListener('click', () => {
+        document.querySelector('.comment-section').classList.toggle('hidden');
+    });
 }
