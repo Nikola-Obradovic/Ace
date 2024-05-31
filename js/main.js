@@ -195,3 +195,29 @@ if(commentsBtn) {
         document.querySelector('.comment-section').classList.toggle('hidden');
     });
 }
+
+const replyBtn = document.querySelectorAll('.reply');
+
+if(replyBtn) {
+    replyBtn.forEach(function (element) {
+        element.addEventListener('click', function(event){
+
+            let commentId = event.target.getAttribute('reply-id');
+
+            /*
+
+            document.querySelectorAll('.reply-comment').forEach(function(replyComment) {
+                replyComment.classList.add('hidden');
+            });
+
+             */
+
+            let replyComment = document.getElementById('reply-comment-' + commentId);
+            if (replyComment) {
+                replyComment.classList.toggle('hidden');
+            }
+
+            //document.querySelector('.reply-comment').classList.toggle('hidden');
+        });
+    });
+}

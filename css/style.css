@@ -360,6 +360,11 @@ i{
 	font-size: 1.4rem;
 }
 
+.reply {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
 /* ------- */
 /* PROFILE */
 /* ------- */

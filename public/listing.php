@@ -2,6 +2,10 @@
 session_start();
 require '../includes/db_connection.php';
 
+header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1
+header("Pragma: no-cache"); // HTTP 1.0
+header("Expires: 0");
+
 /*
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['quantity'])) {
@@ -20,6 +24,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
     /** @noinspection PhpUndefinedVariableInspection */
     $item_id = mysqli_real_escape_string($conn, $_GET['id']);
+    $_SESSION['listing_id'] = $item_id;
 
     $listing_sql = "SELECT * FROM listings WHERE L_ID = '$item_id'";
     $result_listing = mysqli_query($conn, $listing_sql);
@@ -248,11 +253,11 @@ while($row = mysqli_fetch_assoc($result_comments)) {
     <section class="comment-section margin-top-md">
 
 
-        <form action="" method="POST">
+        <form action="../includes/add_comment.php" method="POST">
             <div class="margin-top-md margin-bottom-lg">
                 <div class="flex flex-gap-sm">
-                    <textarea class="textarea" name="post-comment" rows="7"></textarea>
-                    <button class="form-button">Post</button>
+                    <textarea class="textarea" name="post-comment" rows="7" required></textarea>
+                    <button type="submit" class="form-button">Post</button>
                 </div>
             </div>
         </form>
@@ -271,8 +276,20 @@ while($row = mysqli_fetch_assoc($result_comments)) {
                     <div class="margin-bottom-xsm">
                         <p><?php echo $username['Username']; ?></p>
                         <div class="comment-box"><?php echo $comment['Content']; ?></div>
-                        <p>Reply</p>
+                        <p class="reply" reply-id="<?php echo $comment['C_ID']; ?>">Reply</p>
                     </div>
+
+                    <?php $_SESSION['parent_comment'] = $comment['C_ID']; ?>
+                        <div class="margin-bottom-xsm child-comment reply-comment hidden" id="reply-comment-<?php echo $comment['C_ID']; ?>">
+                            <form action="../includes/reply.php" method="POST">
+                                <p>Reply @ <?php echo $username['Username']; ?></p>
+                                <div class="flex flex-gap-sm">
+                                    <input type="text" class="comment-box" name="reply_comment">
+                                    <button type="submit" class="form-button">Reply</button>
+                                </div>
+                            </form>
+                        </div>
+
 
                     <?php foreach($comments as $child_comment): ?>
                         <?php if($child_comment['Parent_Comment'] === $comment['C_ID']): ?>
