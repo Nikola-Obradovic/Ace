@@ -29,6 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     mysqli_close($conn);
     sleep(1);
-    header("location: ../public/index.php");
+    echo "<script>alert('Purchase complete ✅'); window.location.href='../public/index.php';</script>";
+
 
 }

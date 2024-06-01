@@ -117,7 +117,7 @@ while($row = mysqli_fetch_assoc($result_comments)) {
                     <a href="your_profile.php" class="main-nav-link">Your Profile</a>
                 </li>
                 <li>
-                    <a href="../post-new-listing.php" class="main-nav-link">Post New Listing</a>
+                    <a href="../public/post-new-listing.php" class="main-nav-link">Post New Listing</a>
                 </li>
             <?php } else { ?>
                 <li>
@@ -363,7 +363,7 @@ while($row = mysqli_fetch_assoc($result_comments)) {
                    <p>Quantity</p>
                    <div class="quantity-container">
                        <button type="button" class="quantity-btn decrement" data-action="minus" data-form="credit-card-form">-</button>
-                       <input type="number" class="quantity-input" id="quantity-credit-card" name="quantity" value="1" min="1" max="<?php echo $row_listing["Quantity"];?>">
+                       <input type="number" class="quantity-input" id="quantity-credit-card" name="quantity" value="1" min="1" max="<?php echo $row_listing["Quantity"];?>" readonly>
                        <button type="button" class="quantity-btn increment" data-action="add" data-form="credit-card-form">+</button>
                    </div>
                </div>
@@ -396,7 +396,7 @@ while($row = mysqli_fetch_assoc($result_comments)) {
                    <p>Quantity</p>
                    <div class="quantity-container">
                        <button type="button" class="quantity-btn decrement" data-action="minus" data-form="paypal-form">-</button>
-                       <input type="number" class="quantity-input" id="quantity-paypal" name="quantity" value="1" min="1" max="<?php echo $row_listing["Quantity"];?>">
+                       <input type="number" class="quantity-input" id="quantity-paypal" name="quantity" value="1" min="1" max="<?php echo $row_listing["Quantity"];?>" readonly>
                        <button type="button" class="quantity-btn increment" data-action="add" data-form="paypal-form">+</button>
                    </div>
                </div>
@@ -472,12 +472,12 @@ while($row = mysqli_fetch_assoc($result_comments)) {
         ];
 
         forms.forEach(({ formId, quantityInputId, totalPriceElementId, pricePerUnit }) => {
-            const quantityInput = document.getElementById(quantityInputId);
-            const totalPriceElement = document.getElementById(totalPriceElementId);
+            let quantityInput = document.getElementById(quantityInputId);
+            let totalPriceElement = document.getElementById(totalPriceElementId);
 
             // Function to update the total price
             function updateTotalPrice() {
-                const quantity = parseInt(quantityInput.value);
+                let quantity = parseInt(quantityInput.value);
                 let totalPrice = quantity * pricePerUnit;
                 totalPrice = totalPrice.toFixed(2);
                 totalPriceElement.textContent = totalPrice + 'KM';
@@ -485,13 +485,15 @@ while($row = mysqli_fetch_assoc($result_comments)) {
 
             // Event listener for quantity input change
             quantityInput.addEventListener('input', updateTotalPrice);
-
+            const maxQuantity = parseInt(quantityInput.max);
             // Event listeners for increment/decrement buttons
             document.querySelectorAll(`[data-form="${formId}"]`).forEach(button => {
-                button.addEventListener('click', function() {
+                button.addEventListener('click', function(e) {
                     if (this.dataset.action === 'minus' && quantityInput.value > 1) {
                         quantityInput.value--;
-                    } else if (this.dataset.action === 'add' && quantityInput.value < quantityInput.max) {
+                    } else if (this.dataset.action === 'add' && quantityInput.value < maxQuantity) {
+                        console.log(quantityInput.value);
+                        console.log(quantityInput.max);
                         quantityInput.value++;
                     }
                     updateTotalPrice();
