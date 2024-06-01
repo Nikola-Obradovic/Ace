@@ -60,7 +60,7 @@ while($row = mysqli_fetch_assoc($result_comments)) {
     $comments[] = $row;
 }
 
-/*
+
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['quantity'])) {
@@ -75,7 +75,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 } else echo 'belaj';
 
-*/
+
 
 
 ?>
@@ -242,14 +242,14 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     <div class="container flex flex-gap-lg margin-top-slg margin-bottom-lg">
         <p class="comments-btn">Comments</p>
-        <?php if($row_listing["isHidden"] == null || $row_listing["isHidden"] == 0)
+        <?php if(($row_listing["isHidden"] == null || $row_listing["isHidden"] == 0 ) && isset($_SESSION['U_ID']))
             echo "<button class='form-button purchase-button'>Purchase</button>";
         ?>
     </div>
 
     <section class="comment-section margin-top-md hidden">
 
-
+      <?php if (isset($_SESSION['U_ID'])) { ?>
         <form action="../includes/add_comment.php" method="POST">
             <input type="hidden" value="<?php echo $item_id; ?>" name="listing_id">
             <div class="margin-top-md margin-bottom-lg">
@@ -259,7 +259,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
             </div>
         </form>
+         <?php } else {
 
+          echo '<h1 class="margin-bottom-md">Log in to post a comment</h1>';
+
+      }   ?>
 
         <?php foreach ($comments as $comment): ?>
                 <?php if($comment['Parent_Comment'] == null): ?>
@@ -279,15 +283,21 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
                         <div class="margin-bottom-xsm child-comment reply-comment hidden" id="reply-comment-<?php echo $comment['C_ID']; ?>">
+                            <?php if(isset($_SESSION['U_ID'])){    ?>
                             <form action="../includes/reply.php" method="POST">
                                 <input type="hidden" value="<?php echo $item_id; ?>" name="listing_id">
                                 <input value="<?php echo $comment['C_ID']; ?>" type="hidden" name="parent_comment">
                                 <p>Reply @ <?php echo $username['Username']; ?></p>
+
+
                                 <div class="flex flex-gap-sm">
-                                    <input type="text" class="comment-box" name="reply_comment">
+                                    <input type="text" class="comment-box" name="reply_comment" required>
                                     <button type="submit" class="form-button">Reply</button>
                                 </div>
+
+
                             </form>
+                            <?php  } ?>
                         </div>
 
 
@@ -320,7 +330,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 
-
+    <?php if (isset($_SESSION['U_ID'])){ ?>
    <div class="pop-up transaction-pop-up hidden">
        <div class="exit-button-payment margin-bottom-sm">
            <i class="fa-solid fa-x" style="color: #040404;"></i>
@@ -337,31 +347,24 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
            </select>
        </div>
 
-
-
        <div class="payment-section">
-           <form class="form-payment hidden">
-           <p class="margin-bottom-sm">Credit card details</p>
-           <div class="grid grid--2-cols">
-               <input type="text" class="general-text--input margin-bottom-xsm" placeholder="First Name">
-               <input type="text" class="general-text--input margin-bottom-xsm" placeholder="Last Name">
-               <div class="credit-card-input margin-bottom-xsm">
-                   <input type="text" class="general-text--input" placeholder="1234 1234 1234 1234">
-                   <span class="credit-card-icons">
-                       <i class="fa-brands fa-cc-mastercard" style="color: #000;"></i>
-                       <i class="fa-brands fa-cc-visa" style="color: #000;"></i>
-                   </span>
+           <form class="form-payment hidden" id="credit-card-form">
+               <p class="margin-bottom-sm">Credit card details</p>
+               <div class="grid grid--2-cols">
+                   <input type="text" class="general-text--input margin-bottom-xsm" placeholder="First Name">
+                   <input type="text" class="general-text--input margin-bottom-xsm" placeholder="Last Name">
+                   <div class="credit-card-input margin-bottom-xsm">
+                       <input type="text" class="general-text--input" placeholder="1234 1234 1234 1234">
+                       <span class="credit-card-icons">
+                    <i class="fa-brands fa-cc-mastercard" style="color: #000;"></i>
+                    <i class="fa-brands fa-cc-visa" style="color: #000;"></i>
+                </span>
+                   </div>
+                   <div class="flex flex-gap-sm margin-bottom-xsm">
+                       <input type="text" class="general-text--input" placeholder="MM/YY">
+                       <input type="text" class="general-text--input" placeholder="CVC">
+                   </div>
                </div>
-               <div class="flex flex-gap-sm margin-bottom-xsm">
-                   <input type="text" class="general-text--input" placeholder="MM/YY">
-                   <input type="text" class="general-text--input" placeholder="CVC">
-
-               </div>
-
-
-
-
-           </div>
 
                <p class="margin-bottom-sm">Billing Address</p>
                <input type="text" class="general-text--input margin-bottom-xsm" placeholder="Street Name">
@@ -369,56 +372,51 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                    <input type="text" class="general-text--input margin-bottom-xsm" placeholder="City">
                    <input type="text" class="general-text--input margin-bottom-xsm" placeholder="Postal/Zip Code">
                </div>
-               <div class="margin-bottom-xsm">
-                   <input type="checkbox" name="save-info" id="save-info">
-                   <label for="save-info">Save payment information for later</label>
-               </div>
 
                <div>
                    <p>Quantity</p>
                    <div class="quantity-container">
-                       <button type="button" class="quantity-btn decrement" data-action="minus">-</button>
-                       <input type="number" class="quantity-input" name="quantity" value="1" min="1" max="<?php echo $row_listing["Quantity"];?>">
-                       <button type="button" class="quantity-btn increment" data-action="add">+</button>
+                       <button type="button" class="quantity-btn decrement" data-action="minus" data-form="credit-card-form">-</button>
+                       <input type="number" class="quantity-input" id="quantity-credit-card" name="quantity" value="1" min="1" max="<?php echo $row_listing["Quantity"];?>">
+                       <button type="button" class="quantity-btn increment" data-action="add" data-form="credit-card-form">+</button>
                    </div>
                </div>
 
-
                <div class="flex flex-column">
-                   <?php
-                   $purchased_quantity = isset($_SESSION['purchased_quantity']) ? $_SESSION['purchased_quantity'] : 1;
-                   echo $purchased_quantity?>
-
-                   <p class="heading-tertiary--black container-button-left margin-bottom-sm total-price"><?php echo $purchased_quantity * $row_listing['Price'] . "KM"; ?></p>
-
-
+                   <p class="heading-tertiary--black container-button-left margin-bottom-sm total-price" id="total-price-credit-card"><?php echo $row_listing['Price'] . "KM"; ?></p>
+                   <input type="hidden" value='<?php $row_listing['Price'] ?>' />
                    <div class="container-button-left margin-bottom-md">
                        <button class="form-button">Purchase</button>
                    </div>
                </div>
            </form>
 
-           <form class="form-payment hidden">
-           <div>
-               <p class="margin-bottom-xsm"></p>
-               <input type="text" class="general-text--input margin-bottom-xsm" placeholder="Email">
-               <input type="text" class="general-text--input margin-bottom-xsm" placeholder="Password">
-           </div>
+           <form class="form-payment hidden" id="paypal-form">
+               <div>
+                   <p class="margin-bottom-xsm"></p>
+                   <input type="text" class="general-text--input margin-bottom-xsm" placeholder="Email">
+                   <input type="text" class="general-text--input margin-bottom-xsm" placeholder="Password">
+               </div>
 
-           <p class="margin-bottom-sm">Billing Address</p>
-           <input type="text" class="general-text--input margin-bottom-xsm" placeholder="Street Name">
-           <div class="flex flex-gap-sm">
-               <input type="text" class="general-text--input margin-bottom-xsm" placeholder="City">
-               <input type="text" class="general-text--input margin-bottom-xsm" placeholder="Postal/Zip Code">
-           </div>
-           <div class="margin-bottom-xsm">
-               <input type="checkbox" name="save-info" id="save-info">
-               <label for="save-info">Save payment information for later</label>
-           </div>
+               <p class="margin-bottom-sm">Billing Address</p>
+               <input type="text" class="general-text--input margin-bottom-xsm" placeholder="Street Name">
+               <div class="flex flex-gap-sm">
+                   <input type="text" class="general-text--input margin-bottom-xsm" placeholder="City">
+                   <input type="text" class="general-text--input margin-bottom-xsm" placeholder="Postal/Zip Code">
+               </div>
 
+               <div>
+                   <p>Quantity</p>
+                   <div class="quantity-container">
+                       <button type="button" class="quantity-btn decrement" data-action="minus" data-form="paypal-form">-</button>
+                       <input type="number" class="quantity-input" id="quantity-paypal" name="quantity" value="1" min="1" max="<?php echo $row_listing["Quantity"];?>">
+                       <button type="button" class="quantity-btn increment" data-action="add" data-form="paypal-form">+</button>
+                   </div>
+               </div>
 
                <div class="flex flex-column">
-                   <p class="heading-tertiary--black container-button-left margin-bottom-sm">Price</p>
+                   <p class="heading-tertiary--black container-button-left margin-bottom-sm total-price" id="total-price-paypal"><?php echo $row_listing['Price'] . "KM"; ?></p>
+                   <input type="hidden" value='<?php $row_listing['Price'] ?>' />
                    <div class="container-button-left margin-bottom-md">
                        <button class="form-button">Purchase</button>
                    </div>
@@ -430,7 +428,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 
-    </div>
+
+   </div>
+    <?php } ?>
 
 </section>
 
@@ -466,8 +466,52 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 <script src="../js/main.js"></script>
-<script src="../js/quantity.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const forms = [
+            {
+                formId: 'credit-card-form',
+                quantityInputId: 'quantity-credit-card',
+                totalPriceElementId: 'total-price-credit-card',
+                pricePerUnit: <?php echo $row_listing['Price']; ?> // Fetch the price from PHP
+            },
+            {
+                formId: 'paypal-form',
+                quantityInputId: 'quantity-paypal',
+                totalPriceElementId: 'total-price-paypal',
+                pricePerUnit: <?php echo $row_listing['Price']; ?> // Fetch the price from PHP
+            }
+        ];
 
+        forms.forEach(({ formId, quantityInputId, totalPriceElementId, pricePerUnit }) => {
+            const quantityInput = document.getElementById(quantityInputId);
+            const totalPriceElement = document.getElementById(totalPriceElementId);
+
+            // Function to update the total price
+            function updateTotalPrice() {
+                const quantity = parseInt(quantityInput.value);
+                let totalPrice = quantity * pricePerUnit;
+                totalPrice = totalPrice.toFixed(2);
+                totalPriceElement.textContent = totalPrice + 'KM';
+            }
+
+            // Event listener for quantity input change
+            quantityInput.addEventListener('input', updateTotalPrice);
+
+            // Event listeners for increment/decrement buttons
+            document.querySelectorAll(`[data-form="${formId}"]`).forEach(button => {
+                button.addEventListener('click', function() {
+                    if (this.dataset.action === 'minus' && quantityInput.value > 1) {
+                        quantityInput.value--;
+                    } else if (this.dataset.action === 'add' && quantityInput.value < quantityInput.max) {
+                        quantityInput.value++;
+                    }
+                    updateTotalPrice();
+                });
+            });
+        });
+    });
+</script>
 
 </body>
 </html>
