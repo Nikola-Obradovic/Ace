@@ -62,20 +62,6 @@ while($row = mysqli_fetch_assoc($result_comments)) {
 
 
 
-if($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if (isset($_POST['quantity'])) {
-
-        $quantity = $_POST['quantity'];
-
-        $_SESSION['purchased_quantity'] = $quantity;
-
-
-    } else {
-        echo 'problem';
-    }
-} else echo 'belaj';
-
-
 
 
 ?>
@@ -348,7 +334,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
        </div>
 
        <div class="payment-section">
-           <form class="form-payment hidden" id="credit-card-form">
+           <form class="form-payment hidden" id="credit-card-form" action="../includes/transaction-processing.php" method="POST">
                <p class="margin-bottom-sm">Credit card details</p>
                <div class="grid grid--2-cols">
                    <input type="text" class="general-text--input margin-bottom-xsm" placeholder="First Name">
@@ -384,14 +370,15 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                <div class="flex flex-column">
                    <p class="heading-tertiary--black container-button-left margin-bottom-sm total-price" id="total-price-credit-card"><?php echo $row_listing['Price'] . "KM"; ?></p>
-                   <input type="hidden" value='<?php $row_listing['Price'] ?>' />
+                   <input type="hidden" value='<?php echo $item_id; ?>' name="item_id" />
+                   <input type="hidden" value='Credit Card' name="payment" />
                    <div class="container-button-left margin-bottom-md">
                        <button class="form-button">Purchase</button>
                    </div>
                </div>
            </form>
 
-           <form class="form-payment hidden" id="paypal-form">
+           <form class="form-payment hidden" id="paypal-form" action="../includes/transaction-processing.php" method="POST">
                <div>
                    <p class="margin-bottom-xsm"></p>
                    <input type="text" class="general-text--input margin-bottom-xsm" placeholder="Email">
@@ -416,7 +403,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                <div class="flex flex-column">
                    <p class="heading-tertiary--black container-button-left margin-bottom-sm total-price" id="total-price-paypal"><?php echo $row_listing['Price'] . "KM"; ?></p>
-                   <input type="hidden" value='<?php $row_listing['Price'] ?>' />
+                   <input type="hidden" value='<?php echo $item_id; ?>' name="item_id" />
+                   <input type="hidden" value='PayPal' name="payment" />
                    <div class="container-button-left margin-bottom-md">
                        <button class="form-button">Purchase</button>
                    </div>
