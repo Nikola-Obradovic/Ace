@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
         $user = $_SESSION['U_ID'];
-        $listing = $_SESSION['listing_id'];
+        $listing = $_POST['listing_id'];
     /** @noinspection PhpUndefinedVariableInspection */
         $content = mysqli_real_escape_string($conn, $_POST['post-comment']);
 
