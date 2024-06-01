@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function updateQuantity(quantity) {
         const xhr = new XMLHttpRequest();
-        xhr.open('POST', '../public/listing.php', true);
+        xhr.open('POST', '../public/listing.php?id=3', true);
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4 && xhr.status === 200) {

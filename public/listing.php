@@ -3,21 +3,6 @@ session_start();
 require '../includes/db_connection.php';
 
 
-/*
-if($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if (isset($_POST['quantity'])) {
-
-        $quantity = $_POST['quantity'];
-
-        $_SESSION['purchased_quantity'] = $quantity;
-
-
-    } else {
-        echo 'problem';
-    }
-}
-*/
-
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
     /** @noinspection PhpUndefinedVariableInspection */
     $item_id = mysqli_real_escape_string($conn, $_GET['id']);
@@ -75,7 +60,22 @@ while($row = mysqli_fetch_assoc($result_comments)) {
     $comments[] = $row;
 }
 
+/*
 
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (isset($_POST['quantity'])) {
+
+        $quantity = $_POST['quantity'];
+
+        $_SESSION['purchased_quantity'] = $quantity;
+
+
+    } else {
+        echo 'problem';
+    }
+} else echo 'belaj';
+
+*/
 
 
 ?>
@@ -253,7 +253,7 @@ while($row = mysqli_fetch_assoc($result_comments)) {
         <form action="../includes/add_comment.php" method="POST">
             <input type="hidden" value="<?php echo $item_id; ?>" name="listing_id">
             <div class="margin-top-md margin-bottom-lg">
-                <div class="flex flex-gap-sm">
+                <div class="flex flex-gap-sm post-comment-div">
                     <textarea class="textarea" name="post-comment" rows="7" required></textarea>
                     <button type="submit" class="form-button">Post</button>
                 </div>

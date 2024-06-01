@@ -131,6 +131,14 @@ margin: 0 auto;
 
 	}
 
+	.comment-section {
+		padding: 0;
+	}
+
+	.post-comment-div {
+		flex-direction: column;
+	}
+
 
 	/*
 
