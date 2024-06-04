@@ -422,13 +422,14 @@ i{
 
 
 .listings {
-	padding-top: 20px;
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-	height: 170px;
+	max-height: 340px;
 	overflow-x: hidden;
 	overflow-y: auto;
 	gap: 30px;
+	border: 1px solid black;
+	padding: 3.2rem 1.6rem;
 }
 
 .profile-listings {

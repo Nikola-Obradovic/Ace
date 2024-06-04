@@ -103,7 +103,7 @@ $userType = $_SESSION['User_Type'] ?? '';
     <h2 class="profile-info-title text-center margin-bottom-lg"><?php echo !empty($_SESSION['About_me']) ? $_SESSION['About_me'] : 'This user has not provided an "About me" section yet.';?></h2>
 
     <section class="container">
-    <div class="my_profile_elements">
+    <div class="my_profile_elements margin-bottom-md">
         <h2>Active listings:</h2>
         <div class="listings">
             <?php
@@ -141,7 +141,7 @@ $userType = $_SESSION['User_Type'] ?? '';
         </div>
     </div>
 
-    <div class="my_profile_elements">
+    <div class="my_profile_elements margin-bottom-md">
         <h2>Inactive listings:</h2>
         <div class="listings">
             <?php
@@ -177,7 +177,7 @@ $userType = $_SESSION['User_Type'] ?? '';
         </div>
     </div>
 
-    <div class="my_profile_elements">
+    <div class="my_profile_elements margin-bottom-md">
         <h2>Completed transactions:</h2>
         <div class="listings">
             <?php
