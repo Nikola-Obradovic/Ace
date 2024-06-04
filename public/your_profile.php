@@ -100,7 +100,7 @@ $userType = $_SESSION['User_Type'] ?? '';
 
     </div>
 
-    <h2 class="profile-info-title text-center margin-bottom-md"><?php echo !empty($_SESSION['About_me']) ? $_SESSION['About_me'] : 'This user has not provided an "About me" section yet.';?></h2>
+    <h2 class="profile-info-title text-center margin-bottom-lg"><?php echo !empty($_SESSION['About_me']) ? $_SESSION['About_me'] : 'This user has not provided an "About me" section yet.';?></h2>
 
     <section class="container">
     <div class="my_profile_elements">
@@ -110,27 +110,34 @@ $userType = $_SESSION['User_Type'] ?? '';
             $listingsSQL = "SELECT * FROM listings WHERE Seller=" . $_SESSION['U_ID'] . " AND isHidden=0";
             $listingsResult = mysqli_query($conn, $listingsSQL);
             $listings = mysqli_fetch_all($listingsResult, MYSQLI_ASSOC);
-            foreach ($listings as $listing) {
-                $listingType = $listing['Listing_Type'];
-                $listingId = $listing['L_ID'];
-                $listingTitle = $listing['Title'];
-                $listingPrice = $listing['Price'];
-                $listingLocation = $listing['Location'];
-                $listingDate = $listing['Date_Posted'];
-                $listingPicture = $listing['First_Picture_Path'];
-                ?>
-                <div class="profile-listings">
-                    <a href="listing.php?id=<?php echo $listingId; ?>">
-                        <img src="../img/<?php echo htmlspecialchars($listingPicture); ?>" alt="Listing picture" class="listing_img_small">
-                    </a>
-                    <div class="listing-info">
-                        <h3><?php echo htmlspecialchars($listingTitle); ?></h3>
-                        <p>Price: <?php echo htmlspecialchars($listingPrice); ?>$</p>
-                        <p>Location: <?php echo htmlspecialchars($listingLocation); ?></p>
-                        <p>Date posted: <?php echo htmlspecialchars($listingDate); ?></p>
+
+            if (mysqli_num_rows($listingsResult) > 0) {
+                foreach ($listings as $listing) {
+                    $listingType = $listing['Listing_Type'];
+                    $listingId = $listing['L_ID'];
+                    $listingTitle = $listing['Title'];
+                    $listingPrice = $listing['Price'];
+                    $listingLocation = $listing['Location'];
+                    $listingDate = $listing['Date_Posted'];
+                    $listingPicture = $listing['First_Picture_Path'];
+                    ?>
+                    <div class="profile-listings">
+                        <a href="listing.php?id=<?php echo $listingId; ?>">
+                            <img src="../img/<?php echo htmlspecialchars($listingPicture); ?>" alt="Listing picture" class="listing_img_small">
+                        </a>
+                        <div class="listing-info">
+                            <h3><?php echo htmlspecialchars($listingTitle); ?></h3>
+                            <p>Price: <?php echo htmlspecialchars($listingPrice); ?>$</p>
+                            <p>Location: <?php echo htmlspecialchars($listingLocation); ?></p>
+                            <p>Date posted: <?php echo htmlspecialchars($listingDate); ?></p>
+                        </div>
                     </div>
-                </div>
-            <?php } ?>
+                    <?php
+                }
+            } else {
+                echo "<h3>No active listings</h3>";
+            }
+            ?>
         </div>
     </div>
 
@@ -140,6 +147,8 @@ $userType = $_SESSION['User_Type'] ?? '';
             <?php
             $listingsSQL = "SELECT * FROM listings WHERE Seller=" . $_SESSION['U_ID'] . " AND isHidden=1";
             $listingsResult = mysqli_query($conn, $listingsSQL);
+
+            if (mysqli_num_rows($listingsResult) > 0) {
             $listings = mysqli_fetch_all($listingsResult, MYSQLI_ASSOC);
             foreach ($listings as $listing) {
                 $listingType = $listing['Listing_Type'];
@@ -161,7 +170,10 @@ $userType = $_SESSION['User_Type'] ?? '';
                         <p>Date posted: <?php echo htmlspecialchars($listingDate); ?></p>
                     </div>
                 </div>
-            <?php } ?>
+            <?php }
+            }else {
+                echo "<h3>No inactive listings</h3>";
+            }?>
         </div>
     </div>
 
@@ -171,6 +183,7 @@ $userType = $_SESSION['User_Type'] ?? '';
             <?php
             $transactionsSQL = "SELECT * FROM transactions WHERE Buyer=" . $_SESSION['U_ID'];
             $transactionsResult = mysqli_query($conn, $transactionsSQL);
+            if (mysqli_num_rows($transactionsResult) > 0) {
             $transactions = mysqli_fetch_all($transactionsResult, MYSQLI_ASSOC);
             foreach ($transactions as $transaction) {
                 $transactionPayment = $transaction['Payment_Method'];
@@ -192,7 +205,11 @@ $userType = $_SESSION['User_Type'] ?? '';
                         <p>Quantity: <?php echo htmlspecialchars($transactionQuantity); ?></p>
                     </div>
                 </div>
-            <?php } ?>
+            <?php }
+            } else{
+                echo "<h3>No transactions</h3>";
+            }
+            ?>
         </div>
     </div>
 

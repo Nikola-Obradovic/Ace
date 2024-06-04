@@ -492,7 +492,7 @@ while($row = mysqli_fetch_assoc($result_comments)) {
         forms.forEach(({ formId, quantityInputId, totalPriceElementId, pricePerUnit }) => {
             let quantityInput = document.getElementById(quantityInputId);
             let totalPriceElement = document.getElementById(totalPriceElementId);
-
+            let maxQuantity = "";
             // Function to update the total price
             function updateTotalPrice() {
                 let quantity = parseInt(quantityInput.value);
@@ -500,10 +500,11 @@ while($row = mysqli_fetch_assoc($result_comments)) {
                 totalPrice = totalPrice.toFixed(2);
                 totalPriceElement.textContent = totalPrice + 'KM';
             }
-
             // Event listener for quantity input change
-            quantityInput.addEventListener('input', updateTotalPrice);
-            const maxQuantity = parseInt(quantityInput.max);
+            if (quantityInput) {
+                quantityInput.addEventListener('input', updateTotalPrice);
+                maxQuantity = parseInt(quantityInput.max);
+            }
             // Event listeners for increment/decrement buttons
             document.querySelectorAll(`[data-form="${formId}"]`).forEach(button => {
                 button.addEventListener('click', function(e) {
