@@ -74,7 +74,7 @@ $userType = $_SESSION['User_Type'] ?? '';
 
     </header>
 
-    <div class="profile">
+    <div class="profile container">
         <div class="profile-info-left">
             <?php
             $profilePicSQL = "SELECT Profile_Picture_Path FROM users WHERE U_ID=" . $_SESSION['U_ID'];
@@ -87,7 +87,7 @@ $userType = $_SESSION['User_Type'] ?? '';
         </div>
         <div class="profile-info-right">
             <h2 class="profile-info-title">Hello <?php echo $_SESSION['Username']; ?>!</h2>
-            <h2 class="profile-info-title"><?php echo !empty($_SESSION['About_me']) ? $_SESSION['About_me'] : 'This user has not provided an "About me" section yet.';?></h2>
+
             <?php
             $totalSpentSQL = "SELECT SUM(Total_Amount) AS total_spent FROM transactions WHERE Buyer=" . $_SESSION['U_ID'];
             $totalSpentResult = mysqli_query($conn, $totalSpentSQL);
@@ -97,8 +97,12 @@ $userType = $_SESSION['User_Type'] ?? '';
             echo "<h2 class='profile-info-title'>Total Amount Spent: " . number_format($totalSpent, 2) . " KM</h2>";
             ?>
         </div>
+
     </div>
 
+    <h2 class="profile-info-title text-center margin-bottom-md"><?php echo !empty($_SESSION['About_me']) ? $_SESSION['About_me'] : 'This user has not provided an "About me" section yet.';?></h2>
+
+    <section class="container">
     <div class="my_profile_elements">
         <h2>Active listings:</h2>
         <div class="listings">
@@ -117,7 +121,7 @@ $userType = $_SESSION['User_Type'] ?? '';
                 ?>
                 <div class="profile-listings">
                     <a href="listing.php?id=<?php echo $listingId; ?>">
-                        <img src="../img/<?php echo htmlspecialchars($listingPicture); ?>" alt="Listing picture" class="listing_img">
+                        <img src="../img/<?php echo htmlspecialchars($listingPicture); ?>" alt="Listing picture" class="listing_img_small">
                     </a>
                     <div class="listing-info">
                         <h3><?php echo htmlspecialchars($listingTitle); ?></h3>
@@ -148,7 +152,7 @@ $userType = $_SESSION['User_Type'] ?? '';
                 ?>
                 <div class="profile-listings">
                     <a href="listing.php?id=<?php echo $listingId; ?>">
-                        <img src="../img/<?php echo htmlspecialchars($listingPicture); ?>" alt="Listing picture" class="listing_img">
+                        <img src="../img/<?php echo htmlspecialchars($listingPicture); ?>" alt="Listing picture" class="listing_img_small">
                     </a>
                     <div class="listing-info">
                         <h3><?php echo htmlspecialchars($listingTitle); ?></h3>
@@ -180,7 +184,7 @@ $userType = $_SESSION['User_Type'] ?? '';
                 $transactionPicture = $transactionListing['First_Picture_Path'];
                 ?>
                 <div class="profile-listings">
-                    <img src="../img/<?php echo htmlspecialchars($transactionPicture); ?>" alt="Listing picture" class="listing_img">
+                    <img src="../img/<?php echo htmlspecialchars($transactionPicture); ?>" alt="Listing picture" class="listing_img_small">
                     <div class="listing-info">
                         <h3><?php echo htmlspecialchars($transactionTitle); ?></h3>
                         <p>Total price: <?php echo htmlspecialchars($transactionPrice); ?>$</p>
@@ -210,7 +214,6 @@ $userType = $_SESSION['User_Type'] ?? '';
                         <div class="users">
                             <p>Username: <?php echo $username; ?></p>
                             <p>User Type: <?php echo $userType; ?></p>
-                            <p>User Status: <?php echo $userStatus; ?></p>
                             <form style="padding: 0; display: flex; justify-content: space-between" action="../includes/admin_actions.php" method="POST">
                                 <input type="hidden" name="user_id" value="<?php echo $userId; ?>">
                                 <?php if ($userStatus === 'inactive') { ?>
@@ -236,6 +239,7 @@ $userType = $_SESSION['User_Type'] ?? '';
             </div>
         </div>
     <?php } ?>
+    </section>>
 
 </main>
 

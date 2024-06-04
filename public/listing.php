@@ -187,19 +187,25 @@ while($row = mysqli_fetch_assoc($result_comments)) {
         echo "<h3>Quantity: {$row_listing['Quantity']}</h3>";
         echo "<form action='../includes/remove_listing.php' method='POST' style='display:inline;'>";
         echo "<input type='hidden' name='listing_id' value='{$row_listing['L_ID']}'>";
-        if ($row_listing["Seller"] == $_SESSION['U_ID']) {
-            echo "<button type='submit' name='remove' class='form-button'>Remove</button>";
+        if(isset($_SESSION['U_ID'])) {
+            if ($row_listing["Seller"] == $_SESSION['U_ID']) {
+                echo "<button type='submit' name='remove' class='form-button'>Remove</button>";
+            }
         }
         echo "</form>";
         echo "</div>";
     } else {
+        echo "<div class='stock'>";
         echo "<h2 class='stock'>Out of stock</h2>";
         echo "<form action='../includes/edit_listing.php' method='POST' style='display:inline;'>";
         echo "<input type='hidden' name='listing_id' value='{$row_listing['L_ID']}'>";
+        if(isset($_SESSION['U_ID'])) {
         if ($row_listing["Seller"] == $_SESSION['U_ID']) {
             echo "<button type='submit' name='edit' class='form-button'>Edit</button>";
-        }
+                }
+            }
         echo "</form>";
+        echo "</div>";
     }
 ?>
 

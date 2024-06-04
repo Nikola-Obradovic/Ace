@@ -101,7 +101,7 @@ session_start();
                 </div>
                 <div>
                     <p class="margin-bottom-sm">Price:</p>
-                    <input type="number" step="0.01" class="general-text--input margin-bottom-xsm" required name="price">
+                    <input type="number" step="0.01" min="0.05" class="general-text--input margin-bottom-xsm" required name="price">
                 </div>
             </div>
             <div class="grid grid--3-cols">
@@ -119,7 +119,7 @@ session_start();
                 </div>
                 <div>
                     <p class="margin-bottom-sm">Quantity:</p>
-                    <input type="number" step="1" class="general-text--input margin-bottom-xsm" required name="quantity">
+                    <input type="number" step="1" min="1" class="general-text--input margin-bottom-xsm" required name="quantity">
                 </div>
             </div>
 

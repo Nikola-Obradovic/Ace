@@ -378,7 +378,8 @@ i{
 
 .all-users {
 	height: 200px;
-	overflow: scroll;
+	overflow-x: hidden;
+	overflow-y: auto;
 }
 
 .admin-section {
@@ -405,7 +406,7 @@ i{
 
 .profile-info-right {
 	height: 16rem;
-	overflow: scroll;
+
 }
 
 .profile-info-title {
@@ -429,13 +430,15 @@ i{
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
 	height: 170px;
-	overflow: scroll;
+	overflow-x: hidden;
+	overflow-y: auto;
 	gap: 30px;
 }
 
 .profile-listings {
 	display: flex;
 	flex-wrap: wrap;
+	height: 100px;
 }
 
 .listing-info {
@@ -493,10 +496,17 @@ i{
 }
 
 .listing_img {
+	width: 350px; /* Set the desired width */
+	height: 300px; /* Set the desired height */
+	object-fit: cover; /* Ensures the image covers the given dimensions without distortion */
+	border-radius: 9px 9px 0 0;
+}
+
+.listing_img_small{
+
 	width: 100px; /* Set the desired width */
 	height: 100px; /* Set the desired height */
 	object-fit: cover; /* Ensures the image covers the given dimensions without distortion */
-	border-radius: 9px 9px 0 0;
 }
 
 .listing_div{
