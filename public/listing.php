@@ -181,13 +181,25 @@ while($row = mysqli_fetch_assoc($result_comments)) {
     echo "<h1 class='font-size44'>{$row_listing["Title"]}</h1>";
     echo "<h2>{$row_listing["Price"]}KM</h2>";
     echo "</div>";
-    if ($row_listing["isHidden"] == null || $row_listing["isHidden"] == 0){
+    if ($row_listing['isHidden'] == null || $row_listing['isHidden'] == 0) {
         echo "<div class='stock'>";
         echo "<h2>In stock</h2>";
-        echo "<h3>Quantity: {$row_listing["Quantity"]}</h3>";
+        echo "<h3>Quantity: {$row_listing['Quantity']}</h3>";
+        echo "<form action='../includes/remove_listing.php' method='POST' style='display:inline;'>";
+        echo "<input type='hidden' name='listing_id' value='{$row_listing['L_ID']}'>";
+        if ($row_listing["Seller"] == $_SESSION['U_ID']) {
+            echo "<button type='submit' name='remove' class='form-button'>Remove</button>";
+        }
+        echo "</form>";
         echo "</div>";
-    } else{
+    } else {
         echo "<h2 class='stock'>Out of stock</h2>";
+        echo "<form action='../includes/edit_listing.php' method='POST' style='display:inline;'>";
+        echo "<input type='hidden' name='listing_id' value='{$row_listing['L_ID']}'>";
+        if ($row_listing["Seller"] == $_SESSION['U_ID']) {
+            echo "<button type='submit' name='edit' class='form-button'>Edit</button>";
+        }
+        echo "</form>";
     }
 ?>
 
@@ -228,7 +240,7 @@ while($row = mysqli_fetch_assoc($result_comments)) {
 
     <div class="container flex flex-gap-lg margin-top-slg margin-bottom-lg">
         <p class="comments-btn">Comments</p>
-        <?php if(($row_listing["isHidden"] == null || $row_listing["isHidden"] == 0 ) && isset($_SESSION['U_ID']))
+        <?php if(($row_listing["isHidden"] == null || $row_listing["isHidden"] == 0 ) && isset($_SESSION['U_ID']) && $row_listing["Seller"] != $_SESSION['U_ID'])
             echo "<button class='form-button purchase-button'>Purchase</button>";
         ?>
     </div>
@@ -316,7 +328,7 @@ while($row = mysqli_fetch_assoc($result_comments)) {
 
 
 
-    <?php if (isset($_SESSION['U_ID'])){ ?>
+    <?php if (isset($_SESSION['U_ID']) && $row_listing["Seller"] != $_SESSION['U_ID']){ ?>
    <div class="pop-up transaction-pop-up hidden">
        <div class="exit-button-payment margin-bottom-sm">
            <i class="fa-solid fa-x" style="color: #040404;"></i>

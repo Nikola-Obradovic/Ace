@@ -369,10 +369,79 @@ i{
 /* PROFILE */
 /* ------- */
 
+.users {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+	gap: 20px;
+	align-items: center;
+}
+
+.all-users {
+	height: 200px;
+	overflow: scroll;
+}
+
+.admin-section {
+	padding-left: 30px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+.profile {
+	padding-left: 30px;
+	padding-right: 30px;
+	margin-top: 120px;
+	margin-bottom: 50px;
+	display: flex;
+}
+
+.profile-info-left {
+	margin-right: 50px;
+	height: 16rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.profile-info-right {
+	height: 16rem;
+	overflow: scroll;
+}
+
+.profile-info-title {
+	font-size: 2.4rem;
+	font-weight: 500;
+}
+
 .profile-picture {
 	height: 16rem;
 	width: 16rem;
 	border-radius: 100px;
+}
+
+.my_profile_elements {
+	padding-left: 30px;
+	margin-bottom: 50px;
+}
+
+.listings {
+	padding-top: 20px;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+	height: 170px;
+	overflow: scroll;
+	gap: 30px;
+}
+
+.profile-listings {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.listing-info {
+	display: flex;
+	flex-direction: column;
+	padding-left: 20px;
 }
 
 .add-listing {
@@ -424,8 +493,8 @@ i{
 }
 
 .listing_img {
-	width: 350px; /* Set the desired width */
-	height: 300px; /* Set the desired height */
+	width: 100px; /* Set the desired width */
+	height: 100px; /* Set the desired height */
 	object-fit: cover; /* Ensures the image covers the given dimensions without distortion */
 	border-radius: 9px 9px 0 0;
 }

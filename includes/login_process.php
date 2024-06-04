@@ -21,6 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['U_ID'] = $row['U_ID'];
         $_SESSION['Username'] = $row['Username'];
         $_SESSION['User_Type'] = $row['User_Type'];
+        $_SESSION['About_me'] = $row['About_me'];
         mysqli_close($conn);
         sleep(1);
         header("location: ../public/index.php"); // Redirect to welcome page

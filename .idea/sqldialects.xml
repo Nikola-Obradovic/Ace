@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/includes/admin_actions.php" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/includes/fetch_listings.php" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/includes/login_process.php" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/includes/post-new-listing-processing.php" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/includes/register_process.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/includes/remove_listing.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/includes/transaction-processing.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/includes/update_quantity.php" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/public/index.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/public/listing.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/public/your_profile.php" dialect="GenericSQL" />
   </component>
 </project>
