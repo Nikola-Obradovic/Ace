@@ -256,7 +256,7 @@ $userType = $_SESSION['User_Type'] ?? '';
             </div>
         </div>
     <?php } ?>
-    </section>>
+    </section>
 
 </main>
 
