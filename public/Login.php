@@ -32,6 +32,11 @@ session_start();
             echo '<h4 class="red-alert">'."Your username or password is invalid".'</h4>';
             unset($_SESSION['wrong_input']); // Unset the session variable
         }?>
+        <?php
+        if(isset($_SESSION['banned'])) {
+            echo '<h4 class="red-alert">'."You are banned".'</h4>';
+            unset($_SESSION['banned']); // Unset the session variable
+        }?>
         <p class="heading-tertiary margin-bottom-sm">Username</p>
         <input  type="text" class="margin-bottom-xsm general-text--input"  name="username" required>
         <p class="heading-tertiary margin-bottom-sm">Password</p>

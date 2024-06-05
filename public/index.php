@@ -531,7 +531,7 @@ require '../includes/db_connection.php';
             <div class="flex flex-gap-lg wrapped" >
             <?php
             if (!isset($_SESSION['result'])) {
-                $sql = "SELECT * FROM listings WHERE 1=1";
+                $sql = "SELECT * FROM listings l, users u WHERE u.U_ID = l.Seller AND u.User_Status = 'active'";
 
                 // 🔴🔴 Exclude listings from the logged-in user if session is active 🔴🔴
                 if (isset($_SESSION['U_ID'])) {
