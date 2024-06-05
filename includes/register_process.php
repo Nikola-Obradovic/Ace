@@ -49,6 +49,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         sleep(1);
         header("location: ../public/index.php"); // Redirect to welcome page
     } else {
-        $error = "Passwords do not match";
+        $_SESSION['password_check'] = true;
+        sleep(1);
+        header('location: ../public/Register.php');
+
     }
 }

@@ -32,6 +32,11 @@ session_start();
             echo '<h4 class="red-alert">'."Username or email already exists".'</h4>';
             unset($_SESSION['unique_check']); // Unset the session variable
         }?>
+        <?php
+        if(isset($_SESSION['password_check'])) {
+            echo '<h4 class="red-alert">'."Passwords do not match".'</h4>';
+            unset($_SESSION['password_check']); // Unset the session variable
+        }?>
         <p class="heading-tertiary margin-bottom-sm">Username</p>
         <input type="text" class="general-text--input margin-bottom-xsm" name="username" required>
         <p class="heading-tertiary margin-bottom-sm">Email</p>
