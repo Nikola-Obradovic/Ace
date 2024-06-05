@@ -139,6 +139,26 @@ margin: 0 auto;
 		flex-direction: column;
 	}
 
+	.users {
+		gap: 10px;
+	}
+
+	.smaller-input {
+		width: 100%;
+	}
+
+	.input-for-screens {
+		display: block;
+	}
+
+	.add-listing {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	.your-profile-header {
+		padding-left: 15px;
+	}
 
 	/*
 

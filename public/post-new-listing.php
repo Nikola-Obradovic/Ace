@@ -94,7 +94,7 @@ session_start();
                 <option>Laptops</option>
                 <option>Other</option>
             </select>
-            <div class="grid grid--2-cols">
+            <div class="grid grid--2-cols input-for-screens">
                 <div>
                     <p class="margin-bottom-sm">Name:</p>
                     <input type="text" class="general-text--input margin-bottom-xsm" required name="item_name">
@@ -104,7 +104,7 @@ session_start();
                     <input type="number" step="0.01" min="0.05" class="general-text--input margin-bottom-xsm" required name="price">
                 </div>
             </div>
-            <div class="grid grid--3-cols">
+            <div class="grid grid--3-cols input-for-screens">
                 <div>
                     <p class="margin-bottom-sm">Location:</p>
                     <input type="text" class="general-text--input margin-bottom-xsm" required name="location">
@@ -124,7 +124,7 @@ session_start();
             </div>
 
                 <div class="item-inputs hidden">
-                <div class="grid grid--2-cols">
+                <div class="grid grid--2-cols input-for-screens">
                     <div>
                         <p class="margin-bottom-sm">Manufacturer:</p>
                         <select class="select-input margin-bottom-xsm car-select-manufacturer" name="manufacturer">
@@ -152,7 +152,7 @@ session_start();
                     </div>
 
                 </div>
-                    <div class="div-center one-row--filter">
+                    <div class="div-center one-row--filter smaller-input">
                         <p class="margin-bottom-sm">Fuel type:</p>
                         <select class="select-input margin-bottom-xsm" name="fuel_type">
                             <option value="" selected>Select Option</option>
@@ -167,7 +167,7 @@ session_start();
 
 
                 <div class="item-inputs hidden">
-                <div class="grid grid--2-cols">
+                <div class="grid grid--2-cols input-for-screens">
                     <div>
                         <p class="margin-bottom-sm">Type:</p>
                         <select class="select-input margin-bottom-xsm" name="type">
@@ -194,7 +194,7 @@ session_start();
 
 
                 <div class="item-inputs hidden">
-                <div class="grid grid--2-cols">
+                <div class="grid grid--2-cols input-for-screens">
                     <div>
                         <p class="margin-bottom-sm">Brand:</p>
                         <select class="select-input margin-bottom-xsm phone-select-brand" name="brand_phone">
@@ -242,7 +242,7 @@ session_start();
 
                 </div>
 
-                    <div class="div-center one-row--filter">
+                    <div class="div-center one-row--filter smaller-input">
                         <p class="margin-bottom-sm">RAM:</p>
                         <select class="select-input margin-bottom-xsm" name="ram_phone">
                             <option value=""  selected>Select Option</option>
@@ -259,7 +259,7 @@ session_start();
 
 
             <div class="item-inputs hidden">
-                <div class="grid grid--2-cols">
+                <div class="grid grid--2-cols input-for-screens">
                     <div>
                         <p class="margin-bottom-sm">Brand:</p>
                         <select class="select-input margin-bottom-xsm shoe-select-brand" name="brand_shoe">
@@ -313,7 +313,7 @@ session_start();
 
 
                 <div class="item-inputs hidden">
-                <div class="grid grid--2-cols">
+                <div class="grid grid--2-cols input-for-screens">
                     <div>
                         <p class="margin-bottom-sm">Brand:</p>
                         <select class="select-input margin-bottom-xsm laptop-select-brand" name="brand_laptop">

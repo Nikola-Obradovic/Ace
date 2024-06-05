@@ -370,20 +370,20 @@ i{
 /* ------- */
 
 .users {
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+	padding-top: 10px;
+	padding-bottom: 10px;
 	gap: 20px;
 	align-items: center;
 }
 
 .all-users {
+	border: 1px solid black;
 	height: 200px;
 	overflow-x: hidden;
 	overflow-y: auto;
 }
 
 .admin-section {
-	padding-left: 30px;
 	margin-top: 50px;
 	margin-bottom: 50px;
 }
@@ -560,4 +560,8 @@ i{
 
 .listing-details-table td {
 	border-bottom: 1px solid #ddd;
+}
+
+.border-bottom-pale {
+	border-bottom: 1px solid #9b9b9b;
 }

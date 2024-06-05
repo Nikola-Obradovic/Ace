@@ -228,10 +228,13 @@ $userType = $_SESSION['User_Type'] ?? '';
                         $userType = htmlspecialchars($user['User_Type']);
                         $userStatus = htmlspecialchars($user['User_Status']);
                         ?>
-                        <div class="users">
-                            <p>Username: <?php echo $username; ?></p>
-                            <p>User Type: <?php echo $userType; ?></p>
-                            <form style="padding: 0; display: flex; justify-content: space-between" action="../includes/admin_actions.php" method="POST">
+                        <div class="grid grid--2-cols users border-bottom-pale">
+                            <div class="div-center">
+                                <p class="margin-bottom-sm">Username: <?php echo $username; ?></p>
+                                <p>User Type: <?php echo $userType; ?></p>
+                            </div>
+                            <div class="div-center">
+                            <form action="../includes/admin_actions.php" method="POST">
                                 <input type="hidden" name="user_id" value="<?php echo $userId; ?>">
                                 <?php if ($userStatus === 'inactive') { ?>
                                     <button type="submit" name="unban" class="form-button2">Unban</button>
@@ -246,6 +249,7 @@ $userType = $_SESSION['User_Type'] ?? '';
                                     <?php } ?>
                                 <?php } ?>
                             </form>
+                            </div>
                         </div>
                     <?php }
                 }
