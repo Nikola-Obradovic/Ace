@@ -1,3 +1,28 @@
+.password {
+	position: relative;
+	width: 100%;
+}
+
+.password-input {
+	width: calc(100% - 40px); /* Adjust as needed */
+	padding-right: 40px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.eye-container {
+	position: absolute;
+	top: 35%;
+	right: 10px;
+	transform: translateY(-50%);
+	cursor: pointer;
+}
+
+.eye-icon {
+	height: 24px;
+	width: 24px;
+}
+
 
 .black-box{
 margin-top: 20vh;
@@ -11,8 +36,8 @@ border-radius: 5px;
 
 .general-text--input, .select-input{
 width: 100%;
-border: 1px solid #d0cdce;
-height:	3.2rem;
+border: 1px solid #9b9b9b;
+height:	4.8rem;
 	border-radius: 5px;
 	font-family: "Lato", sans-serif;
 	line-height: 1.6;
@@ -365,6 +390,35 @@ i{
 	cursor: pointer;
 }
 
+.quantity-container {
+	width: 120px;
+	display: flex;
+	border: 2px solid #d0cdce;
+	border-radius: 4px;
+	overflow: hidden;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.quantity-btn {
+	background-color: #d0cdce;
+	color: #fff;
+	border: none;
+	cursor: pointer;
+	font-size: 20px;
+	width: 30px;
+	height: auto;
+	text-align: center;
+}
+
+.quantity-input {
+	width: 60px;
+	text-align: center;
+	border: none;
+	padding: 8px 10px;
+	font-size: 16px;
+	outline: none;
+}
+
 /* ------- */
 /* PROFILE */
 /* ------- */
@@ -473,7 +527,7 @@ i{
 }
 
 .add-listing {
-	background-color: #D9D9D9;
+
 	padding: 4.8rem 6.4rem;
 }
 
@@ -484,7 +538,7 @@ i{
 .textarea {
 	width: 100%;
 	height: fit-content;
-	border: 1px solid #d0cdce;
+	border: 1px solid #9b9b9b;
 	border-radius: 5px;
 	font-family: "Lato", sans-serif;
 	line-height: 1.6;

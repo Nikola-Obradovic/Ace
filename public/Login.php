@@ -40,7 +40,16 @@ session_start();
         <p class="heading-tertiary margin-bottom-sm">Username</p>
         <input  type="text" class="margin-bottom-xsm general-text--input"  name="username" required>
         <p class="heading-tertiary margin-bottom-sm">Password</p>
-        <input  type="text" class="margin-bottom-xsm general-text--input" name="password" required>
+        <div class="password">
+            <input  type="password" class="margin-bottom-xsm general-text--input password-input" name="password" required>
+            <div class="eye-container">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 eye-icon">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                </svg>
+            </div>
+
+        </div>
         <button class="form-button div-center margin-bottom-lg">Log in</button>
     </form>
     <div class="flex flex-gap-sm">
@@ -50,6 +59,7 @@ session_start();
 
 
 </main>
+<script src="../js/password.js"></script>
 
 </body>
 </html>

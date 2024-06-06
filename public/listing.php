@@ -211,6 +211,12 @@ while($row = mysqli_fetch_assoc($result_comments)) {
 
 
 
+
+    </div>
+
+    <div class="margin-bottom-sm">
+        <h3>Location: <?php echo $row_listing['Location'];?></h3>
+        <h3>Condition: <?php echo $row_listing['Condition_Of_Listing'];?></h3>
     </div>
 
     <?php
@@ -378,7 +384,7 @@ while($row = mysqli_fetch_assoc($result_comments)) {
                </div>
 
                <div>
-                   <p>Quantity</p>
+                   <p class="margin-bottom-sm">Quantity</p>
                    <div class="quantity-container">
                        <button type="button" class="quantity-btn decrement" data-action="minus" data-form="credit-card-form">-</button>
                        <input type="number" class="quantity-input" id="quantity-credit-card" name="quantity" value="1" min="1" max="<?php echo $row_listing["Quantity"];?>" readonly>
@@ -411,7 +417,7 @@ while($row = mysqli_fetch_assoc($result_comments)) {
                </div>
 
                <div>
-                   <p>Quantity</p>
+                   <p class="margin-bottom-sm">Quantity</p>
                    <div class="quantity-container">
                        <button type="button" class="quantity-btn decrement" data-action="minus" data-form="paypal-form">-</button>
                        <input type="number" class="quantity-input" id="quantity-paypal" name="quantity" value="1" min="1" max="<?php echo $row_listing["Quantity"];?>" readonly>

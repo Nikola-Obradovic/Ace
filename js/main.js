@@ -236,3 +236,4 @@ if (editProfile && exitEdit) {
         document.querySelector('.dimmed-background').classList.add('hidden');
     });
 }
+

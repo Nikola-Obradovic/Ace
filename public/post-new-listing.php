@@ -1,5 +1,6 @@
 <?php
 session_start();
+require '../includes/db_connection.php';
 ?>
 <!doctype html>
 <html lang="en">
@@ -79,7 +80,13 @@ session_start();
 
 <main class="margin-top-lg add-listing">
     <div class="flex flex-gap-sm your-profile-header margin-bottom-md">
-        <img src="../img/default-avatar-icon.jpg" class="profile-picture">
+        <?php
+        $profile_pic_sql = "SELECT Profile_Picture_Path FROM users WHERE U_ID=" . $_SESSION['U_ID'];
+        $profile_pic_result = mysqli_query($conn, $profile_pic_sql);
+        $pfp = mysqli_fetch_assoc($profile_pic_result);
+        $picture_src = !empty($pfp['Profile_Picture_Path']) ? $pfp['Profile_Picture_Path'] : 'default-avatar-icon.jpg';
+        ?>
+        <img src="../img/<?php echo htmlspecialchars($picture_src); ?>" alt="Profile picture" class="profile-picture">
         <p class="heading-secondary"><?php echo $_SESSION["Username"] ?></p>
     </div>
     <div class="container">
