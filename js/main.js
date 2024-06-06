@@ -221,3 +221,18 @@ if(replyBtn) {
         });
     });
 }
+
+const editProfile = document.querySelector('.edit-pfp');
+const exitEdit = document.querySelector('.exit-button-edit');
+
+if (editProfile && exitEdit) {
+    editProfile.addEventListener('click', () => {
+        document.querySelector('.edit-pop-up').classList.remove('hidden');
+        document.querySelector('.dimmed-background').classList.remove('hidden');
+    });
+
+    exitEdit.addEventListener('click', () => {
+        document.querySelector('.edit-pop-up').classList.add('hidden');
+        document.querySelector('.dimmed-background').classList.add('hidden');
+    });
+}

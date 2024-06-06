@@ -396,9 +396,36 @@ i{
 	display: flex;
 }
 
+.edit-pfp {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.edit-pop-up {
+	max-width: 100rem;
+	border: 1px solid #d0cdce;
+	background-color: #F7F4F4;
+	border-radius: 5px;
+	top: 20%;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 3.2rem 3.2rem;
+	position: absolute;
+	box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+	z-index: 10;
+}
+
+.exit-button-edit {
+	width: 95%;
+	display: flex;
+	justify-content: flex-end;
+	cursor: pointer;
+}
+
 .profile-info-left {
 	margin-right: 50px;
-	height: 16rem;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -415,9 +442,10 @@ i{
 }
 
 .profile-picture {
-	height: 16rem;
-	width: 16rem;
-	border-radius: 100px;
+	height: 160px;
+	width: 160px;
+	border-radius: 50%;
+	object-fit: cover;
 }
 
 

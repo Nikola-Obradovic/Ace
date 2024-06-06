@@ -4,6 +4,11 @@ require '../includes/db_connection.php';
 
 $userType = $_SESSION['User_Type'] ?? '';
 
+$about_me_sql = "SELECT About_me FROM users WHERE U_ID = '$_SESSION[U_ID]'";
+$result_about_me = mysqli_query($conn, $about_me_sql);
+$about_me_row = mysqli_fetch_assoc($result_about_me);
+$about_me = $about_me_row['About_me'];
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -22,6 +27,7 @@ $userType = $_SESSION['User_Type'] ?? '';
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script
             type="module"
             src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"
@@ -30,6 +36,11 @@ $userType = $_SESSION['User_Type'] ?? '';
             nomodule=""
             src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"
     ></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.min.css">
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.min.js"></script>
 </head>
 <body>
 <main>
@@ -84,6 +95,7 @@ $userType = $_SESSION['User_Type'] ?? '';
             $pictureSource = !empty($user['Profile_Picture_Path']) ? $user['Profile_Picture_Path'] : 'default-avatar-icon.jpg';
             ?>
             <img src="../img/<?php echo htmlspecialchars($pictureSource); ?>" alt="Profile picture" class="profile-picture">
+            <p class="div-center edit-pfp">Edit</p>
         </div>
         <div class="profile-info-right">
             <h2 class="profile-info-title">Hello <?php echo $_SESSION['Username']; ?>!</h2>
@@ -100,7 +112,33 @@ $userType = $_SESSION['User_Type'] ?? '';
 
     </div>
 
-    <h2 class="profile-info-title text-center margin-bottom-lg"><?php echo !empty($_SESSION['About_me']) ? $_SESSION['About_me'] : 'This user has not provided an "About me" section yet.';?></h2>
+    <div class="container edit-pop-up hidden">
+        <div class="exit-button-edit margin-bottom-sm">
+            <i class="fa-solid fa-x exit-button-right" style="color: #040404;"></i>
+        </div>
+        <div class="margin-bottom-xsm">
+            <form action="../includes/edit_profile.php" method="POST">
+                <p class="margin-bottom-sm">Edit your bio:</p>
+                <textarea class="textarea margin-bottom-sm" rows="5" name="bio"></textarea>
+                <button type="submit" class="form-button2">Submit</button>
+            </form>
+        </div>
+
+        <div>
+            <form action="../includes/edit_pfp.php" method="POST">
+                <p class="margin-bottom-sm">Change your profile picture:</p>
+                <div id="my-dropzone-pfp" class="dropzone margin-bottom-sm">
+                    <p class="dz-message">Drop files here or click to upload</p>
+                </div>
+                <div>
+                    <button type="submit" class="form-button2">Apply</button>
+                </div>
+            </form>
+            <form action="../includes/remove_pfp.php" method="POST"><input type="hidden" name="remove"><button type="submit" class="form-button2">Remove</button></form>
+        </div>
+    </div>
+
+    <h2 class="profile-info-title text-center margin-bottom-lg"><?php echo !empty($about_me) ? $about_me : 'This user has not provided an "About me" section yet.';?></h2>
 
     <section class="container">
     <div class="my_profile_elements margin-bottom-md">
@@ -264,6 +302,37 @@ $userType = $_SESSION['User_Type'] ?? '';
 
 </main>
 
+<footer class="footer margin-top-md">
+    <div class="grid grid--3-cols footer-grid">
+        <div>
+            <p class="margin-bottom-sm footer-headings">ACE</p>
+            <p><a href="index.php">Discover</a></p>
+            <?php if(isset($_SESSION['U_ID'])) { ?>
+                <p><a href="your_profile.php">Your Profile</a></p>
+                <p><a href="post-new-listing.php">Post new listing</a></p>
+            <?php } else { ?>
+                <p><a href="Login.php">Your Profile</a></p>
+                <p><a href="Login.php">Post new listing</a></p>
+            <?php } ?>
+        </div>
+        <div>
+            <p class="margin-bottom-sm footer-headings">CONTACT US</p>
+            <p>tarik.basic@stu.ssst.edu.ba</p>
+            <p>hana.catic@stu.ssst.edu.ba</p>
+            <p>nikola.obradovic@stu.ssst.edu.ba</p>
+        </div>
+        <div>
+            <p class="margin-bottom-sm footer-headings">WHERE TO FIND US?</p>
+            <p>Hrasnička cesta 3a, Ilidža 71210</p>
+            <p>Sarajevo, Bosnia and Herzegovina</p>
+        </div>
+    </div>
+    <p id="copyright">Copyright &copy; 2024 Inwolve</p>
+</footer>
+
+<div class="dimmed-background hidden"></div>
+
+<script src="../js/drop_zone.js"></script>
 <script src="../js/main.js"></script>
 </body>
 </html>
