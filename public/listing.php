@@ -177,12 +177,25 @@ while($row = mysqli_fetch_assoc($result_comments)) {
 
     <div class="grid grid--2-cols margin-top-md margin-bottom-sm">
 <?php
+    $user_sql = "SELECT u.U_ID, u.Profile_Picture_Path FROM users u, listings l WHERE u.U_ID = l.Seller AND l.L_ID = '$item_id'";
+    $result_seller = mysqli_query($conn, $user_sql);
+    $seller_pfp = mysqli_fetch_assoc($result_seller);
+    $pfp_source = !empty($seller_pfp['Profile_Picture_Path']) ? $seller_pfp['Profile_Picture_Path'] : 'default-avatar-icon.jpg';
+
+
     echo "<div>";
     echo "<h1 class='font-size44'>{$row_listing["Title"]}</h1>";
-    echo "<h2>{$row_listing["Price"]}KM</h2>";
+    echo "<h2 class='margin-bottom-sm'>{$row_listing["Price"]}KM</h2>";
+    ?>
+        <h3>Location: <?php echo $row_listing['Location'];?></h3>
+        <h3>Condition: <?php echo $row_listing['Condition_Of_Listing'];?></h3>
+    <?php
     echo "</div>";
     if ($row_listing['isHidden'] == null || $row_listing['isHidden'] == 0) {
-        echo "<div class='stock'>";
+        echo "<div class='stock'>"; ?>
+        <a href="seller_profile.php?seller_id=<?php echo $seller_pfp['U_ID']; ?>"><img src="../img/<?php echo $pfp_source; ?>" class="seller"></a>
+
+        <?php
         echo "<h2>In stock</h2>";
         echo "<h3>Quantity: {$row_listing['Quantity']}</h3>";
         echo "<form action='../includes/remove_listing.php' method='POST' style='display:inline;'>";
@@ -214,10 +227,7 @@ while($row = mysqli_fetch_assoc($result_comments)) {
 
     </div>
 
-    <div class="margin-bottom-sm">
-        <h3>Location: <?php echo $row_listing['Location'];?></h3>
-        <h3>Condition: <?php echo $row_listing['Condition_Of_Listing'];?></h3>
-    </div>
+
 
     <?php
 

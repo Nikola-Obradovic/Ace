@@ -95,7 +95,8 @@ $about_me = $about_me_row['About_me'];
             $pictureSource = !empty($user['Profile_Picture_Path']) ? $user['Profile_Picture_Path'] : 'default-avatar-icon.jpg';
             ?>
             <img src="../img/<?php echo htmlspecialchars($pictureSource); ?>" alt="Profile picture" class="profile-picture">
-            <p class="div-center edit-pfp">Edit</p>
+            <button class="div-center form-button2 edit-pfp">Edit</button>
+
         </div>
         <div class="profile-info-right">
             <h2 class="profile-info-title">Hello <?php echo $_SESSION['Username']; ?>!</h2>
@@ -138,7 +139,9 @@ $about_me = $about_me_row['About_me'];
         </div>
     </div>
 
-    <h2 class="profile-info-title text-center margin-bottom-lg"><?php echo !empty($about_me) ? $about_me : 'This user has not provided an "About me" section yet.';?></h2>
+    <div class="bio-container div-center margin-bottom-xsm">
+        <h2 class="profile-info-title text-center margin-bottom-lg"><?php echo !empty($about_me) ? $about_me : 'This user has not provided an "About me" section yet.';?></h2>
+    </div>
 
     <section class="container">
     <div class="my_profile_elements margin-bottom-md">

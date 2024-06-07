@@ -451,8 +451,7 @@ i{
 }
 
 .edit-pfp {
-	text-decoration: underline;
-	cursor: pointer;
+		cursor: pointer;
 }
 
 .edit-pop-up {
@@ -493,6 +492,8 @@ i{
 .profile-info-title {
 	font-size: 2.4rem;
 	font-weight: 500;
+	word-wrap: break-word;
+	padding-bottom: 30px;
 }
 
 .profile-picture {
@@ -646,4 +647,39 @@ i{
 
 .border-bottom-pale {
 	border-bottom: 1px solid #9b9b9b;
+}
+
+.bio-container {
+	background-color: #ffffff;
+	border-radius: 5px;
+	max-width: 1140px;
+	padding-top: 30px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.edit-quantity {
+	max-width: 700px;
+	margin-top: 200px;
+}
+
+.seller {
+	height: 6rem;
+	width: 6rem;
+	border-radius: 50%;
+	object-fit: cover;
+	cursor: pointer;
+}
+
+.seller-form {
+	padding: 0;
+}
+
+.seller-pfp {
+	height: 18rem;
+	width: 18rem;
+}
+
+.seller-username {
+	font-size: 3.2rem;
 }

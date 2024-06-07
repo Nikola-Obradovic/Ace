@@ -160,6 +160,16 @@ margin: 0 auto;
 		padding-left: 15px;
 	}
 
+	.seller-profile {
+		padding-left: 0;
+	}
+
+	.edit-quantity {
+		width: 600px;
+		margin-right: 100px;
+		margin-left: 100px;
+	}
+
 	/*
 
 	#sort-filters {

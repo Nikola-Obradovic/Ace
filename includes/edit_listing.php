@@ -8,6 +8,7 @@ echo "<link href='https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['edit'])) {
     $listing_id = intval($_POST['listing_id']);
+    echo '<div class="edit-quantity div-center">';
     echo "<form action='../includes/update_quantity.php' method='POST' class='quantity-form'>";
     echo "<input type='hidden' name='listing_id' value='$listing_id'>";
     echo "<div class='form-group'>";
@@ -16,4 +17,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['edit'])) {
     echo "</div>";
     echo "<button type='submit' name='update_quantity' class='form-button'>Update</button>";
     echo "</form>";
+    echo '</div>';
 }
