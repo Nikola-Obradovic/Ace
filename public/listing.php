@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
 
     mysqli_free_result($result_listing);
-    $img_sql = "SELECT * FROM pictures WHERE Listing = '$item_id'";
+    $img_sql = "SELECT p.Picture_Name FROM pictures p WHERE Listing = '$item_id'";
     $result_img = mysqli_query($conn, $img_sql);
     $images = array();
 
@@ -52,7 +52,7 @@ if ($listing_type != "Other") {
     $subtype_details = [];
 }
 
-$comments_sql = "SELECT * FROM comments WHERE Listing = '$item_id'";
+$comments_sql = "SELECT C_ID, Potential_Buyer, Parent_Comment, Content FROM comments WHERE Listing = '$item_id'";
 $result_comments = mysqli_query($conn, $comments_sql);
 $comments = array();
 

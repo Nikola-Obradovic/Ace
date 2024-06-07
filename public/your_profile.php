@@ -4,7 +4,7 @@ require '../includes/db_connection.php';
 
 $userType = $_SESSION['User_Type'] ?? '';
 
-$about_me_sql = "SELECT About_me FROM users WHERE U_ID = '$_SESSION[U_ID]'";
+$about_me_sql = "SELECT u.About_me FROM users u WHERE U_ID = '$_SESSION[U_ID]'";
 $result_about_me = mysqli_query($conn, $about_me_sql);
 $about_me_row = mysqli_fetch_assoc($result_about_me);
 $about_me = $about_me_row['About_me'];
@@ -145,13 +145,13 @@ $about_me = $about_me_row['About_me'];
         <h2>Active listings:</h2>
         <div class="listings">
             <?php
-            $listingsSQL = "SELECT * FROM listings WHERE Seller=" . $_SESSION['U_ID'] . " AND isHidden=0";
+            $listingsSQL = "SELECT l.L_ID, l.Title, l.Price, l.Location, l.Date_Posted, l.First_Picture_Path FROM listings l WHERE Seller=" . $_SESSION['U_ID'] . " AND isHidden=0";
             $listingsResult = mysqli_query($conn, $listingsSQL);
             $listings = mysqli_fetch_all($listingsResult, MYSQLI_ASSOC);
 
             if (mysqli_num_rows($listingsResult) > 0) {
                 foreach ($listings as $listing) {
-                    $listingType = $listing['Listing_Type'];
+                    //$listingType = $listing['Listing_Type'];
                     $listingId = $listing['L_ID'];
                     $listingTitle = $listing['Title'];
                     $listingPrice = $listing['Price'];
@@ -183,13 +183,13 @@ $about_me = $about_me_row['About_me'];
         <h2>Inactive listings:</h2>
         <div class="listings">
             <?php
-            $listingsSQL = "SELECT * FROM listings WHERE Seller=" . $_SESSION['U_ID'] . " AND isHidden=1";
+            $listingsSQL = "SELECT l.L_ID, l.Title, l.Price, l.Location, l.Date_Posted, l.First_Picture_Path FROM listings l WHERE Seller=" . $_SESSION['U_ID'] . " AND isHidden=1";
             $listingsResult = mysqli_query($conn, $listingsSQL);
 
             if (mysqli_num_rows($listingsResult) > 0) {
             $listings = mysqli_fetch_all($listingsResult, MYSQLI_ASSOC);
             foreach ($listings as $listing) {
-                $listingType = $listing['Listing_Type'];
+                //$listingType = $listing['Listing_Type'];
                 $listingId = $listing['L_ID'];
                 $listingTitle = $listing['Title'];
                 $listingPrice = $listing['Price'];
@@ -219,7 +219,7 @@ $about_me = $about_me_row['About_me'];
         <h2>Completed transactions:</h2>
         <div class="listings">
             <?php
-            $transactionsSQL = "SELECT * FROM transactions WHERE Buyer=" . $_SESSION['U_ID'];
+            $transactionsSQL = "SELECT t.Listing, t.Payment_Method, t.Num_of_Items, t.Total_Amount FROM transactions t WHERE Buyer=" . $_SESSION['U_ID'];
             $transactionsResult = mysqli_query($conn, $transactionsSQL);
             if (mysqli_num_rows($transactionsResult) > 0) {
             $transactions = mysqli_fetch_all($transactionsResult, MYSQLI_ASSOC);
@@ -227,7 +227,7 @@ $about_me = $about_me_row['About_me'];
                 $transactionPayment = $transaction['Payment_Method'];
                 $transactionQuantity = $transaction['Num_of_Items'];
                 $transactionPrice = $transaction['Total_Amount'];
-                $transactionSQL = "SELECT * FROM listings WHERE L_ID=" . $transaction['Listing'];
+                $transactionSQL = "SELECT l.Title, l.Location, l.First_Picture_Path FROM listings l WHERE L_ID=" . $transaction['Listing'];
                 $transactionResult = mysqli_query($conn, $transactionSQL);
                 $transactionListing = mysqli_fetch_assoc($transactionResult);
                 $transactionTitle = $transactionListing['Title'];
@@ -238,7 +238,7 @@ $about_me = $about_me_row['About_me'];
                     <img src="../img/<?php echo htmlspecialchars($transactionPicture); ?>" alt="Listing picture" class="listing_img_small">
                     <div class="listing-info">
                         <h3><?php echo htmlspecialchars($transactionTitle); ?></h3>
-                        <p>Total price: <?php echo htmlspecialchars($transactionPrice); ?>$</p>
+                        <p>Total price: <?php echo htmlspecialchars($transactionPrice); ?> KM</p>
                         <p>Payment method: <?php echo htmlspecialchars($transactionPayment); ?></p>
                         <p>Quantity: <?php echo htmlspecialchars($transactionQuantity); ?></p>
                     </div>
@@ -256,7 +256,7 @@ $about_me = $about_me_row['About_me'];
             <h2>Admin Panel</h2>
             <div class="all-users">
                 <?php
-                $usersSQL = "SELECT * FROM users WHERE U_ID!=" . $_SESSION['U_ID'];
+                $usersSQL = "SELECT u.U_ID, u.Username, u.User_Type, u.User_Status FROM users u WHERE U_ID!=" . $_SESSION['U_ID'];
                 $usersResult = mysqli_query($conn, $usersSQL);
 
                 if (mysqli_num_rows($usersResult) > 0) {
