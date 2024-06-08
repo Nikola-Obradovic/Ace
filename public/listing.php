@@ -208,7 +208,9 @@ while($row = mysqli_fetch_assoc($result_comments)) {
         echo "</form>";
         echo "</div>";
     } else {
-        echo "<div class='stock'>";
+        echo "<div class='stock'>"; ?>
+        <a href="seller_profile.php?seller_id=<?php echo $seller_pfp['U_ID']; ?>"><img src="../img/<?php echo $pfp_source; ?>" class="seller"></a>
+        <?php
         echo "<h2 class='stock'>Out of stock</h2>";
         echo "<form action='../includes/edit_listing.php' method='POST' style='display:inline;'>";
         echo "<input type='hidden' name='listing_id' value='{$row_listing['L_ID']}'>";
