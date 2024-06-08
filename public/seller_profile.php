@@ -97,7 +97,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET') {
             </div>
         </div>
         <div class="bio-container div-center margin-bottom-xsm">
-            <h2 class="profile-info-title text-center margin-bottom-lg"><?php echo !empty($seller['About_me']) ? $seller['About_me'] : 'This user has not provided an "About me" section yet.';?></h2>
+            <h2 class="profile-info-description text-center margin-bottom-lg"><?php echo !empty($seller['About_me']) ? $seller['About_me'] : 'This user has not provided an "About me" section yet.';?></h2>
         </div>
     </section>
     <section class="container">
@@ -168,6 +168,8 @@ if($_SERVER['REQUEST_METHOD'] == 'GET') {
     </div>
     <p id="copyright">Copyright &copy; 2024 Inwolve</p>
 </footer>
+
+<script src="../js/main.js"></script>
 
 </body>
 </html>

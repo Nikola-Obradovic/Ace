@@ -140,7 +140,7 @@ $about_me = $about_me_row['About_me'];
     </div>
 
     <div class="bio-container div-center margin-bottom-xsm">
-        <h2 class="profile-info-title text-center margin-bottom-lg"><?php echo !empty($about_me) ? $about_me : 'This user has not provided an "About me" section yet.';?></h2>
+        <h2 class="profile-info-description text-center margin-bottom-lg"><?php echo !empty($about_me) ? $about_me : 'This user has not provided an "About me" section yet.';?></h2>
     </div>
 
     <section class="container">

@@ -496,6 +496,13 @@ i{
 	padding-bottom: 30px;
 }
 
+.profile-info-description {
+	font-size: 1.6rem;
+	font-weight: 500;
+	word-wrap: break-word;
+	padding-bottom: 30px;
+}
+
 .profile-picture {
 	height: 160px;
 	width: 160px;
