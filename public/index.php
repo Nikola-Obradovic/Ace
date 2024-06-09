@@ -531,13 +531,14 @@ require '../includes/db_connection.php';
             <div class="flex flex-gap-lg wrapped" >
             <?php
             if (!isset($_SESSION['result'])) {
-                $sql = "SELECT l.L_ID, l.First_Picture_Path, l.Title, l.Price, l.Location FROM listings l, users u WHERE u.U_ID = l.Seller AND u.User_Status = 'active' ORDER BY isHidden";
+                $sql = "SELECT l.L_ID, l.First_Picture_Path, l.Title, l.Price, l.Location FROM listings l, users u WHERE u.U_ID = l.Seller AND u.User_Status = 'active'";
 
                 // 🔴🔴 Exclude listings from the logged-in user if session is active 🔴🔴
                 if (isset($_SESSION['U_ID'])) {
                     $user_id = intval($_SESSION['U_ID']);
                     $sql .= " AND Seller != $user_id";
                 }
+                $sql .= " ORDER BY isHidden";
                 /** @noinspection PhpUndefinedVariableInspection */
                 $result = mysqli_query($conn, $sql);
 
