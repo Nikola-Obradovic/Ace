@@ -420,8 +420,7 @@ session_start();
         </div>
         <div>
             <p class="margin-bottom-sm footer-headings">CONTACT US</p>
-            <p>tarik.basic@stu.ssst.edu.ba</p>
-            <p>hana.catic@stu.ssst.edu.ba</p>
+            <p>062476550</p>
             <p>nikola.obradovic@stu.ssst.edu.ba</p>
         </div>
         <div>
