@@ -8,10 +8,10 @@ http://acepik.onlinewebshop.net/public/index.php
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ACE - Online Marketplace Platform</title>
+    <title>ACE - Ecommerce Simulation</title>
 </head>
 <body>
-    <h1>ACE - Online Marketplace Platform</h1>
+    <h1>ACE - Ecommerce Simulation</h1>
     <p>ACE is a modern web-based marketplace platform that allows users to discover and list various items for sale across multiple categories including cars, houses, phones, shoes, and laptops.</p>
     <h3>Features</h3>
     <ul>
