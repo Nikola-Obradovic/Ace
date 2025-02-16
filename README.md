@@ -8,7 +8,6 @@ http://acepik.onlinewebshop.net/public/index.php
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ACE - Ecommerce Simulation</title>
 </head>
 <body>
     <h1>ACE - Ecommerce Simulation</h1>
