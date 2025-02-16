@@ -13,7 +13,6 @@ http://acepik.onlinewebshop.net/public/index.php
 <body>
     <h1>ACE - Online Marketplace Platform</h1>
     <p>ACE is a modern web-based marketplace platform that allows users to discover and list various items for sale across multiple categories including cars, houses, phones, shoes, and laptops.</p>
-
     <h3>Features</h3>
     <ul>
         <li>
@@ -31,7 +30,6 @@ http://acepik.onlinewebshop.net/public/index.php
         <li><strong>Search Functionality:</strong> Powerful search feature to find listings quickly.</li>
         <li><strong>User Authentication:</strong> Secure user registration and login system.</li>
     </ul>
-
     <h3>Technology Stack</h3>
     <ul>
         <li><strong>Frontend:</strong>
@@ -48,30 +46,12 @@ http://acepik.onlinewebshop.net/public/index.php
             </ul>
         </li>
     </ul>
-
     <h3>Setup Requirements</h3>
     <ul>
         <li>PHP 7.0 or higher</li>
         <li>MySQL Server</li>
         <li>Web server (Apache/Nginx)</li>
     </ul>
-
-    <h3>Installation</h3>
-    <ol>
-        <li>Clone the repository to your web server directory.</li>
-        <li>Create a MySQL database named 'ace'.</li>
-        <li>Import the database schema (contact administrator for the schema file).</li>
-        <li>Configure the database connection in <code>includes/db_connection.php</code>:
-            <pre><code>
-$db_host = 'localhost';
-$db_user = 'your_username';
-$db_pass = 'your_password';
-$db_name = 'ace';
-            </code></pre>
-        </li>
-        <li>Ensure your web server has proper permissions to read/write to the project directory.</li>
-    </ol>
-
     <h3>File Structure Overview</h3>
     <ul>
         <li><code>public/index.php</code>: Main entry point and homepage</li>
@@ -84,7 +64,6 @@ $db_name = 'ace';
         <li><code>public</code> folder: All publicly available pages</li>
         <li><code>filters</code> folder: Search filters implementation</li>
     </ul>
-
     <h3>Security</h3>
     <ul>
         <li>User passwords are securely hashed.</li>
