@@ -46,12 +46,6 @@ http://acepik.onlinewebshop.net/public/index.php
             </ul>
         </li>
     </ul>
-    <h3>Setup Requirements</h3>
-    <ul>
-        <li>PHP 7.0 or higher</li>
-        <li>MySQL Server</li>
-        <li>Web server (Apache/Nginx)</li>
-    </ul>
     <h3>File Structure Overview</h3>
     <ul>
         <li><code>public/index.php</code>: Main entry point and homepage</li>
